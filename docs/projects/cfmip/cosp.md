@@ -3,7 +3,7 @@
 <div id="cog_post_body">
     <div id="cog_post_body">
         <p>
-	<img align="left" height="240" src="/site_media/projects/cfmip/cosp2.png" style="margin-right: 10px;" width="800" /></p>
+	<img align="left" height="240" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/cosp2.png" style="margin-right: 10px;" width="800" /></p>
 <p>
 	To facilitate the exploitation of A Train data in numerical models, we are developing a system that allows to simulate the signal that CloudSat/CALIPSO would see in a model-generated world. It is a flexible tool to simulate active instruments in models (climate, forecast, cloud-resolving). The ISCCP simulator is also included in the package.</p>
 <p>
@@ -39,7 +39,7 @@
 <p>
 	<b><font color="midnightblue">The CFMIP COSP page before January 2017 is available <a href="http://cfmip.metoffice.com/COSP.html">here</a>.</font></b></p>
 <p>
-	<img align="left" height="420" src="/site_media/projects/cfmip/cosp.png" style="margin-right: 10px;" width="850" /></p>
+	<img align="left" height="420" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/cosp.png" style="margin-right: 10px;" width="850" /></p>
 <p>
 	&nbsp;</p>
 <p>
