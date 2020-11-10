@@ -1,0 +1,17 @@
+<h1 class="title">EUREC4A Project</h1>
+
+<div id="cog_post_body">
+    <div id="cog_post_body">
+        <p>
+	<img align="left" height="100" src="/site_media/projects/cfmip/logo_eurec4a.png" style="margin-right: 10px;" width="100" /> The EUREC<sup>4</sup>A project, the Field Study, is a French-German initiative in support of the World Climate Research Programme&#39;s Grand Science Challenge on Clouds, Circulation and Climate Sensitivity. EUREC4A will take place between 20 January and 20 February 2020 with operations based out of Barbados.</p>
+<p>
+	EUREC<sup>4</sup>A aims at advancing understanding of the interplay between clouds, convection and circulation and their role in climate change: How resilient or sensitive is the shallow cumulus cloud amount to variations in the strength of convective mixing, surface turbulence and large-scale circulations? How do the radiative effects of water vapor and clouds influence shallow circulations and convection? What are the implications for the spatial organization of clouds and convection in the tropics, and for climate sensitivity?</p>
+<p>
+	To address these questions the core, and presently supported, EUREC4A measurements will focus on quantifying how cloud amount in shallow cumulus layers responds to changes in the large-scale environment, and how shallow clouds affect the radiation field and contribute to convective aggregation. The measurements will also test retrievals of cloud and atmospheric properties, and numerical simulations of shallow cumulus cloud regimes by large-eddy simulation, weather prediction and climate models. Through international cooperation complementary objectives could be explored. These range from investigations of the role of ocean mesoscale eddies in air-sea interactions and the organization of shallow clouds, to the much broader question of the dynamics of the Atlantic Tropical Convergence Zone.</p>
+<p>
+	The nucleus for the EUREC<sup>4</sup>A Field Study involves the deployment of two research aircraft (the German HALO and the French ATR42), an array of research vessels, advanced ground based remote sensing, a new generation of sophisticated satellite remote sensing and state-of-the-art turbulence-resolving modelling (100 m, over thousands of km). These operations build on a decade of measurements in the tropical Atlantic, initiated with the establishment of the Barbados Cloud Observatory in 2010, and continued with two aircraft campaigns with HALO: NARVAL in December 2013, and NARVAL2 in August 2016 (information about these experiments is provided <a class="external-link-new-window" href="https://www.mpimet.mpg.de/en/science/the-atmosphere-in-the-earth-system/narval/" target="_blank" title="Opens external link in new window">here</a>).</p>
+<p>
+	EUREC<sup>4</sup>A operations will focus on an area over the shelf oceans east of Barbados (57 W 13 N) for a six week period between 12 Jan and 23 Feb 2020, with aircraft operations between 20 Jan to 20 Feb 2020. This period will overlap with ADM-Aeolus and EarthCARE, two flagship satellite platforms of the European Space Agencies Living Planet Programme. More information about EUREC4A is provided in an <a href=""http://rdcu.be/wgYX" title="Opens external link in new window" target="_blank" class="external-link-new-window">overview paper</a> describing the field study.</p>
+<p>
+	For more information, please visit <b><a href="http://eurec4a.eu/">EUREC<sup>4</sup>A web site</a></b>.</p>
+</div> <!--// end div id=cog_post_body //-->
