@@ -1,25 +1,9 @@
 <h1 class="title">CFMIP meetings</h1>
 
 <div id="cog_post_body">
-<table border="0" cellpadding="0" cellspacing="0" height="10" width="660">
-	<tbody>
-		<tr>
-			<td>
-				<!-- 2021 --><!--
-				<h3>
-					2021 CFMIP Meeting on Clouds, Precipitation, Circulation and Climate Sensitivity<br />
-					Seattle, USA,&nbsp; September 13-16, 2021</h3>
-				<p>
-					<b><font color="red">We are happy to announce that the 2021 CFMIP meeting has now been scheduled as above,<br />
-					with one year delay due to coronavirus pandemic. Information will be updated.</font></b></p>
-				<p align="left">
-					<img height="100" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/uw.jpg" width="400" /></p>
-				<p>
-					<em>posted by Masa Watanabe, May 16th, 2020 </em></p> 
---><!-- 2020 -->
-				<h3>
-					<b><a href="http://www.cgd.ucar.edu/events/2020/CFMIP/">2020 <i>Virtual</i> CFMIP Meeting on Clouds, Precipitation, Circulation<br />
+<h3> <b><a href="http://www.cgd.ucar.edu/events/2020/CFMIP/">2020 <i>Virtual</i> CFMIP Meeting on Clouds, Precipitation, Circulation<br />
 					and Climate Sensitivity, September 14-17, 2020</a></b></h3>
+
 				<p>
 					<b>Due to the ongoing pandemic, the 2020 CFMIP meeting was held online. Each day&#39;s 1.5 hour session<br />
 					featured 2-3 invited speakers and discussion moderated by the session conveners. All sessions were<br />
@@ -30,11 +14,6 @@
 					<b>At registration, all were invited to submit a figure with a short written summary to be displayed on<br />
 					the meeting website and used for discussion as a part of the sessions and at local hubs. </b></p>
 				<p>
-					<!--
-					<b>The first announcement was sent via the CFMIP mailing list on July 22nd. The agenda is also available <a href="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/agenda_cfmip2020_virtual.pdf">here</a>. </b></p>
-				<b>Registration is open (during 3 August and 7 September) from the <a href="http://www.cgd.ucar.edu/events/2020/CFMIP/">meeting web site</a>. </b>
-<b>Registration was closed on 9 September. The meeting web site is <a href="http://www.cgd.ucar.edu/events/2020/CFMIP/">here</a>. </b>
---></p>
 				<p>
 					The meeting was so successful, with over 330 people registered in advance and about 140 people attended<br />
 					to the live session each day (see the meeting <a href="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/agenda_cfmip2020_virtual.pdf">agenda</a>).</p>
@@ -350,8 +329,4 @@ Angie Pendergrass, Brian Medeiros, Elizabeth Faircloth, Ryan Johnson) for making
 					<em>posted by Mark Webb (Updated June 2007)</em></p>
 				<p>
 					&nbsp;</p>
-			</td>
-		</tr>
-	</tbody>
-</table>
 </div>

@@ -17,4 +17,4 @@
 	<p>
 		Please advise mark.webb (at) metoffice.gov.uk of any additional CFMIP related publications or updates which should be added to this list.</p>
 </p>
-</div> <!--// end div id=cog_post_body //-->
+</div>
