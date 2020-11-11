@@ -1,9 +1,6 @@
 <h1 class="title">CFMIP meetings</h1>
 
 <div id="cog_post_body">
-    <div id="cog_post_body">
-        <p>
-	&nbsp;</p>
 <table border="0" cellpadding="0" cellspacing="0" height="10" width="660">
 	<tbody>
 		<tr>
@@ -357,6 +354,4 @@ Angie Pendergrass, Brian Medeiros, Elizabeth Faircloth, Ryan Johnson) for making
 		</tr>
 	</tbody>
 </table>
-<p>
-	&nbsp;</p>
-</div> <!--// end div id=cog_post_body //-->
+</div>
