@@ -1,13 +1,7 @@
 <h1 class="title">CFMIP Science Steering Committee (as of January 2020)</h1>
 
 <div id="cog_post_body">
-<table border="0" cellpadding="0" cellspacing="0" height="10" width="660">
-	<tbody>
-		<tr>
-			<td>
-				<br />
-				<div align="center">
-					<center>
+
 						<table border="0" cellpadding="3" cellspacing="3" style="width: 572px; height: 90px;" width="572">
 							<tbody>
 								<tr>
@@ -108,13 +102,6 @@
 								</tr>
 							</tbody>
 						</table>
-						<table border="0" cellpadding="0" cellspacing="0" height="0" width="660">
-						</table>
-					</center>
-				</div>
-			</td>
-		</tr>
-	</tbody>
-</table>
+						
 
 </div>
