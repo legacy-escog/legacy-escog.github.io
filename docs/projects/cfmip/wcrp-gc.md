@@ -3,7 +3,7 @@
 <div id="cog_post_body">
     <div id="cog_post_body">
         <h3>
-	<img align="left" height="350" src="/site_media/projects/cfmip/gc_image.jpg" style="margin-right: 10px;" width="500" /></h3>
+	<img align="left" height="350" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/gc_image.jpg" style="margin-right: 10px;" width="500" /></h3>
 <p>
 	&nbsp;</p>
 <p>

@@ -16,7 +16,7 @@
 					<b><font color="red">We are happy to announce that the 2021 CFMIP meeting has now been scheduled as above,<br />
 					with one year delay due to coronavirus pandemic. Information will be updated.</font></b></p>
 				<p align="left">
-					<img height="100" src="/site_media/projects/cfmip/uw.jpg" width="400" /></p>
+					<img height="100" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/uw.jpg" width="400" /></p>
 				<p>
 					<em>posted by Masa Watanabe, May 16th, 2020 </em></p> 
 --><!-- 2020 -->
@@ -34,13 +34,13 @@
 					the meeting website and used for discussion as a part of the sessions and at local hubs. </b></p>
 				<p>
 					<!--
-					<b>The first announcement was sent via the CFMIP mailing list on July 22nd. The agenda is also available <a href="/site_media/projects/cfmip/agenda_cfmip2020_virtual.pdf">here</a>. </b></p>
+					<b>The first announcement was sent via the CFMIP mailing list on July 22nd. The agenda is also available <a href="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/agenda_cfmip2020_virtual.pdf">here</a>. </b></p>
 				<b>Registration is open (during 3 August and 7 September) from the <a href="http://www.cgd.ucar.edu/events/2020/CFMIP/">meeting web site</a>. </b>
 <b>Registration was closed on 9 September. The meeting web site is <a href="http://www.cgd.ucar.edu/events/2020/CFMIP/">here</a>. </b>
 --></p>
 				<p>
 					The meeting was so successful, with over 330 people registered in advance and about 140 people attended<br />
-					to the live session each day (see the meeting <a href="/site_media/projects/cfmip/agenda_cfmip2020_virtual.pdf">agenda</a>).</p>
+					to the live session each day (see the meeting <a href="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/agenda_cfmip2020_virtual.pdf">agenda</a>).</p>
 				<p>
 					We are grateful to the Organizing committee (Jen Kay, Allison Wing, Paulo Ceppi, Thorsten Mauritsen,<br />
 					Yen-Ting Hwang, Christian Proistosescu) and the Zoom hosts at NCAR CGD (Andrew Gettelman, <br/>
@@ -49,7 +49,7 @@ Angie Pendergrass, Brian Medeiros, Elizabeth Faircloth, Ryan Johnson) for making
 				<p>
 					The links to YouTube streaming of all talks and contributed slides are found at the meeting web site <a href="http://www.cgd.ucar.edu/events/2020/CFMIP/&#10;">http://www.cgd.ucar.edu/events/2020/CFMIP/ </a></p>
 				<p align="center">
-					<img height="470" src="/site_media/projects/cfmip/2020-CFMIP-group-photo-lowres.jpg" width="650" /></p>
+					<img height="470" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/2020-CFMIP-group-photo-lowres.jpg" width="650" /></p>
 				<p>
 					&nbsp;</p>
 				<p>
@@ -87,7 +87,7 @@ Angie Pendergrass, Brian Medeiros, Elizabeth Faircloth, Ryan Johnson) for making
 				<p>
 					The presentation files are available at the&nbsp;meeting web site <a href="https://www.giss.nasa.gov/meetings/cfmip2019/">https://www.giss.nasa.gov/meetings/cfmip2019/</a></p>
 				<p align="center">
-					<img height="370" src="/site_media/projects/cfmip/CFMIP2019_photo_Mykonos.jpg" width="770" /></p>
+					<img height="370" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/CFMIP2019_photo_Mykonos.jpg" width="770" /></p>
 				<p>
 					<em>updated by Masa Watanabe,&nbsp;October 24th, 2019 </em></p>
 				<p>
@@ -99,13 +99,13 @@ Angie Pendergrass, Brian Medeiros, Elizabeth Faircloth, Ryan Johnson) for making
 				<p>
 					The meeting was held at the National Center for Atmospheric Research at the iconic <a href="https://en.wikipedia.org/wiki/Mesa_Laboratory">Mesa Laboratory</a>.</p>
 				<p>
-					The meeting agenda is available <a href="/site_media/projects/cfmip/CFMIP_2018_Agenda_v14.pdf">HERE</a>.</p>
+					The meeting agenda is available <a href="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/CFMIP_2018_Agenda_v14.pdf">HERE</a>.</p>
 				<p>
 					The oral presentations from the meeting are available at <a href="http://www.cgd.ucar.edu/events/CFMIP2018/presentations.html">HERE</a>. (password required to access)</p>
 				<p>
 					We are grateful to Jen Kay (SSC), Andrew Gettelman, Brian Medeiros, and Angie Pendergrass (NCAR) for hosting us.</p>
 				<p align="center">
-					<img height="400" src="/site_media/projects/cfmip/CFMIP2018_photo_Boulder.jpg" width="770" /></p>
+					<img height="400" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/CFMIP2018_photo_Boulder.jpg" width="770" /></p>
 				<p>
 					<em>updated by Masa Watanabe,&nbsp;January 10th, 2019 </em></p>
 				<p>
@@ -118,9 +118,9 @@ Angie Pendergrass, Brian Medeiros, Elizabeth Faircloth, Ryan Johnson) for making
 				<p>
 					The meeting was held at Hongo campus, the University of Tokyo. The meeting agenda and presentation files are available at the <a href="http://www.miroc-gcm.jp/cfmip2017/">meeting website</a>.</p>
 				<p>
-					The meeting report is available <a href="/site_media/projects/cfmip/CFMIP17MeetingReport_Final.pdf">here</a>.</p>
+					The meeting report is available <a href="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/CFMIP17MeetingReport_Final.pdf">here</a>.</p>
 				<p align="center">
-					<img height="400" src="/site_media/projects/cfmip/CFMIP2017_photo_Tokyo.jpg" width="600" /></p>
+					<img height="400" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/CFMIP2017_photo_Tokyo.jpg" width="600" /></p>
 				<p>
 					<em>posted by Masa Watanabe, October 3rd, 2017 </em></p>
 				<p>
@@ -146,11 +146,11 @@ Angie Pendergrass, Brian Medeiros, Elizabeth Faircloth, Ryan Johnson) for making
 				<p>
 					The 2015 CFMIP meeting was held from Monday 8th to Thursday 11th June, 2015 at the <a href="http://www.visitasilomar.com">Asilomar Conference Grounds</a> in Monterey, California, USA.</p>
 				<p>
-					The meeting agenda is available <a href="/site_media/projects/cfmip/CFMIP_Agenda_2015_v0604.pdf">here</a> (Updated 4th June). The presentations from the meeting are now available <a href="http://pcmdi.github.io/CFMIP/CFMIP2015.html">here</a>.</p>
+					The meeting agenda is available <a href="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/CFMIP_Agenda_2015_v0604.pdf">here</a> (Updated 4th June). The presentations from the meeting are now available <a href="http://pcmdi.github.io/CFMIP/CFMIP2015.html">here</a>.</p>
 				<p>
 					We are grateful to Steve Klein and Lawrence Livermore National Laboratory for hosting us.</p>
 				<p align="center">
-					<img height="400" src="/site_media/projects/cfmip/CFMIP2015_photo_Monterey.jpg" width="600" /></p>
+					<img height="400" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/CFMIP2015_photo_Monterey.jpg" width="600" /></p>
 				<p>
 					<em>updated by Mark Webb, 23rd June, 2015 </em></p>
 				<p>
@@ -203,7 +203,7 @@ Angie Pendergrass, Brian Medeiros, Elizabeth Faircloth, Ryan Johnson) for making
 				<p>
 					The <a href="http://www.euclipse.eu/Agenda%20incl%20presentations%20webpage.htm">presentations</a> from this meeting are now available via the <a href="http://www.euclipse.eu/meeting_2013_Hamburg.html">EUCLIPSE website</a>.</p>
 				<p align="center">
-					<img height="450" src="/site_media/projects/cfmip/Group_picture_Hamburg-1.jpg" width="1000" /></p>
+					<img height="450" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/Group_picture_Hamburg-1.jpg" width="1000" /></p>
 				<p>
 					<em>updated, July 2013 </em></p>
 				<p>
@@ -215,7 +215,7 @@ Angie Pendergrass, Brian Medeiros, Elizabeth Faircloth, Ryan Johnson) for making
 					Paris, France, May 29th - June 1st, 2012</b></h3>
 				The 3rd EUCLIPSE General Assembly and joint EUCLIPSE-CFMIP meeting was held in Paris, from May 29th to June 1st. Please see the <a href="http://www.euclipse.eu/meeting_29May2012_Paris.html">EUCLIPSE web site</a> for more details.
 				<p align="center">
-					<img height="400" src="/site_media/projects/cfmip/Group_picture_Paris_2012.jpg" width="700" /></p>
+					<img height="400" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/Group_picture_Paris_2012.jpg" width="700" /></p>
 				<em>posted by Mark Webb, March 2012. </em>
 				<p>
 					&nbsp;</p>
@@ -228,7 +228,7 @@ Angie Pendergrass, Brian Medeiros, Elizabeth Faircloth, Ryan Johnson) for making
 				<p>
 					The <a href="http://www.euclipse.eu/downloads/PresentationsExeter2011/AgendaExeterJune2011_latest.htm">meeting agenda and presentations</a> are now available as of 28th June.</p>
 				<p align="center">
-					<img height="600" src="/site_media/projects/cfmip/CFMIP2011_photo_Exeter.jpg" width="1000" /></p>
+					<img height="600" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/CFMIP2011_photo_Exeter.jpg" width="1000" /></p>
 				<p>
 					<em>posted by Mark Webb, Adrian Lock and Pier Siebesma - Updated 15th June, 2011</em></p>
 				<p>
@@ -298,7 +298,7 @@ Angie Pendergrass, Brian Medeiros, Elizabeth Faircloth, Ryan Johnson) for making
 				<p>
 					Monday 8th - Friday 12th June, 2009.</p>
 				<p>
-					Meeting programme: <a href="/site_media/projects/cfmip/CfmipGCSSVancouverAgenda3rdJun.pdf">CfmipGCSSVancouverAgenda3rdJun.pdf</a>.</p>
+					Meeting programme: <a href="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/CfmipGCSSVancouverAgenda3rdJun.pdf">CfmipGCSSVancouverAgenda3rdJun.pdf</a>.</p>
 				<p>
 					The presentations from the meeting are now available <a href="http://clouds.eos.ubc.ca/gcss">here</a>.</p>
 				<p>
@@ -324,7 +324,7 @@ Angie Pendergrass, Brian Medeiros, Elizabeth Faircloth, Ryan Johnson) for making
 				<p>
 					The GEWEX Cloud System Study (GCSS) investigates cloud systems, their role in the climate system and their representation in models with a view to improving our capability to predict weather and climate using state-of the-art modeling and data assimilation systems. GCSS will hold a meeting to review and discuss &quot;Advances in Modeling and observing Clouds and Convection&quot; from June 2-6 2008 at Meteo-France, Toulouse, France.</p>
 				<p>
-					Key areas to be discussed at this meeting are: &quot;New observations and recent field campaigns&quot;, &quot;Tropical Convection&quot;, &quot;High Resolution Modeling on Large Domains&quot; and &quot;Cloud Climate Feedbacks&quot;. See also the <a href="announcement_PAN-GCSS.pdf">full meeting announcement and call for papers</a> and the <a href="/site_media/projects/cfmip/announcement_PAN-GCSS.pdf">GCSS website.</a></p>
+					Key areas to be discussed at this meeting are: &quot;New observations and recent field campaigns&quot;, &quot;Tropical Convection&quot;, &quot;High Resolution Modeling on Large Domains&quot; and &quot;Cloud Climate Feedbacks&quot;. See also the <a href="announcement_PAN-GCSS.pdf">full meeting announcement and call for papers</a> and the <a href="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/announcement_PAN-GCSS.pdf">GCSS website.</a></p>
 				<p>
 					<em>posted by Sandrine Bony and Mark Webb Nov 2007</em></p>
 				<p>

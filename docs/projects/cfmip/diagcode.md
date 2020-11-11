@@ -133,5 +133,5 @@
 <p>
 	We are grateful for the support of the EUCLIPSE Project which has provided funding for much of the initial work setting up the CFMIP diagnostic repository.</p>
 <p>
-	<a href="/projects/cfmip/euclipse"><img align="left" height="80" src="/site_media/projects/cfmip/Logo_EUCLIPSE_small.gif" style="margin-right: 10px;" width="80" /></a></p>
+	<a href="/projects/cfmip/euclipse"><img align="left" height="80" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/Logo_EUCLIPSE_small.gif" style="margin-right: 10px;" width="80" /></a></p>
 </div> <!--// end div id=cog_post_body //-->

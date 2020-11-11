@@ -2,7 +2,7 @@
 
 <div id="cog_post_body">
     <div id="cog_post_body">
-        <img align="left" height="100" src="/site_media/projects/cfmip/webb_etal2017gmd_p1.jpg" style="margin-right: 10px;" width="200" /> <font color="midnightblue" size="+1">List of CFMIP related papers</font>
+        <img align="left" height="100" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/webb_etal2017gmd_p1.jpg" style="margin-right: 10px;" width="200" /> <font color="midnightblue" size="+1">List of CFMIP related papers</font>
 <p>
 	There are tremendous number of papers related with the CFMIP activity. Though not complete, these publications have been listed on the Google Document in order to share information with everyone in the community.</p>
 <p>
