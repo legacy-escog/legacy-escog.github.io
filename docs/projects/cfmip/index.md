@@ -19,7 +19,7 @@
 --></b></font></li>
 </ul>
 <p align="center">
-	<img src="CFMIP%20-%20Home%20_ESGF-CoG_files/2020-CFMIP-group-photo-lowres.jpg" width="520" height="370"></p>
+	<img src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/2020-CFMIP-group-photo-lowres.jpg" width="520" height="370"></p>
 <p>
 	(<em>updated on 18 September, 2020</em>)</p>
 <hr>
@@ -32,7 +32,7 @@
  Office&nbsp;CFMIP web site will no longer be in use when the moving is 
 completed.</p>
 <p>
-	<img src="CFMIP%20-%20Home%20_ESGF-CoG_files/cfmip_bridge.jpg" style="margin-right: 10px;" width="120" height="150" align="left">
+	<img src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/cfmip_bridge.jpg" style="margin-right: 10px;" width="120" height="150" align="left">
  CFMIP is a WCRP endorsed project which aims to improve the 
 understanding and evaluation of clouds, cloud feedbacks and changes 
 regional-scale circulation and precipitation.</p>
