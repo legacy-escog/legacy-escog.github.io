@@ -2,7 +2,7 @@
 
 <div id="cog_post_body">
 
-<table border="0" cellpadding="3" cellspacing="3" style="width: 572px; height: 90px;" width="572">
+<table border="0" cellpadding="3" cellspacing="3" style="width: 572px;" width="572">
 							<tbody>
 								<tr>
 									<td align="left" valign="top" width="35%">
