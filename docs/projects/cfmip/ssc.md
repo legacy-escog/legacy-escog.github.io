@@ -2,7 +2,7 @@
 
 <div id="cog_post_body">
 
-						<table border="0" cellpadding="3" cellspacing="3" style="width: 572px; height: 90px;" width="572">
+<table border="0" cellpadding="3" cellspacing="3" style="width: 572px; height: 90px;" width="572">
 							<tbody>
 								<tr>
 									<td align="left" valign="top" width="35%">
@@ -101,7 +101,6 @@
 										<a href="http://myweb.fsu.edu/awing/"><img alt="Department of Earth, Ocean, and Atmospheric Science, Florida State University, USA" height="60" src="https://github.com/legacy-escog/legacy-escog.github.io/raw/main/docs/site_media/projects/cfmip/fsu_logo.jpg" width="60" /> </a></td>
 								</tr>
 							</tbody>
-						</table>
+</table>
 						
-
 </div>
