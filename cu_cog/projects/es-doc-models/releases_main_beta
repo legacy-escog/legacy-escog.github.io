@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<!--// LOCATION: /layouts/templates/layouts/layout_base.html //-->
+<!--// START: /layouts/templates/layouts/layout_base.html //-->
+
+
+<html lang="en">
+<!--creates classes for the various versions of internet explorer 9 and below. 10+ no longer accepts conditional.
+These are then used in the CSS to fix specific issues-->
+<!--[if lt IE 7 ]>   <html class="ie6">  <![endif]-->
+<!--[if IE 7 ]>      <html class="ie7">  <![endif]-->
+<!--[if IE 8 ]>      <html class="ie8">  <![endif]-->
+<!--[if IE 9 ]>      <html class="ie9">  <![endif]-->
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="edge" > <!--required to get IE out of quirks mode-->
+
+        <!--// consider removing these all together //-->
+        <!--// <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/screen.css"/> //-->
+        <!--// <link type="text/css" rel="stylesheet"  media="print" href="/static/css/blueprint/print.css"/> //-->
+
+		<!-- // frame busting JS // 
+		<script language="javascript">
+			/* break us out of any containing iframes */
+			/* IMPORTANT: THIS BREAKS FILE UPLOADER, DON'T DO IT */
+			//if (top != self) { top.location.replace(self.location.href); }
+		</script> -->
+		
+        <!--// CSS for grid layout //-->
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/reset.css"/>
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/grid.css"/>
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/typography.css" />
+
+         <!--// Load head section from template. Contains CSS //-->
+         
+
+    <!-- template for HTML meta tags -->
+
+
+
+<!-- favicon -->
+<link rel="Shortcut Icon" href="/static/cog/img/favicon_cog.ico" type="image/x-icon" />
+
+<!--logic for HTML title:
+1) If the page is within the project context, add the short name to the title
+2) If a project home page, just list use HOME vice the page title
+3) Look for either title or title2 it they exist
+4) If nothing else, just list ESGF-CoG
+-->
+<!-- titles should be less than 70 characters -->
+
+
+    
+        
+            <title>Releases: ES-DOC Main | ES-DOC-Models | ESGF-CoG</title>
+        
+    
+
+
+
+
+	
+		<!-- note: must process the text to remove undesired characters, tags  -->
+		<meta name="description" content="Release Release Notes ES-DOC v0.9.3.1 1/7/16 &nbsp; Ensured links on the splash page open in a new tab. Upgraded CSS framework bootstrap to the latest version. Made pyesdoc PIP installable. PIP is one of the major python installation frameworks. Simplified inter-document referencing and updated the tools to handle the new ..." />
+	
+
+
+	
+    <!--LOCATION: /cog/templates/cog/common/yui.html-->
+
+<!-- Loading YUI CSS libraries -->
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/fonts/fonts-min.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/button/assets/skins/sam/button.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/container/assets/skins/sam/container.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/assets/skins/sam/treeview.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/tabview/assets/skins/sam/tabview.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/autocomplete/assets/skins/sam/autocomplete.css" />
+<!-- Optional CSS for for date editing with Calendar-->
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/calendar/assets/skins/sam/calendar.css" />
+
+<!-- Loading dependent JavaScript source files --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/yahoo/yahoo-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/yahoo-dom-event/yahoo-dom-event.js" ></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/event/event-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/element/element-min.js" ></script>
+<!-- Optional dependency source file --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/animation/animation-min.js"></script>
+<!-- Optional dependency source file for date editing with Calendar--> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/calendar/calendar-min.js" ></script>
+<!-- Optional dependency source file to decode contents of yuiConfig markup attribute--> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/json/json-min.js" ></script>
+<!-- TreeView source file --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/treeview/treeview-min.js" ></script>
+<!-- Loaing Source files for TabView -->
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/tabview/tabview-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/connection/connection-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/button/button-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/dragdrop/dragdrop-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/container/container-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/datasource/datasource-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/autocomplete/autocomplete-min.js"></script>
+ 
+    <!-- File containing functionality for creating overlay panels with YUI library -->
+
+<script type="text/javascript">
+//<![CDATA[
+	YAHOO.namespace("cog");
+
+    var handleDismiss = function() { 
+        YAHOO.cog.myDialog.hide(); 
+    }; 
+            
+    /**
+    Function to show a small message window, with a title and a 'Dismiss' button.
+    The HTML page must contain an element of id 'myDialog' for the window to be anchored:
+        <div id="myDialog" class="yui-skin-sam"></div>
+    */
+    function showMessage(title, message) {
+
+        YAHOO.cog.myDialog = new YAHOO.widget.SimpleDialog("msgDialog", {
+            width: "400px", 
+            fixedcenter: true, 
+            constraintoviewport: true, 
+            underlay: "shadow", 
+            close: true, 
+            visible: false, 
+            draggable: true,
+            modal:true,
+            buttons: [ { text:"Dismiss", handler:handleDismiss, isDefault:true } ]
+        });
+                    
+        YAHOO.cog.myDialog.setHeader(title);
+        YAHOO.cog.myDialog.setBody("<div style='text-align:center'>"+message+"</div>");
+        YAHOO.cog.myDialog.cfg.setProperty("underlay","matte");
+        
+        YAHOO.cog.myDialog.render('myDialog');
+        YAHOO.cog.myDialog.show();
+    }
+    
+    /**
+    Default handler to hide the current dialog
+    */
+    var handleNo = function() {
+        // hide dialog
+        this.hide();
+    };
+    
+    /**
+    Function to create a confirmation dialog with 'Yes', 'No' buttons connected to specific handlers.
+    The HTML page must contain an element of id 'myDialog' for the window to be anchored:
+        <div id="myDialog" class="yui-skin-sam"></div>
+    */
+    function createConfirmationDialog(dialogHeader, dialogText, yesHandler, noHandler) {
+    	    	
+    	var mySimpleDialog = new YAHOO.widget.SimpleDialog("confDialog",
+                { width: "30em",
+                  fixedcenter: true,
+                  visible: false,
+                  draggable: true,
+                  close: true,
+                  modal: true,
+                  effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration:0.25},
+                  text: dialogText,
+                  constraintoviewport: true,
+                  buttons: [ { text:"Yes", handler:yesHandler },
+                             { text:"No",  handler:noHandler, isDefault:true } ]
+                } );
+        mySimpleDialog.setHeader(dialogHeader);
+        mySimpleDialog.render("myDialog");
+        mySimpleDialog.show();
+    	
+        return mySimpleDialog;
+    }
+    
+    /**
+    Dialog to confirm a URL invocation.
+    The widget is the HTML <a></a> element.
+    The page must include an anchor div element of the form: <div id="myDialog" class="yui-skin-sam"></div>,
+    as well as include the javascript code in the two files: 'cog/common/yui.html' and 'cog/common/yui_panels.html'.
+    */
+    function urlConfirmationDialog(dialogHeader, dialogText, widget) {
+
+        var getUrl = function() {
+            // hide dialog
+            this.hide();
+            // request URL
+            window.location = widget.href;
+        };
+
+        var dlg = createConfirmationDialog(dialogHeader, dialogText, getUrl, handleNo);
+        
+        // return false to prevent link from being invoked automatically
+        return false;
+
+    }
+    
+    /** Function to show a modal waiting panel */
+    function showWaitPanel() {
+    	 
+    	if (YAHOO.cog.waitPanel==null) {
+	    	YAHOO.cog.waitPanel =  
+	    		new YAHOO.widget.Panel("wait",   
+	    		            { width:"240px",  
+	    		              fixedcenter:true,  
+	    		              close:false,  
+	    		              draggable:false,  
+	    		              zindex:4, 
+	    		              modal:true, 
+	    		              visible:false 
+	    		            }  
+	    		); 
+	    		 
+	    	YAHOO.cog.waitPanel.setHeader("Please wait..."); 
+	    	YAHOO.cog.waitPanel.setBody('<img src="/static/cog/img/rel_interstitial_loading.gif" />'); 
+	    	YAHOO.cog.waitPanel.render("myDialog"); 
+    	}
+    	YAHOO.cog.waitPanel.show();
+    	
+    }
+    
+    /** Function to hide the waiting panel */
+    function hideWaitPanel() {
+    	YAHOO.cog.waitPanel.hide();
+    }
+//]]>
+</script>    
+
+    <!-- file containing common javascript utilities -->
+
+<script type="text/javascript">
+<!--
+
+    /* redefining javascript trim() fn,
+     * which doesn't exist in IE 8.*,
+     */
+
+     String.prototype.trim = function() {
+         return this.replace(/^\s+|\s+$/g,'');
+     };
+
+	// function to switch the visibility of an HTML element
+    function toggle_visibility(id) {
+       var e = this.document.getElementById(id);
+       if (e!=null) {
+	       if (e.style.display == 'block') {
+	          e.style.display = 'none';
+	       } else {
+	          e.style.display = 'block';
+	       }
+       }
+    }
+    
+    // function to toggle the visibility of an HTML element and change the hyperlink text
+	function openclose(id, hlink, showText, hideText) {
+	    var e = this.document.getElementById(id);
+	    if (e!=null) {
+		       if (e.style.display == 'block') {
+		          e.style.display = 'none';
+		          hlink.innerHTML = showText;
+		       } else {
+		          e.style.display = 'block';
+		          hlink.innerHTML = hideText;
+		       }
+	    }
+	 }
+    
+	// function to set the visibility of an HTML element
+	function set_visibility(id, bool) {
+	   var e = this.document.getElementById(id, bool);
+	   if (e!=null) {
+	       if (bool) {
+	          e.style.display = 'block';
+	       } else {
+	          e.style.display = 'none';
+	       }
+	   }
+	}
+	
+	// function to delete an HTML element by id
+	function delete_element(id) {
+		   var e = this.document.getElementById(id);
+		   if (e!=null) {
+		       e.parentNode.removeChild(e);
+		   }
+		}
+
+    
+//-->
+</script>
+
+<!-- Detect browser on load -->
+<script type="text/javascript">
+  <!--
+    // placeholder for browser-specific js that should be run
+	function detectBrowser() {
+	  
+	  //if (YAHOO.env.ua.webkit) { // safari
+	  //if (YAHOO.env.ua.gecko > 0) { // FF 
+	  //if (YAHOO.env.ua.ie > 0) { // IE
+	  
+	 }
+	 //YAHOO.util.Event.onDOMReady(detectIE);
+  //-->
+</script>
+    
+    <!-- JS libraries needed for Wiki functionality -->
+
+<script type="text/javascript" src="/static/cog/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/static/filebrowser/js/FB_CKEditor.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+if (CKEDITOR) {
+	
+	// integration with django-filebrowser
+	
+	// uncomment 'filebrowserBrowseUrl ' link to enable browsing of server directories
+	// type=image restricts uploads to image files ('.jpg','.jpeg','.gif','.png','.tif','.tiff')
+	CKEDITOR.config.filebrowserBrowseUrl = '/admin/filebrowser/browse?pop=3&type=image';
+	// NOTE: additional parameter 'project' limits browsing to current project only
+	//CKEDITOR.config.filebrowserBrowseUrl = '/admin/filebrowser/browse?pop=3&type=image&project=ES-DOC-Models';
+	
+	// uncomment 'filebrowserUploadUrl' to enable direct upload of images to server
+	// NOTE: assumes project is available from request object
+	CKEDITOR.config.filebrowserImageUploadUrl = '/doc/upload/ES-DOC-Models/';
+	
+	// custom toolbar color
+	CKEDITOR.config.uiColor = "#B9E0E3";
+	
+	// custom color picker
+	CKEDITOR.config.extraPlugins = 'uicolor';
+	
+	// toolbar configuration
+	CKEDITOR.config.toolbar_Full =
+		[
+		    { name: 'document',    items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },
+		    //{ name: 'clipboard',   items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
+		    { name: 'editing',     items : [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ] },
+		    { name: 'forms',       items : [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+		    
+		    '/',
+		    
+		    //{ name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+		    { name: 'basicstyles', items : [ 'Bold','Italic','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+		    { name: 'paragraph',   items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ] },
+		    { name: 'links',       items : [ 'Link','Unlink','Anchor' ] },
+		    { name: 'insert',      items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak' ] },
+		    
+		    '/',		    
+
+		    // disable FontSize
+		    //{ name: 'styles',      items : [ 'Styles','Format','Font','FontSize' ] },
+		    { name: 'styles',      items : [ 'Styles','Format','Font' ] },
+		    
+		    // disable BGColor
+		 	//{ name: 'colors',      items : [ 'TextColor','BGColor' ] },
+		    { name: 'colors',      items : [ 'TextColor' ] },
+		    
+		    // add UIColor picker
+		    { name: 'tools',       items : [ 'Maximize', 'ShowBlocks','-','About', 'UIColor' ] }
+		    
+		];
+	CKEDITOR.config.toolbar = 'Full';
+
+}
+//]]>
+</script>
+   
+    
+    <!-- placeholder file for inserting node-specific Google Analytics script -->
+
+
+
+
+         <!-- icon library used for question mark icon -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+
+         <!--// loading CoG-specific styles. Needs to be last //-->
+         <link rel="stylesheet" type="text/css" href="/static/cog/css/cogstyle.css" />
+
+         <!--// hooks for page-specific head content. Both style statements and javascript need to be loaded in the header only. //-->
+         
+         
+         
+    </head>
+    
+    <body>
+        <div class="content_wrapper"><!--// makes the footers always at the bottom of the window //-->
+            <div class="custom_header_bar">
+                
+                    <div style="height:42px;" class="custom_header">
+<map name="logo">
+	<area href="http://esgf.llnl.gov/" shape="rect" coords="0,0,119,30" title="ESGF">
+	<area href="http://www.earthsystemcog.org" shape="rect" coords="125,0,177,30" title="ESGF">
+</map>
+
+
+
+<table style="height:42px; padding:0; margin:0; vertical-align:middle;background-color: transparent;">
+   <tr>
+       <td class="hosted_by" style="width:52px; font-size:10px; font-weight:bold; font-style:italic; padding-right:1px;">
+            Hosted by
+       </td>
+       <td style="text-align:left; vertical-align:middle; width:30px; padding-left:0;">
+           <img style="height:36px;" src="/mymedia/cu_39_transparent.png" alt="CU logo"/>
+       </td>
+       <td class="custom_header_location"><strong>
+       University of Colorado</strong><br>
+       Boulder</td>
+       <td class="powered_by">
+            Powered by
+        </td>
+       <td class="custom_header_esgf_cog">
+              <img style="vertical-align:middle; height:36px; margin:0;" src="/static/cog/img/cog_esgf_small.png"
+                   usemap="#logo" alt="ESGF-CoG logo"/>
+       </td>
+   </tr>
+</table>
+</div>
+
+                
+            </div> <!--// end div.custom_header //-->
+            <div class="container"> <!--// django class //-->
+
+                <!-- load optional notification banner -->
+                
+	                 <div class="span-max last" style="display:none;">
+   <div class="node-notification-box" >
+	   Insert node-wide notification text here.
+   </div>
+
+</div>
+                
+                <!-- load cog upper navigation bar and user menu -->
+  	            
+                    <!--// START: /cog/templates/common/cog_header.html //-->
+
+
+
+<div class="span-max last" >
+   <!--// first row of the header with user links-->
+   <!--load top-right user menu from cog/common/_user_menu.html-->
+   <table class="no-color">
+       <tr>
+           <td id="user_menu" style="text-align: right; padding:0; padding-right:2px; padding-bottom: 2px;">
+	           <!--//START: /cog/templates/cog/common/_user_menu.html //-->
+
+
+
+     Welcome, <strong>Guest</strong>.
+     | <a href="/login/?next=http://www.earthsystemcog.org/projects/es-doc-models/releases_main_beta"> Login</a>
+     <!-- | <a href="/openid/login/?next=http://www.earthsystemcog.org/projects/es-doc-models/releases_main_beta">OpenID Login</a> -->
+     | <a href="/user/add/?next=http://www.earthsystemcog.org/projects/es-doc-models/releases_main_beta">Create Account</a>
+
+<!--//END: /cog/templates/cog/common/_user_menu.html //-->
+           </td>
+       </tr>
+       <tr>
+       <!-- shrink the space between the navigation and user menu on pages that don't have a project context e.g. no project name or logo -->
+       
+           
+               <!-- height of the td is 70px to match the height w/o an image. The td will expand if the project logo is larger -->
+               <!-- height of the project logo above the left nav bar is really controlled by the padding associated with the font-size
+               and padding of the node, since that is a different row. -->
+               <td style="height: 70px; vertical-align: bottom;  padding:0; padding-left:2px; margin:0;"> <!--must use vertical-align: bottom-->
+                    <span>
+                    
+                         <a style="padding:0; margin:0;" href="/projects/es-doc-models/">
+                    
+                    <img style="max-height: 150px; vertical-align: bottom;" src="/site_media/logos/es-doc-logo_purple_1.png" alt="ES-DOC-Models logo"/>
+                    </a>
+                    </span>
+               </td>
+           
+       
+   </tr>
+   <tr>
+       <td style="padding:0; padding-bottom: 1px; padding-right: 2px; font-size: 12px; color: #666; text-align: right; font-style: italic;">
+           You are at the <strong>CoG-CU</strong> node
+       </td>
+   </tr>
+   </table>
+</div>
+
+<!-- top navigation bar -->
+<div class="span-max last">
+   <div class="top_nav">
+       <div class="span-940">
+	       <div id="top_nav_left">
+               <ul>
+		           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/" style='color:#358C92; background-color: #FFFFFF'>Home</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/aboutus/" >About Us</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/software/" >Software</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/developers/" >Developers</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/metrics/" >Metrics</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/governance/" >Governance</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/resources/" >Resources</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/contactus/" >Contact Us</a></li>
+
+                                
+                           
+				       
+                   
+               </ul>
+		   </div> <!--// end div id=top_nav_left //-->
+	   </div> <!--//end div.span-26 //-->
+	
+	   <div  class="span-5 last">
+		   <div id="top_nav_right">
+               <a href="https://www.earthsystemcog.org/projects/cog/contactus/">Technical Support</a>
+		   </div> <!--//end div id=top_nav_right //-->
+	   </div> <!--// end div.span-5 last //-->
+   </div><!--// end div.top_nav //-->
+
+   <!-- top navigation sub-bar -->
+   <!-- top nav...width=100%-->
+   <div class="top_nav">
+       <div class="span-940">
+	       
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+	       
+		   &nbsp; <!--in case there are no items-->
+	   </div> <!--// end div.span-26 //-->
+
+       <!--add links to MyProfile and the DataCart-->
+	   <div class="span-5 last">
+	       <div id="top_subnav_right">
+	           
+	       </div> <!--// end div id=top_subnav_right //-->
+	   </div>	<!--// end div.span-5 last//-->
+   </div>
+
+   <!-- anchor for message dialogs -->
+   <div id="myDialog" class="yui-skin-sam"></div>
+</div> <!--// end div.span-max last //-->
+&nbsp; <br>
+<!--// END: /cog/templates/common/cog_header.html //-->
+
+
+
+
+                
+	 
+                <!--Load block body from various templates -->
+                  
+    <!--// LAYOUT: /layouts/layouts/layout_main.html //-->
+
+    <div class="span-max last">
+         <h1 class="title"> Releases: ES-DOC Main </h1> 
+    </div> <!--// closing div.span-max last //-->
+
+    <!--load block main-->
+    <div class="span-max last">
+         
+    
+    <!--// START: /cog/templates/cog/post/page_template_main.html //-->
+<!--// loading page body from page_template_main.html //-->
+
+
+
+
+  	<!-- Data search widget -->
+  	
+
+    <div id="cog_post_body">
+        <table border="1" cellpadding="1" cellspacing="1" style="width: 1139px;">
+	<thead>
+		<tr>
+			<th scope="col" style="width: 10%;">
+				<strong>Release</strong></th>
+			<th scope="col" style="width: 40%;">
+				<strong>Release Notes</strong></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="vertical-align: top; width: 10%;">
+				<p>
+					ES-DOC</p>
+				<p>
+					v0.9.3.1</p>
+				<p>
+					1/7/16</p>
+				<p>
+					&nbsp;</p>
+			</td>
+			<td>
+				<ul>
+					<li>
+						Ensured links on the splash page open in a new tab.</li>
+					<li>
+						Upgraded CSS framework bootstrap to the latest version.</li>
+					<li>
+						Made pyesdoc PIP installable. PIP is one of the major python installation frameworks.</li>
+					<li>
+						Simplified inter-document referencing and updated the tools to handle the new referencing. The CIM is a collection of documents (e.g. Model Component, Simulation etc.) that cross reference each other. The inter-document referencing is how these links are made.</li>
+					<li>
+						Removed erroneous copywrite information.</li>
+					<li>
+						Added several new command to the ES-DOC Shell. The Shell is a command line program that supports many commands related to the API including deployment, code installation, archival, meta-programming, etc. The new commands include<br />
+						esdoc-mp-validate-cim-v1, esdoc-mp-validate-cim-v2, esdoc-mp-generate-cim-v1, esdoc-mp-generate-cim-v2.<br />
+						esdoc-api-db-flush, esdoc-reset-project-assets.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; width: 10%;">
+				<p>
+					ES-DOC</p>
+				<p>
+					v0.9.3.0</p>
+				<p>
+					11/19/15</p>
+			</td>
+			<td>
+				<ul>
+					<li dir="ltr">
+						Upgraded pyesdoc to be Python 3 compliant. Python 3 is the future of Python and is significantly different from Python 2.x particularly in how built-in objects like dictionaries and strings work.</li>
+					<li dir="ltr">
+						Modified pyesdoc to begin the process of ingesting and understanding CIM2, the evolving metadata standard that will be used for CMIP6. Efforts have initially focused on the Experiment declarations.</li>
+					<li dir="ltr">
+						Added several new commands to the ES-DOC Shell. The Shell is a command line program that supports many commands related to the API including deployment, code installation, archival, meta-programming, etc. The new commands include esdoc-deploy-setup, esdoc-deploy-archive-compress, esdoc-deploy-archive-decompress, esdoc-api-daemons-init,<br />
+						esdoc-api-daemons-kill, esdoc-api-daemons-reset-logs, esdoc-api-daemons-status, and esdoc-stack-upgrade-venvs. Documentation on each of these commands, their use and syntax can be found at: https://github.com/ES-DOC/esdoc-shell/blob/master/docs/usage.rst.</li>
+					<li dir="ltr">
+						Enabled the Viewer to ingest and display CMIP5 quality control attributes. CMIP5 Model Component metadata has been undergoing a review for accuracy and completeness. If reviewed, a Model Component will now display the quality control approver and reviewer, the dates reviewed, and the verification status.</li>
+					<li dir="ltr">
+						Modified the Viewer to render by Document ID as the default.</li>
+					<li dir="ltr">
+						Enabled URLs present in blocks of text to be rendered as clickable links. This allows groups to provide additional documentation in various blocks of metadata outside of URL-only blocks.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top; width: 10%;">
+				<p>
+					ES-DOC</p>
+				<p>
+					v0.9.2.0</p>
+				<p>
+					7/27/15</p>
+			</td>
+			<td style="vertical-align: top; width: 70%;">
+				<ul>
+					<li>
+						Improved the process for adding new projects to the ES-DOC database. Specifically, the esdoc-shell has been extended with a new command: esdoc-api-db-insert-project which allows administrators to add a new project to the database from the command line. Additionally, document ingestion has been refined so that only documents belonging to a single project can be ingested. These two additions dramatically speed up creation of a new projects and the ingestion of their documents.</li>
+					<li>
+						Enabled the Viewer to display additional properties. These are Standard Properties in the CIM that had never been displayed in the Viewer, including CouplingFramework, License, ReleaseDate, PreviousVersion, FundingSource, OnlineResource, ComponentLanguage, ModelType, Timing, DocumentAuthor, DocumentCreationDate, CodeAccess (text box describing how to get the code), and Version.</li>
+					<li>
+						Removed duplicate ocean and ocean biogeochemistry &quot;key&quot; properties from showing up in the Comparator (<a href="http://compare.es-doc.org">compare.es-doc.org</a>).</li>
+					<li>
+						Modified the Viewer to link to Experiment information that is part of a CMIP5 CIM Document Set instead of the standalone Experiment documents that were created prior to CMIP5. The experiment information in the CMIP5 CIM Document Sets is more accurate.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top;">
+				<p>
+					ES-DOC</p>
+				<p>
+					v0.9.1.1</p>
+				<p>
+					11/29/14</p>
+			</td>
+			<td style="vertical-align: top;">
+				<ul>
+					<li>
+						Modified the pyesdoc configuration process so that users can a drop configuration file into their home directory.</li>
+					<li>
+						Modified the Viewer to link to Experiment information that is part of a CMIP5 CIM Document set vice the stand alone Experiment documents that were created prior to CMIP5.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top;">
+				<p>
+					ES-DOC</p>
+				<p>
+					v0.9.1.0</p>
+				<p>
+					10/8/14</p>
+			</td>
+			<td style="vertical-align: top;">
+				<ul>
+					<li>
+						Changed the API to index CIM Document Sets as a unit. CMIP5 records are bundled as CIM Document Sets that contain several documents (e.g. Grid, Model Component, Experiment, Simulation etc.). Indexing these as a bundle simplifies the code base and allows the Viewer to also handle Document Sets.</li>
+					<li>
+						Enabled pyesdoc to decode both standalone CMIP5 Experiment Documents and Experiment Documents that are bundled with each CMIP5 Simulation. These documents present the Experiment information in an inconsistent way.</li>
+					<li>
+						Fixed CMIP5 Model Component Property rendering in the Comparator. The Comparator was displaying multiple, erroneous values because it was incorrectly joining Model Component Properties with the set of all possible values.</li>
+					<li>
+						Enabled the Viewer to render the full CMIP5 CIM Document Set. Users can now invoke one CMIP5 Document Set and navigate between Model Component, Grid, Experiment, Simulation, Platform, and Ensemble Documents.</li>
+					<li>
+						Created an Ensemble tab in the Viewer to display the Ensemble information associated with a CMIP5 document.</li>
+					<li>
+						Fixed the rendering of CMIP5 External URLs from within the Viewer. External URLs are used throughout CMIP5 to link to journal articles.</li>
+					<li>
+						Fixed the rendering of CMIP5 Simulation Documents from within the Earth System Grid Federation (ESGF) data archive. &nbsp;A typo in the API was fixed during the Viewer refactoring.</li>
+					<li>
+						Ensured that the Comparator&rsquo;s display of CMIP5 missing metadata (indicated by three question marks) is correct. This was accomplished by comparing a random set of raw CMIP5 documents to what was rendered in the Comparator.</li>
+					<li>
+						Fixed the Viewer so that it renders in Internet Explorer version 0.8 and lower.</li>
+					<li>
+						Converted the Viewer to be a standalone HTML application not reliant upon JavaScript. This allows the Viewer to be opened as a link and reduced the size and and complexity of the code base.</li>
+					<li>
+						Changed the Viewer to use pyesdoc as a rendering engine instead of JavaScript. This was required for organizations using pyesdoc to both create and test render CIM documents.</li>
+					<li>
+						Enabled the Viewer demo page to ingest static documents. This is required for testing end-to-end development.</li>
+					<li>
+						Refactored the Viewer demo page look and feel. The demo page is now more inline with other ES-DOC tools, which creates a more uniform user experience.</li>
+					<li>
+						Changed the API to use pyesdoc when indexing CIM documents. &nbsp;This was the first step in migrating the Community Archive away from an external database.</li>
+					<li>
+						Extended pyesdoc to generate a local copy of the Community Archive from various project Atom feeds. The API now uses this feature to index and store all registered CIM Documents, which is part of the migration away from an external database. &nbsp;</li>
+					<li>
+						Changed the API to pull CIM Documents from pyesdoc&rsquo;s CIM Document Index instead of a Postgres database. This significantly speeds up document rendering since database queries are slower by nature than pulling information from virtual memory.</li>
+					<li>
+						Added the ES-DOC support email to all web pages. This makes it easier for users to contact support with questions or suggestions for improvement.</li>
+					<li>
+						Extended the API to enable groups to search for CIM Documents from their own websites instead of navigating to the ES-DOC Archive. Documentation for this feature can be found at: https://github.com/ES-DOC/esdoc-api/wiki/API-Documentation.</li>
+					<li>
+						Enabled the API to return error codes and responses. This feature was previously disabled for security reasons, but has been enabled at the request of several users.</li>
+					<li>
+						Moved static resources (e.g. JavaScript code) to a dedicated endpoint. Previously, these resources were hosted within the API itself, which meant that any change in the documents required the API to be redeployed.</li>
+					<li>
+						Documented the Shell. Documentation can be found at: https://github.com/ES-DOC/esdoc-shell/wiki.</li>
+					<li>
+						Documented the API. Documentation can be found at: https://github.com/ES-DOC/esdoc-api/wiki/API-Documentation.</li>
+					<li>
+						Upgraded the API to the Tornado web framework. Switching simplifies and reduces the code base by natively supporting the websocket protocol. This also allows for the creation of realtime publishing applications.</li>
+					<li>
+						Enabled pyesdoc to validate CIM date ranges, number ranges, and regular expressions. This continues the work of enabling pyesdoc to validate the CIM Documents it generates.</li>
+					<li>
+						Created a new API endpoint to return project-specific glossary information. This enabled the Royal Netherlands Meteorological Institute (KNMI) to ingest CIM Document information into an impacts portal glossary.</li>
+					<li>
+						Changed the Cross Origin Request Support (CORS) feature of the ES-DOC server to use a white-list of 3rd party domains that can access the API. Previously this was accomplished using a JSON-P approach, which was less secure.</li>
+				</ul>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+    </div> <!--// end div id=cog_post_body //-->
+
+    <!-- include last updated text -->
+    <!--// START: /cog/templates/cog/post/_post_last_update.html //-->
+
+    <!--clear:both added to move the last update down if any elements above are floated.-->
+    <!--clear:both means no floating elements allowed on either the left or the right side-->
+	<div id="last_update_text" style="font-size: 8pt; font-style: italic; text-align:center; clear:both;">
+	     Last Update: Jan. 22, 2016, 2:03 p.m. by
+         
+             <a href="/user/detail/621/">Sylvia Murphy</a>
+         
+	</div> <!--// end div id="last_update_text" //-->
+
+
+    <!--// add social media buttons //-->
+    <div id="social_media" style="text-align:center; padding-top: 4px; padding-bottom:8px;">
+        <!--// START: /cog/templates/cog/common/cog_social_media.html //-->
+
+<!--// add social media buttons //-->
+
+
+<!--twitter function -->
+<script type="text/javascript">
+    //<![CDATA[
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+//]]>
+</script>
+
+<table class="no_color" style="width:125px;margin-left:auto;margin-right:auto;">
+<tr>
+   <td>
+   <!-- Facebook -->
+   <div id="facebook">
+      <a href="#" onclick=" window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.earthsystemcog.org/projects/es-doc-models/releases_main_beta','facebook-share-dialog','width=626,height=436');return false;">
+          <img src="/static/cog/img/facebook.png" height="20" alt="Facebook logo"/></a>
+    </div> <!--// end div id=facebook //-->
+    </td>
+
+    <td>
+    <!-- Twitter -->
+    <div id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="http%3A//www.earthsystemcog.org/projects/es-doc-models/releases_main_beta">Tweet</a>
+    </div> <!--// end div id=twitter //-->
+    </td>
+</tr>
+</table>
+    
+
+
+		
+		
+    </div><!--// end div id=social_media //-->
+
+    <!--// include action links via cog/post/_post_actions.html  //-->
+    
+<!--// START: /cog/templates/cog/post/_post_actions.html //-->
+<!-- adds the links to update, delete, etc a post -->
+
+    
+
+<!--// END: /cog/templates/cog/post/_post_actions.html //-->
+	
+
+    
+    <!--// include attachments via cog/post/_post_attachements.html  //-->
+    <div id="attachments">
+        <!--// START: /cog/templates/cog/post/_post_attachements.html //-->
+
+
+
+
+    </div> <!--// end div id=attachments //-->
+    
+    <!--// add related paged via cog/post/_post_hierarchy.html  //-->
+    <div id="related_pages">
+       
+	   <!--// START: /cog/templates//cog/post/_post_hierarchy.html //-->
+<!--// Related Pages //-->
+
+
+
+
+   
+
+      
+                    <hr class="white"/>
+	       <div class="header_bar">
+           <!--// Create header bar and include the number of Related Pages in parentheses //-->
+	            <a href="" onclick="javascript:toggle_visibility('post_hierarchy'); return false;" class="listlink">&nbsp;Related Page (1)</a>
+	       </div><!--// end div.header_bar //-->
+	       <div class="mybox" id="post_hierarchy" style="display:none">
+	           <table>
+	              
+	                <tr>
+	                    <td>
+	                       Parent Page: <a href="">Earth System Documentation (ES-DOC)</a>
+	                   </td>
+	                </tr>
+	              
+
+	              
+
+	        </table>  
+	       </div><!--// end div id=post_hierarchy //-->
+      
+   
+
+       
+    </div> <!--// end div id=related_pages //-->
+
+   
+           	
+
+    	
+
+    </div> <!--// closing div.span-max last //-->
+   <!--//END: /layouts/templates/layouts/layout_main.html-->
+
+            </div> <!--// end div.container //-->
+            <!--// pushes the content wrapper down enough to hold the footer //-->
+            <div class="push"></div> <!--// end div.push //-->
+        </div> <!--// end div.content_wrapper //-->
+        <div class="footer_bar">
+            <!--adds a margin above the footer-->
+            <div class="footer_spacer"></div> <!--// end footer spacer //-->
+	        
+                <!--// START: /cog/templates/cog/common/cog_footer_bar_only.html //-->
+
+
+
+
+<div class="footer">
+    <table>
+	<tr>
+	  <!--// CoG sponsors //-->
+	<td style="width:30%;">
+	  <table>
+	    <tr>
+	      <td>ESGF sponsors and partners</td>
+	    </tr>
+	    <tr>
+	      <td>
+		  <a href="http://science.energy.gov/">DoE Office of Science</a> |
+		  <a href="https://verc.enes.org/ISENES2">IS-ENES</a> |
+                  <a href="http://www.nasa.gov">NASA</a> |
+                  <a href="http://www.noaa.gov">NOAA</a> |
+		<a href="http://nci.org.au/">NCI</a> |
+		<a href="http://www.nsf.gov">NSF</a> 
+	      </td>
+	    </tr>
+	   </table>
+	 </td>
+
+
+     <!--// CoG Version and ESGF Version (if found) //-->
+	 <td style="width:30%;">
+          <table >
+	    <tr>
+	      <td style="text-align:center;">CoG version 3.9.9</td>
+	    </tr>
+	    
+	   </table>
+	 </td>  
+	 
+	 <!--// ESGF sponsors //-->
+	 <td style="width:30%;">
+
+      <table>
+	    <tr>
+	      <td style="text-align:right;">Earth System CoG sponsors and partners</td>
+	    </tr>
+	    <tr>
+	      <td style="text-align:right;"><a href="http://www.noaa.gov">NOAA</a> |
+		  <a href="http://www.nasa.gov">NASA</a> |
+		  <a href="http://www.nsf.gov">NSF</a> |
+		  <a href="http://science.energy.gov/">DoE Office of Science</a> |
+		  <a href="https://verc.enes.org/ISENES2">IS-ENES</a></td>
+	    </tr>
+	  </table>
+
+	 </td>  
+	</tr>
+    </table>
+  </div><!--// end div.footer //-->
+
+
+
+
+
+            
+        </div> <!--// end footer_bar //-->
+        <div class="custom_footer_bar">
+            
+                
+  <div class="custom_footer">
+       <table class="custom_footer">
+       <tr>
+       <td style="width:30%;">http://www.earthsystemcog.org</td>
+       <td style="width:70%;text-align:right;">
+         <a href="mailto:cog_support@list.woc.noaa.gov">cog_support@list.woc.noaa.gov</a> |
+         <a href="http://www.colorado.edu/about/privacy-statement">privacy policy</a>
+       </td>
+       </tr>
+       </table>
+    </div>
+
+            
+        </div> <!--// end div.custom_footer_bar //-->
+        <!--END: /layouts/templates/layouts/layout_base.html-->
+    </body>
+</html>

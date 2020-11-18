@@ -1,0 +1,2955 @@
+<!DOCTYPE html>
+<!--// LOCATION: /layouts/templates/layouts/layout_base.html //-->
+<!--// START: /layouts/templates/layouts/layout_base.html //-->
+
+
+<html lang="en">
+<!--creates classes for the various versions of internet explorer 9 and below. 10+ no longer accepts conditional.
+These are then used in the CSS to fix specific issues-->
+<!--[if lt IE 7 ]>   <html class="ie6">  <![endif]-->
+<!--[if IE 7 ]>      <html class="ie7">  <![endif]-->
+<!--[if IE 8 ]>      <html class="ie8">  <![endif]-->
+<!--[if IE 9 ]>      <html class="ie9">  <![endif]-->
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="edge" > <!--required to get IE out of quirks mode-->
+
+        <!--// consider removing these all together //-->
+        <!--// <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/screen.css"/> //-->
+        <!--// <link type="text/css" rel="stylesheet"  media="print" href="/static/css/blueprint/print.css"/> //-->
+
+		<!-- // frame busting JS // 
+		<script language="javascript">
+			/* break us out of any containing iframes */
+			/* IMPORTANT: THIS BREAKS FILE UPLOADER, DON'T DO IT */
+			//if (top != self) { top.location.replace(self.location.href); }
+		</script> -->
+		
+        <!--// CSS for grid layout //-->
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/reset.css"/>
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/grid.css"/>
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/typography.css" />
+
+         <!--// Load head section from template. Contains CSS //-->
+         
+
+    <!-- template for HTML meta tags -->
+
+
+
+<!-- favicon -->
+<link rel="Shortcut Icon" href="/static/cog/img/favicon_cog.ico" type="image/x-icon" />
+
+<!--logic for HTML title:
+1) If the page is within the project context, add the short name to the title
+2) If a project home page, just list use HOME vice the page title
+3) Look for either title or title2 it they exist
+4) If nothing else, just list ESGF-CoG
+-->
+<!-- titles should be less than 70 characters -->
+
+
+    
+        
+            <title>CIM Questionnaire Releases | ES-DOC-Models | ESGF-CoG</title>
+        
+    
+
+
+
+
+	
+		<!-- note: must process the text to remove undesired characters, tags  -->
+		<meta name="description" content="This page lists recent releases and known bugs of the CIM Questionnaire. Release Release Notes Known Issues 0.17.0.0 15 May 2017 Key features of this release include: Support the CIM2 concept of document &quot;labels.&quot; Added the ability to uniquely identify documents based on arbitrary field values passed in as URL ..." />
+	
+
+ 
+    <!--LOCATION: /cog/templates/cog/common/yui.html-->
+
+<!-- Loading YUI CSS libraries -->
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/fonts/fonts-min.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/button/assets/skins/sam/button.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/container/assets/skins/sam/container.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/assets/skins/sam/treeview.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/tabview/assets/skins/sam/tabview.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/autocomplete/assets/skins/sam/autocomplete.css" />
+<!-- Optional CSS for for date editing with Calendar-->
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/calendar/assets/skins/sam/calendar.css" />
+
+<!-- Loading dependent JavaScript source files --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/yahoo/yahoo-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/yahoo-dom-event/yahoo-dom-event.js" ></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/event/event-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/element/element-min.js" ></script>
+<!-- Optional dependency source file --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/animation/animation-min.js"></script>
+<!-- Optional dependency source file for date editing with Calendar--> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/calendar/calendar-min.js" ></script>
+<!-- Optional dependency source file to decode contents of yuiConfig markup attribute--> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/json/json-min.js" ></script>
+<!-- TreeView source file --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/treeview/treeview-min.js" ></script>
+<!-- Loaing Source files for TabView -->
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/tabview/tabview-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/connection/connection-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/button/button-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/dragdrop/dragdrop-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/container/container-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/datasource/datasource-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/autocomplete/autocomplete-min.js"></script>
+ 
+    <!-- File containing functionality for creating overlay panels with YUI library -->
+
+<script type="text/javascript">
+//<![CDATA[
+	YAHOO.namespace("cog");
+
+    var handleDismiss = function() { 
+        YAHOO.cog.myDialog.hide(); 
+    }; 
+            
+    /**
+    Function to show a small message window, with a title and a 'Dismiss' button.
+    The HTML page must contain an element of id 'myDialog' for the window to be anchored:
+        <div id="myDialog" class="yui-skin-sam"></div>
+    */
+    function showMessage(title, message) {
+
+        YAHOO.cog.myDialog = new YAHOO.widget.SimpleDialog("msgDialog", {
+            width: "400px", 
+            fixedcenter: true, 
+            constraintoviewport: true, 
+            underlay: "shadow", 
+            close: true, 
+            visible: false, 
+            draggable: true,
+            modal:true,
+            buttons: [ { text:"Dismiss", handler:handleDismiss, isDefault:true } ]
+        });
+                    
+        YAHOO.cog.myDialog.setHeader(title);
+        YAHOO.cog.myDialog.setBody("<div style='text-align:center'>"+message+"</div>");
+        YAHOO.cog.myDialog.cfg.setProperty("underlay","matte");
+        
+        YAHOO.cog.myDialog.render('myDialog');
+        YAHOO.cog.myDialog.show();
+    }
+    
+    /**
+    Default handler to hide the current dialog
+    */
+    var handleNo = function() {
+        // hide dialog
+        this.hide();
+    };
+    
+    /**
+    Function to create a confirmation dialog with 'Yes', 'No' buttons connected to specific handlers.
+    The HTML page must contain an element of id 'myDialog' for the window to be anchored:
+        <div id="myDialog" class="yui-skin-sam"></div>
+    */
+    function createConfirmationDialog(dialogHeader, dialogText, yesHandler, noHandler) {
+    	    	
+    	var mySimpleDialog = new YAHOO.widget.SimpleDialog("confDialog",
+                { width: "30em",
+                  fixedcenter: true,
+                  visible: false,
+                  draggable: true,
+                  close: true,
+                  modal: true,
+                  effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration:0.25},
+                  text: dialogText,
+                  constraintoviewport: true,
+                  buttons: [ { text:"Yes", handler:yesHandler },
+                             { text:"No",  handler:noHandler, isDefault:true } ]
+                } );
+        mySimpleDialog.setHeader(dialogHeader);
+        mySimpleDialog.render("myDialog");
+        mySimpleDialog.show();
+    	
+        return mySimpleDialog;
+    }
+    
+    /**
+    Dialog to confirm a URL invocation.
+    The widget is the HTML <a></a> element.
+    The page must include an anchor div element of the form: <div id="myDialog" class="yui-skin-sam"></div>,
+    as well as include the javascript code in the two files: 'cog/common/yui.html' and 'cog/common/yui_panels.html'.
+    */
+    function urlConfirmationDialog(dialogHeader, dialogText, widget) {
+
+        var getUrl = function() {
+            // hide dialog
+            this.hide();
+            // request URL
+            window.location = widget.href;
+        };
+
+        var dlg = createConfirmationDialog(dialogHeader, dialogText, getUrl, handleNo);
+        
+        // return false to prevent link from being invoked automatically
+        return false;
+
+    }
+    
+    /** Function to show a modal waiting panel */
+    function showWaitPanel() {
+    	 
+    	if (YAHOO.cog.waitPanel==null) {
+	    	YAHOO.cog.waitPanel =  
+	    		new YAHOO.widget.Panel("wait",   
+	    		            { width:"240px",  
+	    		              fixedcenter:true,  
+	    		              close:false,  
+	    		              draggable:false,  
+	    		              zindex:4, 
+	    		              modal:true, 
+	    		              visible:false 
+	    		            }  
+	    		); 
+	    		 
+	    	YAHOO.cog.waitPanel.setHeader("Please wait..."); 
+	    	YAHOO.cog.waitPanel.setBody('<img src="/static/cog/img/rel_interstitial_loading.gif" />'); 
+	    	YAHOO.cog.waitPanel.render("myDialog"); 
+    	}
+    	YAHOO.cog.waitPanel.show();
+    	
+    }
+    
+    /** Function to hide the waiting panel */
+    function hideWaitPanel() {
+    	YAHOO.cog.waitPanel.hide();
+    }
+//]]>
+</script>    
+    <!-- file containing common javascript utilities -->
+
+<script type="text/javascript">
+<!--
+
+    /* redefining javascript trim() fn,
+     * which doesn't exist in IE 8.*,
+     */
+
+     String.prototype.trim = function() {
+         return this.replace(/^\s+|\s+$/g,'');
+     };
+
+	// function to switch the visibility of an HTML element
+    function toggle_visibility(id) {
+       var e = this.document.getElementById(id);
+       if (e!=null) {
+	       if (e.style.display == 'block') {
+	          e.style.display = 'none';
+	       } else {
+	          e.style.display = 'block';
+	       }
+       }
+    }
+    
+    // function to toggle the visibility of an HTML element and change the hyperlink text
+	function openclose(id, hlink, showText, hideText) {
+	    var e = this.document.getElementById(id);
+	    if (e!=null) {
+		       if (e.style.display == 'block') {
+		          e.style.display = 'none';
+		          hlink.innerHTML = showText;
+		       } else {
+		          e.style.display = 'block';
+		          hlink.innerHTML = hideText;
+		       }
+	    }
+	 }
+    
+	// function to set the visibility of an HTML element
+	function set_visibility(id, bool) {
+	   var e = this.document.getElementById(id, bool);
+	   if (e!=null) {
+	       if (bool) {
+	          e.style.display = 'block';
+	       } else {
+	          e.style.display = 'none';
+	       }
+	   }
+	}
+	
+	// function to delete an HTML element by id
+	function delete_element(id) {
+		   var e = this.document.getElementById(id);
+		   if (e!=null) {
+		       e.parentNode.removeChild(e);
+		   }
+		}
+
+    
+//-->
+</script>
+
+<!-- Detect browser on load -->
+<script type="text/javascript">
+  <!--
+    // placeholder for browser-specific js that should be run
+	function detectBrowser() {
+	  
+	  //if (YAHOO.env.ua.webkit) { // safari
+	  //if (YAHOO.env.ua.gecko > 0) { // FF 
+	  //if (YAHOO.env.ua.ie > 0) { // IE
+	  
+	 }
+	 //YAHOO.util.Event.onDOMReady(detectIE);
+  //-->
+</script> 
+    <!-- JS libraries needed for Wiki functionality -->
+
+<script type="text/javascript" src="/static/cog/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/static/filebrowser/js/FB_CKEditor.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+if (CKEDITOR) {
+	
+	// integration with django-filebrowser
+	
+	// uncomment 'filebrowserBrowseUrl ' link to enable browsing of server directories
+	// type=image restricts uploads to image files ('.jpg','.jpeg','.gif','.png','.tif','.tiff')
+	CKEDITOR.config.filebrowserBrowseUrl = '/admin/filebrowser/browse?pop=3&type=image';
+	// NOTE: additional parameter 'project' limits browsing to current project only
+	//CKEDITOR.config.filebrowserBrowseUrl = '/admin/filebrowser/browse?pop=3&type=image&project=ES-DOC-Models';
+	
+	// uncomment 'filebrowserUploadUrl' to enable direct upload of images to server
+	// NOTE: assumes project is available from request object
+	CKEDITOR.config.filebrowserImageUploadUrl = '/doc/upload/ES-DOC-Models/';
+	
+	// custom toolbar color
+	CKEDITOR.config.uiColor = "#B9E0E3";
+	
+	// custom color picker
+	CKEDITOR.config.extraPlugins = 'uicolor';
+	
+	// toolbar configuration
+	CKEDITOR.config.toolbar_Full =
+		[
+		    { name: 'document',    items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },
+		    //{ name: 'clipboard',   items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
+		    { name: 'editing',     items : [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ] },
+		    { name: 'forms',       items : [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+		    
+		    '/',
+		    
+		    //{ name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+		    { name: 'basicstyles', items : [ 'Bold','Italic','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+		    { name: 'paragraph',   items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ] },
+		    { name: 'links',       items : [ 'Link','Unlink','Anchor' ] },
+		    { name: 'insert',      items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak' ] },
+		    
+		    '/',		    
+
+		    // disable FontSize
+		    //{ name: 'styles',      items : [ 'Styles','Format','Font','FontSize' ] },
+		    { name: 'styles',      items : [ 'Styles','Format','Font' ] },
+		    
+		    // disable BGColor
+		 	//{ name: 'colors',      items : [ 'TextColor','BGColor' ] },
+		    { name: 'colors',      items : [ 'TextColor' ] },
+		    
+		    // add UIColor picker
+		    { name: 'tools',       items : [ 'Maximize', 'ShowBlocks','-','About', 'UIColor' ] }
+		    
+		];
+	CKEDITOR.config.toolbar = 'Full';
+
+}
+//]]>
+</script>
+   
+    <!-- placeholder file for inserting node-specific Google Analytics script -->
+
+    
+
+
+         <!-- icon library used for question mark icon -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+
+         <!--// loading CoG-specific styles. Needs to be last //-->
+         <link rel="stylesheet" type="text/css" href="/static/cog/css/cogstyle.css" />
+
+         <!--// hooks for page-specific head content. Both style statements and javascript need to be loaded in the header only. //-->
+         
+         
+         
+    </head>
+    
+    <body>
+        <div class="content_wrapper"><!--// makes the footers always at the bottom of the window //-->
+            <div class="custom_header_bar">
+                
+                    <div style="height:42px;" class="custom_header">
+<map name="logo">
+	<area href="http://esgf.llnl.gov/" shape="rect" coords="0,0,119,30" title="ESGF">
+	<area href="http://www.earthsystemcog.org" shape="rect" coords="125,0,177,30" title="ESGF">
+</map>
+
+
+
+<table style="height:42px; padding:0; margin:0; vertical-align:middle;background-color: transparent;">
+   <tr>
+       <td class="hosted_by" style="width:52px; font-size:10px; font-weight:bold; font-style:italic; padding-right:1px;">
+            Hosted by
+       </td>
+       <td style="text-align:left; vertical-align:middle; width:30px; padding-left:0;">
+           <img style="height:36px;" src="/mymedia/cu_39_transparent.png" alt="CU logo"/>
+       </td>
+       <td class="custom_header_location"><strong>
+       University of Colorado</strong><br>
+       Boulder</td>
+       <td class="powered_by">
+            Powered by
+        </td>
+       <td class="custom_header_esgf_cog">
+              <img style="vertical-align:middle; height:36px; margin:0;" src="/static/cog/img/cog_esgf_small.png"
+                   usemap="#logo" alt="ESGF-CoG logo"/>
+       </td>
+   </tr>
+</table>
+</div>
+
+                
+            </div> <!--// end div.custom_header //-->
+            <div class="container"> <!--// django class //-->
+
+                <!-- load optional notification banner -->
+                
+	                 <div class="span-max last" style="display:none;">
+   <div class="node-notification-box" >
+	   Insert node-wide notification text here.
+   </div>
+
+</div>
+                
+                <!-- load cog upper navigation bar and user menu -->
+  	            
+                    <!--// START: /cog/templates/common/cog_header.html //-->
+
+
+
+<div class="span-max last" >
+   <!--// first row of the header with user links-->
+   <!--load top-right user menu from cog/common/_user_menu.html-->
+   <table class="no-color">
+       <tr>
+           <td id="user_menu" style="text-align: right; padding:0; padding-right:2px; padding-bottom: 2px;">
+	           <!--//START: /cog/templates/cog/common/_user_menu.html //-->
+
+
+
+     Welcome, <strong>Guest</strong>.
+     | <a href="/login/?next=http://www.earthsystemcog.org/projects/es-doc-models/releases_questionnaire"> Login</a>
+     <!-- | <a href="/openid/login/?next=http://www.earthsystemcog.org/projects/es-doc-models/releases_questionnaire">OpenID Login</a> -->
+     | <a href="/user/add/?next=http://www.earthsystemcog.org/projects/es-doc-models/releases_questionnaire">Create Account</a>
+
+<!--//END: /cog/templates/cog/common/_user_menu.html //-->
+           </td>
+       </tr>
+       <tr>
+       <!-- shrink the space between the navigation and user menu on pages that don't have a project context e.g. no project name or logo -->
+       
+           
+               <!-- height of the td is 70px to match the height w/o an image. The td will expand if the project logo is larger -->
+               <!-- height of the project logo above the left nav bar is really controlled by the padding associated with the font-size
+               and padding of the node, since that is a different row. -->
+               <td style="height: 70px; vertical-align: bottom;  padding:0; padding-left:2px; margin:0;"> <!--must use vertical-align: bottom-->
+                    <span>
+                    
+                         <a style="padding:0; margin:0;" href="/projects/es-doc-models/">
+                    
+                    <img style="max-height: 150px; vertical-align: bottom;" src="/site_media/logos/es-doc-logo_purple_1.png" alt="ES-DOC-Models logo"/>
+                    </a>
+                    </span>
+               </td>
+           
+       
+   </tr>
+   <tr>
+       <td style="padding:0; padding-bottom: 1px; padding-right: 2px; font-size: 12px; color: #666; text-align: right; font-style: italic;">
+           You are at the <strong>CoG-CU</strong> node
+       </td>
+   </tr>
+   </table>
+</div>
+
+<!-- top navigation bar -->
+<div class="span-max last">
+   <div class="top_nav">
+       <div class="span-940">
+	       <div id="top_nav_left">
+               <ul>
+		           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/" style='color:#358C92; background-color: #FFFFFF'>Home</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/aboutus/" >About Us</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/software/" >Software</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/developers/" >Developers</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/metrics/" >Metrics</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/governance/" >Governance</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/resources/" >Resources</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/contactus/" >Contact Us</a></li>
+
+                                
+                           
+				       
+                   
+               </ul>
+		   </div> <!--// end div id=top_nav_left //-->
+	   </div> <!--//end div.span-26 //-->
+	
+	   <div  class="span-5 last">
+		   <div id="top_nav_right">
+               <a href="https://www.earthsystemcog.org/projects/cog/contactus/">Technical Support</a>
+		   </div> <!--//end div id=top_nav_right //-->
+	   </div> <!--// end div.span-5 last //-->
+   </div><!--// end div.top_nav //-->
+
+   <!-- top navigation sub-bar -->
+   <!-- top nav...width=100%-->
+   <div class="top_nav">
+       <div class="span-940">
+	       
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+	       
+		   &nbsp; <!--in case there are no items-->
+	   </div> <!--// end div.span-26 //-->
+
+       <!--add links to MyProfile and the DataCart-->
+	   <div class="span-5 last">
+	       <div id="top_subnav_right">
+	           
+	       </div> <!--// end div id=top_subnav_right //-->
+	   </div>	<!--// end div.span-5 last//-->
+   </div>
+
+   <!-- anchor for message dialogs -->
+   <div id="myDialog" class="yui-skin-sam"></div>
+</div> <!--// end div.span-max last //-->
+&nbsp; <br>
+<!--// END: /cog/templates/common/cog_header.html //-->
+
+
+
+
+                
+	 
+                <!--Load block body from various templates -->
+                
+	<!--EXTENDS: /layouts/layout_base.html-->
+    <!--LAYOUT: /layouts/layout_sidebar_center.html-->
+    <div class="span-5">
+         
+    
+
+    
+    
+    <!-- project index -->
+    <div class="vertical_menu">
+	    
+	    	<!-- topic bar -->
+	    	
+                <div class="left_upper_widget_header">
+                    ES-DOC-Models
+                </div>
+            
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/doc/questionnaire/customization_options">Customization Options</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                       		<td>&nbsp;<a href="/projects/es-doc-models/" >Home</a></td>
+                       	
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/who_is_using_esdoc_tools">Who is Using ES-DOC?</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    The CIM and CVs
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim">What is the CIM?</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim2">CIM2</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim_versions">CIM Schema Versions</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim_cv">Baseline/CMIP5 CV Versions</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/controlled_vocabularies">Controlled Vocabularies</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/doc/questionnaire/cv_creation">CV Creation</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Questionnaire
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/help">Overview</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/admin_guide">Admin Guide</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/user_guide">User Guide</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/design">Design</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Viewer
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/viewer_motivation">Description and Demo</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Comparator
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/comparator_motivation">Description and Demo</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Search
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/motivation_cim_search">Description and Demo</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    
+	    
+    </div>
+        
+    <div class="vertical_menu">
+    
+        <!-- Unauthenticated Users -->
+        <div class="left_widget_header">
+            Visitors
+        </div>
+        <ul>
+            <li><a href="/news/list/es-doc-models/" class="listlink">&nbsp;List All News</a></li>
+            <li><a href="/doc/list/es-doc-models/" class="listlink">&nbsp;List All Files</a></li>
+            <li><a href="/ac/list/" class="listlink">&nbsp;List ESGF Data Groups</a></li>
+        </ul>
+ 
+        <!-- access restricted to project Contributors -->
+        
+    
+        <!-- access restricted to Project Administrators-->
+        
+       
+        <!-- access restricted to Node Administrators -->
+        
+    </div> <!--end of vertical menu-->
+
+ 
+
+    </div>
+
+    <div class="span-940 last">
+          <h1 class="title">CIM Questionnaire Releases</h1> 
+         
+
+    <!--// START: /cog/templates/cog/post/page_template_main.html //-->
+<!--// loading page body from page_template_main.html //-->
+
+
+
+
+  	<!-- Data search widget -->
+  	
+
+    <div id="cog_post_body">
+        <p>
+	This page lists recent releases and known bugs of the CIM Questionnaire.</p>
+<table align="left" border="1" cellpadding="1" cellspacing="1" height="152" width="628">
+	<tbody>
+		<tr>
+			<td style="width:10%;">
+				<strong>Release</strong></td>
+			<td style="width:40%;">
+				<strong>Release Notes</strong></td>
+			<td style="width:40%;">
+				<strong>Known Issues</strong></td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.17.0.0">0.17.0.0</a></p>
+				<p>
+					15 May 2017</p>
+			</td>
+			<td style="vertical-align: top;">
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Support the CIM2 concept of document &quot;labels.&quot;</li>
+					<li>
+						Added the ability to uniquely identify documents based on arbitrary field values passed in as URL parameters.</li>
+					<li>
+						When a property is customized not to display it is immediately indicated by greying out that properties title in the customizer form.</li>
+					<li>
+						Added paging capability to the project pages.</li>
+					<li>
+						Added support for CIM2 documents with hiearchical sub-components; that is relationship properites that should be rendered using a treeview widget rather than as subforms or references.</li>
+					<li>
+						Added support for references by providing a widget to make a call to the ES-DOC Archive and find published documents of the correct type to reference.</li>
+					<li>
+						Hard-coded the rules that determine which relationships ought to be rendered as subforms and which ought to be rendered as references.</li>
+					<li>
+						Consoloidated the code for registering schemas and specializations, since both of those documents use the exact same underlying format.</li>
+					<li>
+						Added &quot;forgot password&quot; and &quot;forgot login&quot; functionality to the Questionnaire.</li>
+					<li>
+						Require users to provide an email address upon resistration.</li>
+					<li>
+						Allow project administrators to approve or deny project join requests.</li>
+					<li>
+						Hide the concept of distinct ontologies from the project page since this is confusing; Instead all supported document types are shown in a single list.</li>
+					<li>
+						The multiselect widget can be expanded even in &quot;read only&quot; mode.</li>
+					<li>
+						Create an initial Questionnaire Users Manual.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<div>
+					<ul>
+						<li>
+							Enumeration properties displayed in &quot;view&quot; mode in the Editor cannot be expanded to reveal potential enumeration choices.</li>
+					</ul>
+				</div>
+				<ul>
+				</ul>
+			</td>
+			<td style="vertical-align: top;">
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+				</ul>
+				<p>
+					New known issues:</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.16.0.1">0.16.0.1</a></p>
+				<p>
+					28 Oct 2016</p>
+			</td>
+			<td style="vertical-align: top;">
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Property customization accordions no longer have to be clicked twice in order to open them.</li>
+					<li>
+						Both project members and project administrators can now create new documents.</li>
+					<li>
+						Selecting &quot;OTHER&quot; in an enumeration now consistently exposes a textbox for users to enter their other value.</li>
+					<li>
+						Correctly hides the &quot;join project&quot; button for current project members.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Property customization accordions have to be clicked twice in order to open them.</li>
+					<li>
+						Logged-in project members, but not project administrators, are unable to create new documents.</li>
+					<li>
+						Selecting &quot;OTHER&quot; in an enumeration does not consistently expose a textbox for users to enter their other value.</li>
+					<li>
+						The &quot;join project&quot; button still appears even for current project members.</li>
+				</ul>
+			</td>
+			<td style="vertical-align: top;">
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Enumeration properties displayed in &quot;view&quot; mode in the Editor cannot be expanded to reveal potential enumeration choices.</li>
+					<li>
+						Opening a nested subform customization form causes rendering errors in the parent subform customization forms.</li>
+				</ul>
+				<p>
+					New known issues:</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/releases/tag/v0.16.0.0">v0.16.0.0</a></p>
+				<p>
+					24 Oct 2016</p>
+			</td>
+			<td style="vertical-align: top;">
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Added support for the creation, editing, and publishing of simple CIM2 documents. A simple document is one without a nested hierarchy (e.g. Responsible Party).</li>
+					<li dir="ltr">
+						Added the ability to make properties &quot;nillable&quot;. A property can be marked as &ldquo;nillable&rdquo; when no valid value is available (e.g. it is missing or inapplicable). This is required for CMIP6 because not all CIM properties will be applicable to every modelling group.</li>
+					<li dir="ltr">
+						Modified relationship properties so that they can point to different types of CIM entities (e.g. classes). For example, an Experiment may point to several Requirements - each of which is a different class (e.g. a forcing, a temporal constraint, or a geographic restraint). This supports a structural change introduced in CIM2.</li>
+					<li dir="ltr">
+						Added the ability to display information associated with individual enumeration choices. This will make providing information to CMIP6 more clear since many of the expected scientific properties are complex and require further explanation.</li>
+					<li dir="ltr">
+						Implemented a RESTful framework for the Editor. Now JSON serializations are used on the back-end and a consistent JavaScript framework is used on the front-end to render the forms. This improves the performance as well as making the code easier to maintain than the previous code which relied heavily on custom Django forms and formsets.</li>
+					<li dir="ltr">
+						Improved the look-and-feel of read-only fields in the Editor, to make things more legible.</li>
+					<li dir="ltr">
+						Improved overall system performance by preventing user interaction while AJAX calls are in-progress.</li>
+					<li dir="ltr">
+						Improved the error handling for invalid requests of published documents.</li>
+				</ul>
+				Known issues fixed in this release:
+				<ul>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content. Saving is now handled using RESTful techniques.</li>
+				</ul>
+			</td>
+			<td style="vertical-align: top;">
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Selecting &quot;OTHER&quot; in an enumeration does not consistently exposes a textbox for users to enter their other value.</li>
+				</ul>
+				<p>
+					New known issues:</p>
+				<ul>
+					<li>
+						Enumeration properties displayed in &quot;view&quot; mode in the Editor cannot be expanded to reveal potential enumeration choices.</li>
+					<li>
+						Opening a nested subform customization form causes rendering errors in the parent subform customization forms.</li>
+					<li>
+						Property customization accordions have to be clicked twice in order to open them.</li>
+					<li>
+						Logged-in project members, but not project administrators, are unable to create new documents.</li>
+					<li>
+						The &quot;join project&quot; button still appears even for current project members.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/releases/tag/v0.15.1.0">v0.15.1.0</a></p>
+				<p>
+					15 Jan 2016</p>
+			</td>
+			<td style="vertical-align: top;">
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Improved the look-and-feel of the Project Page by adding more informative icons, user messages, and columns.</li>
+					<li>
+						Added code to update the &quot;last modified&quot; field for a database item whenever it is saved.</li>
+					<li>
+						Sorting documents by name on the Project Page now works.</li>
+					<li>
+						Added a formal logging system to the codebase.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						The &quot;last modified&quot; field is not updating for all database items.</li>
+				</ul>
+			</td>
+			<td style="vertical-align: top;">
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Existing enumeration labels change when adding a new subform.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.15.0.1">v0.15.0.1</a></p>
+				<p>
+					16 Dec 2015</p>
+			</td>
+			<td style="vertical-align: top;">
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Ensured all legacy URLs map to the correct view in the new framework.</li>
+					<li>
+						Removed the authenticataion check from read-only forms.</li>
+					<li>
+						Ensured that each scientific category cusotmization form maps to the correct JSON object.&nbsp; All JSON objects are stored in an array and I had been passing the incorrect array index to the array.&nbsp; I no longer compute the array based on the current loop iteration (which got reset for each vocabulary and component).</li>
+					<li>
+						Sorting documents by name on the Project Page now works.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Not all legacy URLs (from the old DCMIP-2012 project) map to appropriate views in the new framework</li>
+					<li>
+						Read-only forms require authentication.</li>
+					<li>
+						Modifying scientific category customizations changes the incorrect underlying model.</li>
+					<li>
+						Sorting documents by name on the Project Page has no effect.</li>
+				</ul>
+			</td>
+			<td style="vertical-align: top;">
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Existing enumeration labels change when adding a new subform.</li>
+					<li>
+						The &quot;last modified&quot; field is not updating for all database items.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.15.0.0">v0.15.0.0</a></p>
+				<p>
+					15 Dec 2015</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Implemented a RESTful framework for the Customizer. Now JSON serializations are used on the back-end and a consistent JavaScript framework is used on the front-end to render the forms. This improves the performance as well as making the code easier to maintain than the previous code which relied heavily on Django forms and formsets.</li>
+					<li>
+						Changed the way subform customizations are handled. Now, the entire set of subform customizations is created with default values when first loading the Customizer. This means that it is no longer necessary to tediously customize the behavior of each subform before being able to use them in the Editor. &nbsp;</li>
+					<li>
+						Improved the look-and-feel of the Project Page.&nbsp; The tables are now sortable by column and an additional &ldquo;last modified&rdquo; column has been added.&nbsp; Additionally, informative messages have been added in case no customizations or no documents exist.&nbsp; Finally, the buttons for viewing, editing, or customizing instances now open new browser tabs.</li>
+					<li>
+						Prevented users from customizing whether or not a subform is used. Subforms will now always be used for CIM Elements and will never be used for CIM Documents.&nbsp; The checkboxes and buttons that control this behavior have been disabled as needed.</li>
+					<li>
+						Added a &ldquo;honeypot&rdquo; field to the user registration page to prevent bogus user registrations.<br />
+						Upgraded Django from version 1.6 to 1.8 (this is the latest supported version).</li>
+					<li>
+						Removed the ability to add or delete scientific category customizations.&nbsp; Such changes are more properly handled within the Controlled Vocabularies themselves.</li>
+					<li>
+						Ensured that the keys used to uniquely identify category customizations are not based on their names (which can potentially be changed in the Customizer).</li>
+					<li>
+						Fixed a bug in the display of categories. Previously, changes to the order of categories were not retained in the Customizer.</li>
+					<li>
+						Fixed a bug in the rendering of the customization URL.&nbsp; Now, after saving a customization with a new name, the browser is correctly redirected to a URL that includes that new name.&nbsp; Previously, although the content was correct, the URL still reflected the original name of the customization.</li>
+					<li>
+						Added a &ldquo;field type&rdquo; column to the list of scientific property customizations to better help organize them.</li>
+					<li>
+						Refactored the &ldquo;join a project&rdquo; function. Excess code has been removed and an appropriate error message in the event a join request fails has been added.&nbsp; Additionally, if a join request is pending an administrator&#39;s approval, a message is displayed if the user tries to join the project again.</li>
+					<li>
+						Standardized the look-and-feel of the accordion headers used in subforms to be the same as those used in the main forms.&nbsp; Previously, the headers in the subforms were too large, which forced some of their text to wrap inappropriately.</li>
+					<li>
+						Fixed a bug that caused URL parameters to sometimes be lost when redirecting to another page (e.g. when logging in or logging out).</li>
+					<li>
+						Forced password changing to now take place on its own page. This makes the process cleaner and easier to understand.<br />
+						&nbsp;</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						Selecting a customization or document from the project page to customize or edit does not always open the correct instance.</li>
+				</ul>
+			</td>
+			<td style="vertical-align: top;">
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Existing enumeration labels change when adding a new subform.</li>
+				</ul>
+				<p>
+					New known issues:</p>
+				<ul>
+					<li>
+						Not all legacy URLs (from the old DCMIP-2012 project) map to appropriate views in the new framework</li>
+					<li>
+						Read-only forms require authentication.</li>
+					<li>
+						Modifying scientific category customizations changes the incorrect underlying model.</li>
+					<li>
+						Sorting documents by name on the Project Page has no effect.</li>
+					<li>
+						The &quot;last modified&quot; field is not updating for all database items.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.14.0.0">v0.14.0.0</a></p>
+				26 Aug 2015</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Changed how CIM elements are entered. A CIM element is an internal structure that is <em>not</em> exported as a stand alone document. Previously, these elements could be shared across a project. This is no longer allowed. Instead each element will be created in its own &ldquo;subform&rdquo;, which is embedded within the main Questionnaire. While this may result in the occasional duplicated element, it does prevent editing one document from overriding the content of another.</li>
+					<li>
+						Added the ability to link to other published CIM documents via their URL. Model documentation often comes in a set of published documents such as Grids, Experiments, Simulations etc, which need to be interconnected. This is now possible.</li>
+					<li>
+						Ensured that properties which the CIM defines as &ldquo;required&rdquo; cannot be customized to be either optional or invisible.&nbsp; This prevents the publication of a document that appears to be complete and therefore publishable when, in fact, it is missing key required elements.</li>
+					<li>
+						Added customizable help text to Scientific Property Categories. This text can assist the user in filling out the Questionnaire.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						When adding a new subform, sometimes that subform&rsquo;s fields still have content from the template subform.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+				</ul>
+				<p>
+					New known issues:</p>
+				<ul>
+					<li>
+						Existing enumeration labels change when adding a new subform.</li>
+					<li>
+						Selecting a customization or document from the project page to customize or edit does not always open the correct instance.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.13.1.2">v0.13.1.2</a></p>
+				29 July 2015</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Ensured that standard properties are serialized correctly according to the ES-DOC XML format.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Not all standard properties are serialized correctly according to the ES-DOC XML format.&nbsp; (An explicit template was added for serializing the &quot;license&quot; propery.)</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.13.1.1">v0.13.1.1</a></p>
+				29 June 2015</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Ensured that all properties in the CIM Viewer render as read-only.</li>
+					<li>
+						Making a previously undisplayed property displayed in the Customizer, now propagates correctly through all existing documents.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						In the Viewer Form, not all properties are rendering as read-only.&nbsp; In particular, properties in sections that are loaded on-demand after the initial page load may still be editable.&nbsp; (The code turning properties read-only can no longer run before the loading of a form section has completed.)</li>
+					<li>
+						Making a previously undisplayed property displayed in the Customizer can fail when that property propagates to existing documents if the property is an enumeration.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Not all standard properties are serialized correctly according to the ES-DOC XML format.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.13.1.0">v0.13.1.0</a></p>
+				17 June 2015</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Added checks to prevent an incomplete document from being published.&nbsp; This includes the ability to view the &quot;completion status&quot; of a document being edited.&nbsp; Incomplete documents are not ingestible by follow-on ES-DOC tools.</li>
+					<li>
+						Prevented properties that are required by the CIM from being customized as optional in the Questionnaire.&nbsp; This prevents required elements in the CIM from being left out of a project&#39;s documents.</li>
+					<li>
+						Added the ability to create and publish CIM Platform documents.</li>
+					<li>
+						Ensured that the Viewer Form is read-only and added documentation indicating that it is read-only and that users must be a project member to edit or create a document.&nbsp; Previously, the Questionnaire Viewer could be edited but not saved, which was confusing.</li>
+					<li>
+						Created an automated Python/Selenium framework for release testing.&nbsp; This reduces the need for time-consuming manual tests of the web interface.</li>
+					<li>
+						Added the ability for project administrators to delete unwanted customizations.&nbsp; Previously only the system administrator could delete customizations.</li>
+					<li>
+						Improved the look-and-feel of the widget used to customize vocabularies.&nbsp; It now renders correctly even with very long vocabulary names, has labels for the different aspects of a vocabulary that can be customized, and renders well when there are no vocabularies to be customized.</li>
+					<li>
+						Added information about a document&#39;s version to the message that appears upon successful saving and/or publication.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Making a previously undisplayed property displayed in the Customizer can fail when that property propagates to existing documents if the property is an enumeration.</li>
+				</ul>
+				<p>
+					New known issues:</p>
+				<ul>
+					<li>
+						In the Viewer Form, not all properties are rendering as read-only.&nbsp; In particular, properties in sections that are loaded on-demand after the initial page load may still be editable.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.13.0.1">v0.13.0.1</a></p>
+				14 May 2015</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Added additional tests to check that category customizations are always bound to the correct project.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Making a previously undisplayed property displayed in the Customizer can fail when that property propagates to existing documents if the property is an enumeration.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.13.0.0">v0.13.0.0</a></p>
+				07 May 2015</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Optimized the Customizer to only load content as-needed. This drastically improved the response time for document types which use large controlled vocabularies (CVs) and eliminated browser time-outs.</li>
+					<li>
+						Added links to relevant documentation as well as a project&rsquo;s published document feed to the Project Page.</li>
+					<li>
+						Fixed the bug that was preventing a property&rsquo;s customized default value from appearing in new documents in the Editor.</li>
+					<li>
+						Fixed the bug preventing the customization of property categories.&nbsp; Now, when a category is added,&nbsp; that category gets listed as one of the options in the customization of individual properties. This allows properties to be assigned to the new category.&nbsp; When a category is deleted, that category gets removed from the options in the customization of individual properties.</li>
+					<li>
+						Fixed the bug preventing scientific property labels, which appear in the property accordion header from updating as a property&rsquo;s value changes.&nbsp; This means that the current state of a property can always be seen without having to expand that property&rsquo;s accordion.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Memory inefficiencies cause the Customizer to load slowly when a CV has many subcomponents and/or scientific properties. (Refactored the Customizer to use the same load-on-demand paradigm as the Editor.)</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Making a previously undisplayed property displayed in the Customizer can fail when that property propagates to existing documents if the property is an enumeration.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.12.2.0">v0.12.2.0</a></p>
+				14 Mar 2015</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Fixed the bug that prevented further customization after initial document creation. After document creation, changes to the customization refused to save and propagate to the document instances. Now properties can be enabled or disabled at any time even if they were used by previously-created documents.</li>
+					<li>
+						Fixed the customization of property inheritance to work with the new load-on-demand paradigm.&nbsp; Now if a component&rsquo;s property is inherited, its value will be passed onto all corresponding child properties regardless of whether those child properties reside in forms that have not yet been loaded. &nbsp;</li>
+					<li>
+						Redesigned the Project Page to be much more intuitive and user-friendly.&nbsp; There is now a clear distinction between creating new documents and editing existing documents.&nbsp; Different portions of the page are also hidden or revealed based on whether the user is a project member, project administrator, or anonymous user.</li>
+					<li>
+						Refactored the custom selection widget used by the Questionnaire. The former code only worked in Firefox. It now works in Chrome and Safari.</li>
+					<li>
+						Modified the widget that appears when the &quot;other&quot; property value is selected as an answer to a question. Now it is a text input box that is selectable just via a mouse focus.&nbsp; This makes it easier to delete and replace the default text.</li>
+					<li>
+						Fixed an error that was incorrectly incrementing document versions multiple times during a save.</li>
+					<li>
+						Implemented a custom &ldquo;404&rdquo; error page.&nbsp; The new page displays an informative message about the error. Previously, the error resulted in a stack trace understandable only by developers.</li>
+					<li>
+						Prevented customizations from validating if a user chooses to display all documents under a top-level document, but neglects to provide a name for that document.</li>
+					<li>
+						Prevented all components within a single Editor instance to be listed separately on the Project Page (versus as a single document set), when a top-level document had not been specified in the customization.</li>
+					<li>
+						Added an icon to indicate when a property has auto-completion enabled.<br />
+						&nbsp;</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Inheritance no longer works with the load-on-demand paradigm.&nbsp; (Rewrote the inheritance functionality completely to cache inherited data in-case the form which ought to receive that data has not yet been loaded.)</li>
+					<li>
+						Questionnaires will no longer render correctly if all of their previously selected CVs are removed.&nbsp; (As standard and scientific properties are enabled and disabled in a customization, the corresponding properties in existing documents are added or removed.)</li>
+					<li>
+						Enumerations only work in Firefox.&nbsp; (Rewrote the enumeration widget to rely much more on server-side Django code rather than client-side JQuery code.)<br />
+						&nbsp;</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					New known issues:</p>
+				<ul>
+					<li>
+						Property Inheritance may not work if server-side caching is disrupted on the ES-DOC server.</li>
+					<li>
+						Setting a property to be read-only in the Customizer prevents documents from being rendered in the Editor.</li>
+					<li>
+						Making a previously undisplayed property displayed in the Customizer can fail when that property propagates to existing documents if the property is an enumeration.<br />
+						&nbsp;</li>
+				</ul>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Memory inefficiencies cause the Customizer to load slowly when a CV has many subcomponents and/or scientific properties.<br />
+						&nbsp;</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.12.1.1">v0.12.1.1</a></p>
+				<p>
+					20 Feb 2015</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Allowed CV components to use the same name.&nbsp; Previously, registering a CV with components which used the same name would fail.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Inheritance no longer works in the new load-on-demand paradigm.</li>
+					<li>
+						Questionnaires will no longer render correctly if all of their previously selected CVs are removed.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Memory inefficiencies cause the <em>Customizer</em> to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.12.1.0">v0.12.1.0</a></p>
+				<p>
+					19 Feb 2015</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Fixed an error preventing the XML serialization (export) of properties which use enumerations with multiple enumerated values, and/or properties that use a custom &ldquo;other&rdquo; value.</li>
+					<li>
+						Ensured the properties of unloaded components are correctly saved.&nbsp; Previously, they could only be saved if they had been changed - something which is impossible for an unloaded property. &nbsp;</li>
+					<li>
+						Fixed the &ldquo;view&rdquo; button at the bottom of the Customizer. It now correctly loads the Editor.&nbsp; Previously it was using an invalid URL and the Editor could not be found.</li>
+					<li>
+						Prevented popup dialog boxes from jumping to the bottom of the page when clicked.</li>
+					<li>
+						Ensured that after logging in from the Project page, a user is redirected back to the Project page. Previously, a user was redirected back to the Questionnaire Landing page and they had to navigate back to their Project page..</li>
+					<li>
+						Improved the messages (both for successes and failures) that are displayed after saving or publishing a Questionnaire Instance.</li>
+					<li>
+						Improved the look-and-feel of accordion headers.&nbsp; Previously, hovering over an open accordion header made the header text unreadable.</li>
+					<li>
+						Added an identifying &ldquo;name&rdquo; label to the ATOM feed entries. This make it possible to identify the document without having to open it first.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Properties which use enumerations with multiple enumerated values, and/or properties that use a custom &ldquo;other&rdquo; value do not appear in the XML serialization (export) of the corresponding document.&nbsp;&nbsp; (Added code to perform enumerated property serialization.)</li>
+					<li>
+						The properties of unloaded components are not saved correctly.&nbsp; They can wind up no longer related to their parent component, and hence no longer visible in the Editor.&nbsp; (Made sure that unloaded properties are considered to be &ldquo;changed.&rdquo;&nbsp; This forces Django to save them.)</li>
+					<li>
+						The &ldquo;view&rdquo; button at the bottom of the Customizer tries to open an invalid URL. (A recent change in the CIM naming structure had caused the URL to fail. The new structure now correctly produces the required URL.)</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Inheritance no longer works in the new load-on-demand paradigm.</li>
+					<li>
+						Questionnaires will no longer render correctly if all of their previously selected CVs are removed.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Memory inefficiencies cause the <em>Customizer</em> to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.12.0.0">v0.12.0.0</a></p>
+				<p>
+					16 Feb 2015</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Optimized the Editor to only load content as-needed.&nbsp; This drastically improved response time of the interface and elimintated browser time-outs as large controlled vocabuaries (CVs) loaded.</li>
+					<li>
+						Restructured the testing framework to use fixtures (a database snapshot) as opposed to manually populating a test database for each test.&nbsp; This simplifies the testing framework and makes release testing cleaner and more efficient.</li>
+					<li>
+						Improved the help text for customization names to include the set of invalid characters.&nbsp; This prevents unnecessary iterations in the creation of a customization name.</li>
+					<li>
+						Added new help text concerning the customization of subforms to make that process clearer.</li>
+					<li>
+						Added a distinct &quot;name&quot; and &quot;version&quot; for CIM versions that are registered with the Questionnaire allowing them to vary independently.&nbsp; Previously, the version was simply included as part of the name.</li>
+					<li>
+						Alphabetized the list of documents available to edit from the Project Index.&nbsp; This makes it easier to find documents in the pull down menu.</li>
+					<li>
+						Allowed character fields to expand as needed to contain long text.&nbsp; Many of the CIM properties are classified as character fields.&nbsp; These fields were often too small.&nbsp; Now the fields expand as necessary.</li>
+					<li>
+						Ensured that renaming a customization propagates that name change to all parts of the system as needed.&nbsp; Previously, only the top-level customization object was changed which resulted in errors when rendering customizations or documents.</li>
+					<li>
+						Ensured that any notification messages sent from the Questionnaire include the specific domain of the Questionnaire.&nbsp; This allows notifications from the Questionnaire test server and production server to be distinguished from each other.</li>
+					<li>
+						Prevented arrow widgets from appearing in accordion headers in Firefox.&nbsp; This was a feature that was added by the browser itself which interfered with Questionnaire functionality.</li>
+					<li>
+						Allowed controlled vocabularies (CVs) to be renamed.&nbsp; Previously, renaming a CV would prevent customizations or documents from being loaded.</li>
+					<li>
+						Created a graceful failure when trying to register or re-register a CIM version or a CV in the Django Admin Interface if the corresponding file is no longer available.&nbsp; This process is used repeatedly in testing.</li>
+					<li>
+						Replaced the Python PIL package with the Pillow package.&nbsp; PIL is no longer supported.&nbsp; Pillow is used in the rendering of images.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Memory inefficiencies cause the <em>Editor</em> to load slowly when a CV has many subcomponents and/or scientific properties. (The Editor now only loads content on-demand.)</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Inheritance no longer works in the new load-on-demand paradigm.</li>
+					<li>
+						Questionnaires will no longer render correctly if all of their previously selected CVs are removed.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the CIM Editing Forms is not tested.</li>
+					<li>
+						Memory inefficiencies cause the <em>Customizer</em> to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+					<li>
+						Properties which use enumerations with multiple enumerated values, and/or properties that use a custom &ldquo;other&rdquo; value do not appear in the XML serialization (export) of the corresponding document.</li>
+					<li>
+						The properties of unloaded components are not saved correctly.&nbsp; They can wind up no longer related to their parent component, and hence no longer visible in the Editor.</li>
+					<li>
+						The &ldquo;view&rdquo; button at the bottom of the Customizer tries to open an invalid URL.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.11.3.4">v0.11.3.4</a></p>
+				<p>
+					05 Feb 2015</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Fixed an error in the XML serialization (export) that was causing erroneous wrapper elements to appear.&nbsp; This was resulting in invalid docuemnts.&nbsp; Wrapper elements should only appear if one or more sub-elements exist.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Erroneous wrapper elements are appearing in XML serialization (export). (Fixed the code that determined whether an element can appear multiple times or only once; The former results in a wrapper element being serialized.)</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Inheritance only works for atomic fields and not for enumerations.</li>
+					<li>
+						Documents will no longer render correctly if all of their corresponding customizations&#39; previously selected CVs are removed.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizations belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the Editor is not tested.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+					<li>
+						Properties which use enumerations with multiple enumerated values, and/or properties that use a custom &ldquo;other&rdquo; value do not appear in the XML serialization (export) of the corresponding document.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.11.3.3">v0.11.3.3</a></p>
+				<p>
+					04 Feb 2015</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Improved the look-and-feel of subform accordion headers by removing duplicate subform instance names which were interfering with the visual flow of the interface.
+						<p dir="ltr" style="line-height:1.656;margin-top:0pt;margin-bottom:0pt;">
+							&nbsp;</p>
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Inheritance only works for atomic fields and not for enumerations.</li>
+					<li>
+						Documents will no longer render correctly if all of their corresponding customizations&#39; previously selected CVs are removed.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizations belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the Editor is not tested.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+					<li>
+						Erroneous wrapper elements are appearing in XML serialization (export).&nbsp; This results in invalid documents.&nbsp; Wrapper elements should only appear if one or more sub-elements exist.</li>
+					<li>
+						Properties which use enumerations with multiple enumerated values, and/or properties that use a custom &ldquo;other&rdquo; value do not appear in the XML serialization (export) of the corresponding document.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.11.3.2">v0.11.3.2</a></p>
+				<p>
+					03 Feb 2015</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Allowed for empty DocumentAuthors in XML serializations (export).&nbsp; This element is required for the follow-on ES-DOC tools, but is often left blank in the Questionnaire.&nbsp; If blank, an empty element is added.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Blank DocumentAuthors were not being serialized to XML.&nbsp; This element is required for the follow-on ES-DOC tools, but is often left blank in the Questionnaire.&nbsp; (If a required ES-DOC element is not found in the Questionnaire document, an empty one is serialized.)</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Inheritance only works for atomic fields and not for enumerations.</li>
+					<li>
+						Documents will no longer render correctly if all of their corresponding customizations&#39; previously selected CVs are removed.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizations belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the Editor is not tested.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+					<li>
+						Erroneous wrapper elements are appearing in XML serialization (export).&nbsp; This results in invalid documents.&nbsp; Wrapper elements should only appear if one or more sub-elements exist.</li>
+					<li>
+						Properties which use enumerations with multiple enumerated values, and/or properties that use a custom &ldquo;other&rdquo; value do not appear in the XML serialization (export) of the corresponding document.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.11.3.1">v0.11.3.1</a></p>
+				<p>
+					19 Nov 2014</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Fixed an issue preventing properties from a new Controlled Vocabulary (CV) added to an existing project from propagating to that projects&#39; existing customizations.&nbsp; Now a CV can be added to any project at any time and its properties can be customized and used.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations. (Added code to add new default property customizations as needed to existing customizers.)</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Inheritance only works for atomic fields and not for enumerations.</li>
+					<li>
+						Documents will no longer render correctly if all of their corresponding customizations&#39; previously selected CVs are removed.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizations belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the Editor is not tested.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+					<li>
+						Serializations of models to XML is incomplete if those models have missing or empty elements that need to be referenced in XML (such as responsible parties).</li>
+					<li>
+						Erroneous wrapper elements are appearing in XML serialization (export).&nbsp; This results in invalid documents.&nbsp; Wrapper elements should only appear if one or more sub-elements exist.</li>
+					<li>
+						Blank DocumentAuthors were not being serialized to XML.&nbsp; This element is required for the follow-on ES-DOC tools, but is often left blank in the Questionnaire.</li>
+					<li>
+						Properties which use enumerations with multiple enumerated values, and/or properties that use a custom &ldquo;other&rdquo; value do not appear in the XML serialization (export) of the corresponding document.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.11.3.0">v0.11.3.0</a></p>
+				<p>
+					14 Nov 2014</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Added the ability to export ES-DOC compliant CIM Documents. This enables an end-to-end workflow where metadata can be entered in the Questionnaire and viewed and compared in follow-on ES-DOC tools such as the CIM Viewer and CIM Comparator.</li>
+					<li>
+						Added a prompt to allow users to request project membership if attempting to access a form from a project to which they don&rsquo;t belong. Previously, project membership could only be requested via a direct email to the Questionnaire developer.</li>
+					<li>
+						Changed the &ldquo;view&rdquo; button at the bottom of the Customizer. This button now opens the associated Editor in a new tab. This enables users to bounce back and forth between the Customizer and the Editor, which will speed up the process of customization.</li>
+					<li>
+						Added the ability to reorder properties in the Customizer by dragging and dropping their corresponding accordion header and not their accordion content. Previously, selecting anything in the accordion content triggered the reordering functionality.</li>
+					<li>
+						Removed questions about CVs from subforms (e.g. Responsible Parties) in the Customizer. Currently, CVs are only used in reference to scientific properties, and subforms do not display scientific properties.</li>
+					<li>
+						Fixed the &ldquo;view all&rdquo; button in the category customization section of the Customizer so that it correctly resets the individual category widgets. Clicking this button now enables all categories.</li>
+					<li>
+						Fixed the names of customizations so that they no longer accept spaces.</li>
+					<li>
+						Improved subform customizations titles. These titles are taken directly from the CIM, which uses camel case strings and underscores. These features have been removed, increasing the readability of the system.</li>
+					<li>
+						Fixed the error message that appears if users try to create more than one default customization. This message had been confusing.</li>
+					<li>
+						Added the ability to automatically strip out any non-standard spacing or formatting ingested from the CIM Schema or from a CV.&nbsp; Both of those items contain numerous errors that need to be fixed at the source.&nbsp; Until then, this ability will prevent those errors from entering the Questionnaire.</li>
+					<li>
+						Improved the category customization section of the Customizer. The color scheme has been made consistent with the rest of the Questionnaire (i.e. blue implies enabled and greyed-out implies disabled).</li>
+					<li>
+						Fixed long accordion header names so that they are no longer cut off in both the Customizer and the Editor.</li>
+					<li>
+						Improved the inheritance icon in the Editor. It now appears outside of the field column, which minimizes interference from dynamic fields such as enumerations.<br />
+						&nbsp;</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						The &ldquo;view all&rdquo; button for category customizers does not reset the look-and-feel of individual category Customizer widgets. (This button now correctly enables all categories.)</li>
+					<li>
+						Trying to select any text from a property in the Customizer triggers the re-ordering functionality instead of actually selecting the text. (Reordering is now only possible by clicking on the accordion header.)</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					New known issues:</p>
+				<ul>
+					<li>
+						Inheritance only works for atomic fields and not for enumerations.</li>
+					<li>
+						Erroneous wrapper elements are appearing in XML serialization (export).&nbsp; This results in invalid documents.&nbsp; Wrapper elements should only appear if one or more sub-elements exist.</li>
+					<li>
+						Blank DocumentAuthors were not being serialized to XML.&nbsp; This element is required for the follow-on ES-DOC tools, but is often left blank in the Questionnaire.</li>
+					<li>
+						Properties which use enumerations with multiple enumerated values, and/or properties that use a custom &ldquo;other&rdquo; value do not appear in the XML serialization (export) of the corresponding document.</li>
+				</ul>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Documents will no longer render correctly if all of their corresponding customizations&#39; previously selected CVs are removed.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Cutomizations belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the Editor is not tested.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+					<li>
+						Serializations of models to XML is incomplete if those models have missing or empty elements that need to be referenced in XML (such as responsible parties).</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.11.2.0">v0.11.2.0</a></p>
+				<p>
+					03 Oct 2014</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Added Editor support for projects&nbsp; that do not use any Controlled Vocabularies (CVs). This is useful for projects that do not wish to describe scientific properties.</li>
+					<li>
+						Removed the requirement for documents using a single CV to have a &ldquo;root&rdquo; component.&nbsp; A root component acts as the top-level component when there are components coming from multiple CVs.&nbsp; (For example, a Questionnaire describing a coupled model with components from an atmosphere CV and an ocean CV will need a top-level root component to contain both the atmosphere and the ocean.)</li>
+					<li>
+						Added a required &ldquo;version&rdquo; attribute to CVs ingested into the Questionnaire.&nbsp; This attribute is displayed on all Questionnaire pages. It is currently not included in the Questionnaire output.</li>
+					<li>
+						Fixed the behavior of property category widgets.&nbsp; Details about a property category, such as their name or description, can be customized using these widgets.&nbsp; Additionally, the selection and deselection of a category widget now displays or hides properties belonging to that category so it is obvious which category is being customized.</li>
+					<li>
+						Added a &ldquo;View All&rdquo; button to the Customizer enabling users to see all the properties to be customized in one list.</li>
+					<li>
+						Changed the Editor page titles to use a project&rsquo;s &ldquo;title&rdquo; rather than its &ldquo;name.&rdquo; The project title is a more user-friendly description that can include spacing.</li>
+					<li>
+						Added additional documentation to the &ldquo;default customization&rdquo; property in the Customizer since this feature was poorly understood.</li>
+					<li>
+						Added a &ldquo;view&rdquo; button at the bottom of Customizer, which allows users to navigate between the Customizer and the Editor in order to check what a customization will look like in the Editor.</li>
+					<li>
+						Created an initial XML export capability. While published CIM documents will appear in the CIM Questionnaire ATOM feed, more work may need to be done to the XML format in order to make them usable by the follow-on ES-DOC tools.</li>
+					<li>
+						Added document versioning upon publication. Every time a users clicks the &ldquo;publish&rdquo; button in the Editor, the resultant XML will now be given a new version number. More needs to be done to enable versioning when multiple documents (e.g. Grid and ModelComponent) are described within the same Questionnaire, and to ensure that versioning is applied evenly across sub-documents.</li>
+					<li>
+						Added the ES-DOC support email to all CIM Questionnaire pages (both Customizer and Editor).</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						The expand/collapse/sort buttons in the Customizers for subforms have no effect. This makes it more cumbersome to customize subform properties.</li>
+					<li>
+						Documents that use a single CV with only a single model component are not rendering correctly in the Editor. &nbsp;</li>
+					<li>
+						The property category widgets have no effect in the Customizer.</li>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					New known issues:</p>
+				<ul>
+					<li>
+						Documents will no longer render correctly if all of their corresponding customizations&#39; previously selected CVs are removed.</li>
+				</ul>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizations belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the Editor is not tested.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.11.1.2">v0.11.1.2</a></p>
+				<p>
+					10 Sep 2014</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Ensured that when uploading a new version of a Controlled Vocabulary (CV) to the Questionnaire, any existing customizations which used that CV are updated accordingly.&nbsp; This means that properties that were removed from the CV will be removed from the customization and properties that were added to the CV will be added to the customization.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						The property category widgets have no effect in the Customizer.&nbsp;</li>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The expand/collapse/sort buttons in the Customizers for subforms have no effect. This makes it more cumbersome to customize subform properties.</li>
+					<li>
+						Components that use a single CV with only a single model component (e.g. atmospheric dynamical core) are not rendering correctly in the Editor.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the Editor is not tested.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.11.1.1">v0.11.1.1</a></p>
+				<p>
+					09 Sep 2014</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Fixed the &quot;autocomplete&quot; customization, which allows users to provide suggested for properties.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						The property category widgets have no effect in the Customizer.&nbsp;</li>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizations belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The expand/collapse/sort buttons in the Customizers for subforms have no effect. This makes it more cumbersome to customize subform properties.</li>
+					<li>
+						Documents that use a single CV with only a single model component (e.g. atmospheric dynamical core) are not rendering correctly in the Editor.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the Editor is not tested.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.11.1.0">v0.11.1.0</a></p>
+				<p>
+					08 Sep 2014</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Fixed the bug preventing the saving of documents that included subforms. Subforms allow a CIM property to be rendered as an embedded form within the the main Questionnaire rather than as a standard pull-down menu.&nbsp; Subforms can be added and removed during the editing process.</li>
+					<li>
+						Changed the initialization of Questionnaire widgets to occur on display rather than all at once. This improved the application load time.</li>
+					<li>
+						Improved the look-and-feel of inline help text. Previously property-specific documentation, if customized to display &ldquo;inline,&rdquo; would be rendered in a separate row of the Questionnaire.&nbsp; Now it is rendered alongside the label of the corresponding property.</li>
+					<li>
+						Disabled the add/remove subform buttons in the Viewer (as opposed to the Editor).</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						The saving of CIM Documents that use subforms is now working.&nbsp; This includes subforms that are added or removed dynamically during the editing process.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					New known issues:</p>
+				<ul>
+					<li>
+						The property category widgets have no effect in the Customizer.&nbsp;</li>
+					<li>
+						The Editor incorrectly assumes that all subforms have changed and therefore attempts to save all rendered subforms, even those with no content.&nbsp; This has the result of populating the database with &quot;empty&quot; instances.<br />
+						&nbsp;</li>
+				</ul>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						There may be problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizations belonging to those projects may not render correctly.</li>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+					<li>
+						The Questionnaire generates errors in Internet Explorer that make the software unusable.</li>
+					<li>
+						The expand/collapse/sort buttons in the Customizers for subforms have no effect. This makes it more cumbersome to customize subform properties.</li>
+					<li>
+						Documents that use a single CV with only a single model component (e.g. atmospheric dynamical core) are not rendering correctly in the Editor.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the Editor is not tested.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.11.0.1">v0.11.0.1</a></p>
+				<p>
+					4 Aug 2014</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Added additional help text aimed at guiding users through the Viewer.</li>
+					<li>
+						Restructured the Project Index to have more intuitive field labels.</li>
+					<li>
+						Ensured that the existing CIM Classes in the database were correctly categorized as &quot;CIM Documents&quot; or not.&nbsp; This will restrict the set of Document Type choices that appear in the Project Index Page.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Project Index listed both CIM Documents (e.g. Model Component, Platform) and Classes (e.g. Time Transformation). Only the former should be listed.&nbsp; (The database was updated to exclude inappropriate values.)</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						There are problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizations belonging to those projects may not render correctly.</li>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+					<li>
+						The Questionnaire is not usable in Internet Explorer.</li>
+					<li>
+						The expand/collapse/sort buttons in the Customizers for subforms do not work. This makes it more cumbersome to customize subform properties.</li>
+					<li>
+						Documents that use a single CV with only a single component (e.g. atmospheric dynamical core) are not rendering correctly in the Questionnaire. &nbsp;</li>
+					<li>
+						Saving a CIM Document with multiple subforms does not consistently save the underlying relationships.&nbsp; For example, if a document has a &ldquo;documentAuthor&rdquo; (an instance of a Responsible Party) and also has a &ldquo;contact&rdquo; (also an instance of the SAME Responsible Party) not all of those properties (e.g. &ldquo;documentAuthor&rdquo;, &quot;contact&quot;) may save correctly. The full extent of this issue is not known.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the Editor (especially including customizations where properties are rendered as subforms) is not tested.&nbsp; The following key pieces of functionality need tests:
+						<ul>
+							<li>
+								Test that the field prefixes of a set of nested subforms is correct. Field prefixes are used to distinguish field names in one form from another (e.g. there is a field called &ldquo;short name&rdquo; in every form, and the prefixed added to that name makes it unique).</li>
+							<li>
+								Test that a subform is not saved (a performance hit) unless the subform has actually changed.</li>
+							<li>
+								Test saving a CIM Document which contains only a single instance of a subform (e.g. License).</li>
+							<li>
+								Test saving a CIM Document that contains a set of subforms (e.g. multiple Responsible Parties).</li>
+							<li>
+								Test saving a CIM Document that contains BOTH a single subform (e.g. License) AND a set of multiple subforms (e.g. multiple Responsible Parties).</li>
+							<li>
+								Test saving a CIM Document where a subform has been deleted, added, or replaced where the added or replaced subform is both a new and existing (e.g. already in the database) instance that potentially is already referenced by the current CIM Document.</li>
+						</ul>
+					</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.11.0.0_rc1">v0.11.0.0</a></p>
+				<p>
+					24 July 2014</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Completed a major code refactoring that included the creation of a unit testing framework and simplified the underlying class structure. This improved both code robustness and significantly reduced the number of memory leaks that were causing server instability.</li>
+					<li>
+						Fixed an underlying issue preventing partially completed documents from being saved. This includes saving documents where all of the required fields have not yet been completed. This is an important feature since most documents take more than one session to complete.</li>
+					<li>
+						Ensured that properties within subforms are correctly rendered as &ldquo;required&rdquo; or &ldquo;optional&rdquo; instead of inheriting that characteristic from their parent form. This ensures that user-specified customizations propagate correctly to the editing form.</li>
+					<li>
+						Ensured that the Editor saves partially completed documents regardless of whether any properties within that document have been customized to be invisible to the user. Previously, invisible properties still existed behind the scenes, which inhibited the proper saving of the document.</li>
+					<li>
+						Added project-specific index pages that list the set of CIM documents belonging to a particular project. These pages provide rapid access to links to customize, edit, and view those documents.</li>
+					<li>
+						Added the ability for property help text to be viewed in-line as text in addition to the current popup dialog box. This makes the help text more visible to the user. This feature can be enabled on a property by property basis.</li>
+					<li>
+						Improved the error handling of the Customizer. Specifically, when a property has been customized to be rendered as a subform but that new subform has not been customized the Customizer will not validate.</li>
+					<li>
+						Added the ability to change CIM properties to render in a different type (e.g. character string versus date) than is specified in the CIM standard. This is particularly useful in rendering properties which expect large blocks of text and in rendering dates in a less precise format.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						Users are unable to save partially completed documents.&nbsp; (As part of the refactoring, CIM properties are now represented as relationships within a database rather than as built-in Django fields (e.g. &ldquo;CharFields&rdquo;, &ldquo;DateFields,&rdquo; etc.)&nbsp; The Django fields would not validate if empty.)</li>
+					<li>
+						&ldquo;Required&rdquo; and &ldquo;optional&rdquo; properties within subforms are not rendered consistently correctly.&nbsp; (Fixed the CSS for &ldquo;required&rdquo; or &ldquo;optional&rdquo; items that was being inherited by all child properties.)</li>
+					<li>
+						Customizing a relationship parameter to use a subform without then customizing those child subforms will cause the editor to crash.&nbsp; (Customizing a child subform now sets a field on the parent form; if that field is missing, validation of the parent customizer form will fail.)</li>
+					<li>
+						Some manytomany fields in the CIM (for example, model citations) are being incorrectly treated as manytoone fields in the Questionnaire.&nbsp; (This is no longer relevant as the way that the CIM version is described within the CIM Questionnaire has changed. Previously there were specific Django models for each CIM Class. Now generic Django models are used.)</li>
+					<li>
+						The Editor is unable to save properties that had been customized to not display. This is because those properties were not being included in the POST data upon form submission. (The properties created during the GET now are restricted to those that have been customized to display.)</li>
+					<li>
+						The Editor is unable to save subforms with required properties. This is because these subforms are always being checked, rather than only being checked when users have modified the subform content. (The same fix for partially-completed documents described above helped fix this issue. In addition, there is new code to explicitly work out if subform content has changed.)</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					New known issues:</p>
+				<ul>
+					<li>
+						There are problems when working with multiple projects which use the same Controlled Vocabularies (CVs).&nbsp; Customizers belonging to those projects may not render correctly.</li>
+					<li>
+						The Questionnaire is not usable in Internet Explorer.</li>
+					<li>
+						The expand/collapse/sort buttons in the Customizers for subforms do not work. This makes it more cumbersome to customize subform properties.</li>
+					<li>
+						Documents that use a single CV with only a single component (e.g. atmospheric dynamical core) are not rendering correctly in the Editor.</li>
+					<li>
+						Saving a CIM document with multiple subforms does not consistently save the underlying relationships.&nbsp; For example, if a document has a &ldquo;documentAuthor&rdquo; (an instance of a Responsible Party) and also has a &ldquo;contact&rdquo; (also an instance of the SAME Responsible Party) not all of those properties (e.g. &ldquo;documentAuthor&rdquo;, contact) may save correctly. The full extent of this issue is not known.</li>
+					<li>
+						The Project Index list both CIM Documents (e.g. Model Component, Platform) and Classes (e.g. Time Transformation). Only the former should be listed.</li>
+					<li>
+						The CIM Questionnaire does not yet have full test coverage.&nbsp; In particular, testing how the full range of customizations propagate through the Editor (especially including customizations where properties are rendered as subforms) is not tested.&nbsp; The following key pieces of functionality need tests:
+						<ul>
+							<li>
+								Test that the field prefixes of a set of nested subforms is correct. Field prefixes are used to distinguish field names in one form from another (e.g. there is a field called &ldquo;short name&rdquo; in every form, and the prefixed added to that name makes it unique).</li>
+							<li>
+								Test that a subform is not saved (a performance hit) unless the subform has actually changed.</li>
+							<li>
+								Test saving a CIM document which contains only a single instance of a subform (e.g. License).</li>
+							<li>
+								Test saving a CIM document that contains a set of subforms (e.g. multiple Responsible Parties).</li>
+							<li>
+								Test saving a CIM document that contains BOTH a single subform (e.g. License) AND a set of multiple subforms (e.g. multiple Responsible Parties).</li>
+							<li>
+								Test saving a CIM document where a subform has been deleted, added, or replaced where the added or replaced subform is both a new and existing (e.g. already in the database) instance that potentially is already referenced by the current CIM Document.</li>
+						</ul>
+					</li>
+				</ul>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load slowly when a CV has many subcomponents and/or scientific properties.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.10.2.2">v0.10.2.2</a></p>
+				<p>
+					7 Mar 2014</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Added the ability to customize properties such that their values are inherited by the corresponding properties of child components.&nbsp; This helps users avoid entering redundant information and speeds up the entire data entry process.</li>
+					<li>
+						Added a basic home page for the CIM Questionnaire (project-specific pages will be added in a subsequent release).&nbsp;</li>
+					<li>
+						Added styling to distinguish the production site from other sites.</li>
+					<li>
+						Added basic user authentication (full user profiles and open-id authentication will be added in a subsequent release).&nbsp; This provides a measure of security for metadata documents; Anybody can access the Viewer, project members can access the Editor, and project administrators can access the Customizer.</li>
+					<li>
+						<div class="line" id="LC9">
+							Added the ability to customize the order that CVs are presented in the Editor.&nbsp; This allows users to focus on the more relevant CVs first.&nbsp; For example,&nbsp; it is likely that users will want to tackle atmospheric components before, say, sea ice components.</div>
+					</li>
+					<li>
+						<div class="line">
+							Ensured that the choice of CVs to include is saved correctly in the customizer. Previously, it was reset each time the customizer was invoked which required users to explicitly re-choose the CVs they wanted to use (a step that was often forgotten).</div>
+					</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Users are unable to save partially completed documents.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+					<li>
+						Required and optional properties within subforms are not rendered consistently correctly.</li>
+					<li>
+						Customizing a relationship parameter to use a subforms without then customizing those child subforms will cause the editor to crash.</li>
+					<li>
+						Some <em>manytomany</em> fields in the CIM (for example, model citations) are being incorrectly treated as <em>manytoone</em> fields in the Questionnaire.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load extremely slowly when a Controlled Vocabulary (CV) has many subcomponents and/or scientific properties.</li>
+					<li>
+						The Editor is unable to save properties that had been customized to <em>not</em> display.&nbsp; This is because those properties were not being included in the POST data upon form submission.</li>
+					<li>
+						The Editor is unable to save subforms with required properties. This is because these subforms are <em>always</em> being checked, rather than only being checked when users have modified the subform content.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="https://github.com/ES-DOC/esdoc-questionnaire/tree/v0.10.2.1">v0.10.2.1</a></p>
+				<p>
+					02 Feb 2014</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Ensured that the Editor rendered documents from <a href="/projects/dcmip-2012">DCMIP-2012</a>.</li>
+					<li>
+						Improved the automatic backing up &amp; restoration of the CIM Questionnaire database by ensuring that this functionality works across distinct servers, database instances, users, and/or Python environments.</li>
+					<li>
+						Stopped using underlining as a way to emphasize text elements in the forms, since that formatting could be mistaken for links; Using bold instead.</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						The Editor did not render for documents from <a href="/projects/dcmip-2012">DCMIP-2012</a>.&nbsp; They generate an error due to some form components being uninitialized. [Ensured the forms are initialized prior to rendering]</li>
+					<li>
+						When trying to restore a database using a backup from another database, that restoration will fail if the user structure in both databases is not the same. [Improved backup procedures. They now work across distinct servers].</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Users are unable to save partially completed documents.</li>
+					<li>
+						Required and optional properties within subforms are not rendered consistently correctly.</li>
+					<li>
+						Customizing a relationship parameter to use a subform without then customizing those child subforms will cause the editor to crash.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+					<li>
+						Some <em>manytomany</em> fields in the CIM (for example, model citations) are being incorrectly treated as <em>manytoone</em> fields in the Questionnaire.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load extremely slowly when a Controlled Vocabulary (CV) has many subcomponents and/or scientific properties.</li>
+					<li>
+						The Editor is unable to save properties that had been customized to <em>not</em> display.&nbsp; This is because those properties were not being included in the POST data upon form submission.</li>
+					<li>
+						The Editor is unable to save subforms with required properties.&nbsp; This is because these subforms are <em>always</em> being checked, rather than only being checked when users have modified the subform content.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="http://github.com/ES-DOC/esdoc-questionnaire/tree/v0.10.2.0">v0.10.2.0</a></p>
+				<p>
+					13 Jan 2014</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Added support for the automatic backing up &amp; restoration of the CIM Questionnaire database.</li>
+					<li>
+						Rewrote how GET parameters are parsed so that users can now explicitly specify in the URL details of the customization/model they are looking for.</li>
+					<li>
+						Included some minor additional fixes - that were missed out from the last release - to support the <a href="/projects/downscalingmetadata/controlled_vocabularies/statistical">Statistical Downscaling Controlled Vocabulary (CV)</a>.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					New known issues:</p>
+				<ul>
+					<li>
+						Users are unable to save partially completed documents.</li>
+					<li>
+						Required and optional properties within subforms are not rendered consistently correctly.</li>
+					<li>
+						Customizing a relationship parameter to use a subforms without then customizing those child subforms will cause the editor to crash.</li>
+					<li>
+						Some <em>manytomany</em> fields in the CIM (for example, model citations) are being incorrectly treated as <em>manytoone</em> fields in the Questionnaire.</li>
+					<li>
+						The Editor will not render for documents from <a href="/projects/dcmip-2012">DCMIP-2012</a>.&nbsp; They generate an error due to some form components being uninitialized.</li>
+					<li>
+						When trying to restore a database using a backup from another database, that restoration will fail if the user structure in both databases is not the same.</li>
+				</ul>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load extremely slowly when a Controlled Vocabulary (CV) has many subcomponents and/or scientific properties.</li>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The Editor is unable to save properties that had been customized to <em>not</em> display.&nbsp; This is because those properties were not being included in the POST data upon form submission.</li>
+					<li>
+						The Editor is unable to save subforms with required properties.&nbsp; This is because these subforms are <em>always</em> being checked, rather than only being checked when users have modified the subform content.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="http://github.com/ES-DOC/esdoc-questionnaire/tree/v0.10.1.1/">v0.10.1.1</a></p>
+				<p>
+					09 Jan 2014</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Provided support for the new structures introduced by the <a href="/projects/downscalingmetadata/controlled_vocabularies/statistical">Statistical Downscaling Controlled Vocabulary (CV</a>). &nbsp;The structure of the CV mindmap included certain features that had to be explicitly checked for when registering with the Questionnaire</li>
+				</ul>
+				<p>
+					Known issues fixed in this release:</p>
+				<ul>
+					<li>
+						The CIM Questionnaire is unable to support Controlled Vocabularies (CVs) like the&nbsp;<a href="/projects/downscalingmetadata/controlled_vocabularies/statistical">Statistical Downscaling CV</a>&nbsp;which have property-bundles that act as &quot;virtual&quot; components. These virtual components are now supported.&nbsp;</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Users are unable to save partially completed documents.</li>
+					<li>
+						Required and optional properties within subforms are not rendered consistently correctly.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load extremely slowly when a Controlled Vocabulary (CV) has many subcomponents and/or scientific properties.</li>
+					<li>
+						The Editor is unable to save properties that had been customized to <em>not</em> display.&nbsp; This is because those properties were not being included in the POST data upon form submission.</li>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+					<li>
+						The Editor is unable to save subforms with required properties.&nbsp; This is because these subforms are <em>always</em> being checked, rather than only being checked when users have modified the subform content.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="http://github.com/ES-DOC/django-cim-forms/tree/v0.10.0.2">v0.10.0.2</a></p>
+				<p>
+					02 Dec 2013</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Added the ability for Controlled Vocabularies (CVs) to apply to multiple projects.&nbsp;This was required by the <a href="/projects/hiwpp/">High Impact Weather Prediction Project (HIWPP)</a>, which re-used some of the CVs already in use by the <a href="/projects/downscalingmetadata">Downscaling Metadata Project</a>.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Users are unable to save partially completed documents.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						Required and optional properties within subforms are not rendered consistently correctly.</li>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load extremely slowly when a Controlled Vocabulary (CV) has many subcomponents and/or scientific properties.</li>
+					<li>
+						The CIM Questionnaire is unable to support Controlled Vocabularies (CVs) like the&nbsp;<a href="/projects/downscalingmetadata/controlled_vocabularies/statistical">Statistical Downscaling CV</a>&nbsp;which have property-bundles that act as &quot;virtual&quot; components.</li>
+					<li>
+						The Editor is unable to save properties that had been customized to <em>not</em> display.&nbsp; This is because those properties were not being included in the POST data upon form submission.</li>
+					<li>
+						The Editor is unable to save subforms with required properties.&nbsp; This is because these subforms are <em>always</em> being checked, rather than only being checked when users have modified the subform content.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="http://github.com/ES-DOC/django-cim-forms/tree/v0.10.0.1">v0.10.0.1</a></p>
+				<p>
+					02 Dec 2013</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Updated the directory structure for handling ATOM feeds.&nbsp;Previously this was specified in CoG&#39;s settings; Since the CIM Questionnaire had been de-coupled from CoG this had to be re-specified elsewhere.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Users are unable to save partially completed documents.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						Required and optional properties within subforms are not rendered consistently correctly.</li>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load extremely slowly when a Controlled Vocabulary (CV) has many subcomponents and/or scientific properties.</li>
+					<li>
+						The CIM Questionnaire is unable to support Controlled Vocabularies (CVs) like the <a href="/projects/downscalingmetadata/controlled_vocabularies/statistical">Statistical Downscaling CV</a> which have property-bundles that act as &quot;virtual&quot; components.</li>
+					<li>
+						The Editor is unable to save properties that had been customized to <em>not</em> display.&nbsp; This is because those properties were not being included in the POST data upon form submission.</li>
+					<li>
+						The Editor is unable to save subforms with required properties.&nbsp; This is because these subforms are <em>always</em> being checked, rather than only being checked when users have modified the subform content.</li>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="http://github.com/ES-DOC/django-cim-forms/tree/v0.10.0.0">v0.10.0.0</a></p>
+				<p>
+					02 Dec 2013</p>
+			</td>
+			<td>
+				<p>
+					Key features of this release include:</p>
+				<ul>
+					<li>
+						Finalized the refactoring of the CIM Questionnaire as a project separate from CoG.</li>
+					<li>
+						Updated the versioning structure to be in-line with other ES-DOC projects (ie: <em>major.minor.patch</em>)</li>
+					<li>
+						Implemented the use of fixtures to migrate to different database formats and moved to using Postgres instead of Sqlite.</li>
+					<li>
+						Removed all Sqlite-specific code.</li>
+				</ul>
+			</td>
+			<td>
+				<p>
+					New known issues:</p>
+				<ul>
+					<li>
+						Users are unable to save partially completed documents.</li>
+					<li>
+						Required and optional properties within subforms are not rendered consistently correctly.</li>
+					<li>
+						The Editor is unable to save properties that had been customized to&nbsp;<em>not</em>&nbsp;display.&nbsp; This is because those properties were not being included in the POST data upon form submission.</li>
+					<li>
+						The Editor is unable to save subforms with required properties.&nbsp; This is because these subforms are&nbsp;<em>always</em>&nbsp;being checked, rather than only being checked when users have modified the subform content.</li>
+				</ul>
+				<p>
+					Known issues carried over:</p>
+				<ul>
+					<li>
+						Memory inefficiencies cause the Customizer and Editor to load extremely slowly when a Controlled Vocabulary (CV) has many subcomponents and/or scientific properties.</li>
+					<li>
+						Saving a property in the Customizer without an associated category being specified causes an error which prevents the customization from saving.</li>
+					<li>
+						The CIM Questionnaire is unable to support Controlled Vocabularies (CVs) like the <a href="/projects/downscalingmetadata/controlled_vocabularies/statistical">Statistical Downscaling CV</a> which have property-bundles that act as &quot;virtual&quot; components.</li>
+					<li>
+						Documents that include no CVs are not rendering corretly in the Editor.</li>
+					<li>
+						Adding a CV to a project with existing customizations does not update those customizations.&nbsp; This results the properties from that CV only being customizable in new customizations and not in existing customizations.</li>
+				</ul>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<ul>
+	<li>
+		&nbsp;</li>
+</ul>
+<p>
+	&nbsp;</p>
+    </div> <!--// end div id=cog_post_body //-->
+
+    <!-- include last updated text -->
+    <!--// START: /cog/templates/cog/post/_post_last_update.html //-->
+
+    <!--clear:both added to move the last update down if any elements above are floated.-->
+    <!--clear:both means no floating elements allowed on either the left or the right side-->
+	<div id="last_update_text" style="font-size: 8pt; font-style: italic; text-align:center; clear:both;">
+	     Last Update: May 30, 2017, 8:48 a.m. by
+         
+             <a href="/user/detail/2172/">Allyn Treshansky</a>
+         
+	</div> <!--// end div id="last_update_text" //-->
+
+
+    <!--// add social media buttons //-->
+    <div id="social_media" style="text-align:center; padding-top: 4px; padding-bottom:8px;">
+        <!--// START: /cog/templates/cog/common/cog_social_media.html //-->
+
+<!--// add social media buttons //-->
+
+
+<!--twitter function -->
+<script type="text/javascript">
+    //<![CDATA[
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+//]]>
+</script>
+
+<table class="no_color" style="width:125px;margin-left:auto;margin-right:auto;">
+<tr>
+   <td>
+   <!-- Facebook -->
+   <div id="facebook">
+      <a href="#" onclick=" window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.earthsystemcog.org/projects/es-doc-models/releases_questionnaire','facebook-share-dialog','width=626,height=436');return false;">
+          <img src="/static/cog/img/facebook.png" height="20" alt="Facebook logo"/></a>
+    </div> <!--// end div id=facebook //-->
+    </td>
+
+    <td>
+    <!-- Twitter -->
+    <div id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="http%3A//www.earthsystemcog.org/projects/es-doc-models/releases_questionnaire">Tweet</a>
+    </div> <!--// end div id=twitter //-->
+    </td>
+</tr>
+</table>
+    
+
+
+		
+		
+    </div><!--// end div id=social_media //-->
+
+    <!--// include action links via cog/post/_post_actions.html  //-->
+    
+<!--// START: /cog/templates/cog/post/_post_actions.html //-->
+<!-- adds the links to update, delete, etc a post -->
+
+    
+
+<!--// END: /cog/templates/cog/post/_post_actions.html //-->
+	
+
+    
+    <!--// include attachments via cog/post/_post_attachements.html  //-->
+    <div id="attachments">
+        <!--// START: /cog/templates/cog/post/_post_attachements.html //-->
+
+
+
+
+    </div> <!--// end div id=attachments //-->
+    
+    <!--// add related paged via cog/post/_post_hierarchy.html  //-->
+    <div id="related_pages">
+       
+	   <!--// START: /cog/templates//cog/post/_post_hierarchy.html //-->
+<!--// Related Pages //-->
+
+
+
+
+   
+
+      
+                    <hr class="white"/>
+	       <div class="header_bar">
+           <!--// Create header bar and include the number of Related Pages in parentheses //-->
+	            <a href="" onclick="javascript:toggle_visibility('post_hierarchy'); return false;" class="listlink">&nbsp;Related Page (1)</a>
+	       </div><!--// end div.header_bar //-->
+	       <div class="mybox" id="post_hierarchy" style="display:none">
+	           <table>
+	              
+	                <tr>
+	                    <td>
+	                       Parent Page: <a href="">Questionnaire Motivation</a>
+	                   </td>
+	                </tr>
+	              
+
+	              
+
+	        </table>  
+	       </div><!--// end div id=post_hierarchy //-->
+      
+   
+
+       
+    </div> <!--// end div id=related_pages //-->
+
+   
+           	
+
+    
+
+    </div>
+
+
+            </div> <!--// end div.container //-->
+            <!--// pushes the content wrapper down enough to hold the footer //-->
+            <div class="push"></div> <!--// end div.push //-->
+        </div> <!--// end div.content_wrapper //-->
+        <div class="footer_bar">
+            <!--adds a margin above the footer-->
+            <div class="footer_spacer"></div> <!--// end footer spacer //-->
+	        
+                <!--// START: /cog/templates/cog/common/cog_footer_bar_only.html //-->
+
+
+
+
+<div class="footer">
+    <table>
+	<tr>
+	  <!--// CoG sponsors //-->
+	<td style="width:30%;">
+	  <table>
+	    <tr>
+	      <td>ESGF sponsors and partners</td>
+	    </tr>
+	    <tr>
+	      <td>
+		  <a href="http://science.energy.gov/">DoE Office of Science</a> |
+		  <a href="https://verc.enes.org/ISENES2">IS-ENES</a> |
+                  <a href="http://www.nasa.gov">NASA</a> |
+                  <a href="http://www.noaa.gov">NOAA</a> |
+		<a href="http://nci.org.au/">NCI</a> |
+		<a href="http://www.nsf.gov">NSF</a> 
+	      </td>
+	    </tr>
+	   </table>
+	 </td>
+
+
+     <!--// CoG Version and ESGF Version (if found) //-->
+	 <td style="width:30%;">
+          <table >
+	    <tr>
+	      <td style="text-align:center;">CoG version 3.9.9</td>
+	    </tr>
+	    
+	   </table>
+	 </td>  
+	 
+	 <!--// ESGF sponsors //-->
+	 <td style="width:30%;">
+
+      <table>
+	    <tr>
+	      <td style="text-align:right;">Earth System CoG sponsors and partners</td>
+	    </tr>
+	    <tr>
+	      <td style="text-align:right;"><a href="http://www.noaa.gov">NOAA</a> |
+		  <a href="http://www.nasa.gov">NASA</a> |
+		  <a href="http://www.nsf.gov">NSF</a> |
+		  <a href="http://science.energy.gov/">DoE Office of Science</a> |
+		  <a href="https://verc.enes.org/ISENES2">IS-ENES</a></td>
+	    </tr>
+	  </table>
+
+	 </td>  
+	</tr>
+    </table>
+  </div><!--// end div.footer //-->
+
+
+
+
+
+            
+        </div> <!--// end footer_bar //-->
+        <div class="custom_footer_bar">
+            
+                
+  <div class="custom_footer">
+       <table class="custom_footer">
+       <tr>
+       <td style="width:30%;">http://www.earthsystemcog.org</td>
+       <td style="width:70%;text-align:right;">
+         <a href="mailto:cog_support@list.woc.noaa.gov">cog_support@list.woc.noaa.gov</a> |
+         <a href="http://www.colorado.edu/about/privacy-statement">privacy policy</a>
+       </td>
+       </tr>
+       </table>
+    </div>
+
+            
+        </div> <!--// end div.custom_footer_bar //-->
+        <!--END: /layouts/templates/layouts/layout_base.html-->
+    </body>
+</html>

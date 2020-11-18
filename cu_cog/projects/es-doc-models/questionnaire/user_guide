@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<!--// LOCATION: /layouts/templates/layouts/layout_base.html //-->
+<!--// START: /layouts/templates/layouts/layout_base.html //-->
+
+
+<html lang="en">
+<!--creates classes for the various versions of internet explorer 9 and below. 10+ no longer accepts conditional.
+These are then used in the CSS to fix specific issues-->
+<!--[if lt IE 7 ]>   <html class="ie6">  <![endif]-->
+<!--[if IE 7 ]>      <html class="ie7">  <![endif]-->
+<!--[if IE 8 ]>      <html class="ie8">  <![endif]-->
+<!--[if IE 9 ]>      <html class="ie9">  <![endif]-->
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="edge" > <!--required to get IE out of quirks mode-->
+
+        <!--// consider removing these all together //-->
+        <!--// <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/screen.css"/> //-->
+        <!--// <link type="text/css" rel="stylesheet"  media="print" href="/static/css/blueprint/print.css"/> //-->
+
+		<!-- // frame busting JS // 
+		<script language="javascript">
+			/* break us out of any containing iframes */
+			/* IMPORTANT: THIS BREAKS FILE UPLOADER, DON'T DO IT */
+			//if (top != self) { top.location.replace(self.location.href); }
+		</script> -->
+		
+        <!--// CSS for grid layout //-->
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/reset.css"/>
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/grid.css"/>
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/typography.css" />
+
+         <!--// Load head section from template. Contains CSS //-->
+         
+
+    <!-- template for HTML meta tags -->
+
+
+
+<!-- favicon -->
+<link rel="Shortcut Icon" href="/static/cog/img/favicon_cog.ico" type="image/x-icon" />
+
+<!--logic for HTML title:
+1) If the page is within the project context, add the short name to the title
+2) If a project home page, just list use HOME vice the page title
+3) Look for either title or title2 it they exist
+4) If nothing else, just list ESGF-CoG
+-->
+<!-- titles should be less than 70 characters -->
+
+
+    
+        
+            <title>ES-DOC Questionnaire Help | ES-DOC-Models | ESGF-CoG</title>
+        
+    
+
+
+
+
+	
+		<!-- note: must process the text to remove undesired characters, tags  -->
+		<meta name="description" content="How do I start using the ES-DOC Questionniare? The first step in using the ES-DOC Questionnaire is to sign up for a Questionnaire account. &nbsp;Clicking the &quot;sign up&quot; button at the top of the page will open the registration form (Figure 1). &nbsp; Figure 1 &nbsp; Once an account has ..." />
+	
+
+ 
+    <!--LOCATION: /cog/templates/cog/common/yui.html-->
+
+<!-- Loading YUI CSS libraries -->
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/fonts/fonts-min.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/button/assets/skins/sam/button.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/container/assets/skins/sam/container.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/assets/skins/sam/treeview.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/tabview/assets/skins/sam/tabview.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/autocomplete/assets/skins/sam/autocomplete.css" />
+<!-- Optional CSS for for date editing with Calendar-->
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/calendar/assets/skins/sam/calendar.css" />
+
+<!-- Loading dependent JavaScript source files --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/yahoo/yahoo-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/yahoo-dom-event/yahoo-dom-event.js" ></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/event/event-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/element/element-min.js" ></script>
+<!-- Optional dependency source file --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/animation/animation-min.js"></script>
+<!-- Optional dependency source file for date editing with Calendar--> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/calendar/calendar-min.js" ></script>
+<!-- Optional dependency source file to decode contents of yuiConfig markup attribute--> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/json/json-min.js" ></script>
+<!-- TreeView source file --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/treeview/treeview-min.js" ></script>
+<!-- Loaing Source files for TabView -->
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/tabview/tabview-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/connection/connection-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/button/button-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/dragdrop/dragdrop-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/container/container-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/datasource/datasource-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/autocomplete/autocomplete-min.js"></script>
+ 
+    <!-- File containing functionality for creating overlay panels with YUI library -->
+
+<script type="text/javascript">
+//<![CDATA[
+	YAHOO.namespace("cog");
+
+    var handleDismiss = function() { 
+        YAHOO.cog.myDialog.hide(); 
+    }; 
+            
+    /**
+    Function to show a small message window, with a title and a 'Dismiss' button.
+    The HTML page must contain an element of id 'myDialog' for the window to be anchored:
+        <div id="myDialog" class="yui-skin-sam"></div>
+    */
+    function showMessage(title, message) {
+
+        YAHOO.cog.myDialog = new YAHOO.widget.SimpleDialog("msgDialog", {
+            width: "400px", 
+            fixedcenter: true, 
+            constraintoviewport: true, 
+            underlay: "shadow", 
+            close: true, 
+            visible: false, 
+            draggable: true,
+            modal:true,
+            buttons: [ { text:"Dismiss", handler:handleDismiss, isDefault:true } ]
+        });
+                    
+        YAHOO.cog.myDialog.setHeader(title);
+        YAHOO.cog.myDialog.setBody("<div style='text-align:center'>"+message+"</div>");
+        YAHOO.cog.myDialog.cfg.setProperty("underlay","matte");
+        
+        YAHOO.cog.myDialog.render('myDialog');
+        YAHOO.cog.myDialog.show();
+    }
+    
+    /**
+    Default handler to hide the current dialog
+    */
+    var handleNo = function() {
+        // hide dialog
+        this.hide();
+    };
+    
+    /**
+    Function to create a confirmation dialog with 'Yes', 'No' buttons connected to specific handlers.
+    The HTML page must contain an element of id 'myDialog' for the window to be anchored:
+        <div id="myDialog" class="yui-skin-sam"></div>
+    */
+    function createConfirmationDialog(dialogHeader, dialogText, yesHandler, noHandler) {
+    	    	
+    	var mySimpleDialog = new YAHOO.widget.SimpleDialog("confDialog",
+                { width: "30em",
+                  fixedcenter: true,
+                  visible: false,
+                  draggable: true,
+                  close: true,
+                  modal: true,
+                  effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration:0.25},
+                  text: dialogText,
+                  constraintoviewport: true,
+                  buttons: [ { text:"Yes", handler:yesHandler },
+                             { text:"No",  handler:noHandler, isDefault:true } ]
+                } );
+        mySimpleDialog.setHeader(dialogHeader);
+        mySimpleDialog.render("myDialog");
+        mySimpleDialog.show();
+    	
+        return mySimpleDialog;
+    }
+    
+    /**
+    Dialog to confirm a URL invocation.
+    The widget is the HTML <a></a> element.
+    The page must include an anchor div element of the form: <div id="myDialog" class="yui-skin-sam"></div>,
+    as well as include the javascript code in the two files: 'cog/common/yui.html' and 'cog/common/yui_panels.html'.
+    */
+    function urlConfirmationDialog(dialogHeader, dialogText, widget) {
+
+        var getUrl = function() {
+            // hide dialog
+            this.hide();
+            // request URL
+            window.location = widget.href;
+        };
+
+        var dlg = createConfirmationDialog(dialogHeader, dialogText, getUrl, handleNo);
+        
+        // return false to prevent link from being invoked automatically
+        return false;
+
+    }
+    
+    /** Function to show a modal waiting panel */
+    function showWaitPanel() {
+    	 
+    	if (YAHOO.cog.waitPanel==null) {
+	    	YAHOO.cog.waitPanel =  
+	    		new YAHOO.widget.Panel("wait",   
+	    		            { width:"240px",  
+	    		              fixedcenter:true,  
+	    		              close:false,  
+	    		              draggable:false,  
+	    		              zindex:4, 
+	    		              modal:true, 
+	    		              visible:false 
+	    		            }  
+	    		); 
+	    		 
+	    	YAHOO.cog.waitPanel.setHeader("Please wait..."); 
+	    	YAHOO.cog.waitPanel.setBody('<img src="/static/cog/img/rel_interstitial_loading.gif" />'); 
+	    	YAHOO.cog.waitPanel.render("myDialog"); 
+    	}
+    	YAHOO.cog.waitPanel.show();
+    	
+    }
+    
+    /** Function to hide the waiting panel */
+    function hideWaitPanel() {
+    	YAHOO.cog.waitPanel.hide();
+    }
+//]]>
+</script>    
+    <!-- file containing common javascript utilities -->
+
+<script type="text/javascript">
+<!--
+
+    /* redefining javascript trim() fn,
+     * which doesn't exist in IE 8.*,
+     */
+
+     String.prototype.trim = function() {
+         return this.replace(/^\s+|\s+$/g,'');
+     };
+
+	// function to switch the visibility of an HTML element
+    function toggle_visibility(id) {
+       var e = this.document.getElementById(id);
+       if (e!=null) {
+	       if (e.style.display == 'block') {
+	          e.style.display = 'none';
+	       } else {
+	          e.style.display = 'block';
+	       }
+       }
+    }
+    
+    // function to toggle the visibility of an HTML element and change the hyperlink text
+	function openclose(id, hlink, showText, hideText) {
+	    var e = this.document.getElementById(id);
+	    if (e!=null) {
+		       if (e.style.display == 'block') {
+		          e.style.display = 'none';
+		          hlink.innerHTML = showText;
+		       } else {
+		          e.style.display = 'block';
+		          hlink.innerHTML = hideText;
+		       }
+	    }
+	 }
+    
+	// function to set the visibility of an HTML element
+	function set_visibility(id, bool) {
+	   var e = this.document.getElementById(id, bool);
+	   if (e!=null) {
+	       if (bool) {
+	          e.style.display = 'block';
+	       } else {
+	          e.style.display = 'none';
+	       }
+	   }
+	}
+	
+	// function to delete an HTML element by id
+	function delete_element(id) {
+		   var e = this.document.getElementById(id);
+		   if (e!=null) {
+		       e.parentNode.removeChild(e);
+		   }
+		}
+
+    
+//-->
+</script>
+
+<!-- Detect browser on load -->
+<script type="text/javascript">
+  <!--
+    // placeholder for browser-specific js that should be run
+	function detectBrowser() {
+	  
+	  //if (YAHOO.env.ua.webkit) { // safari
+	  //if (YAHOO.env.ua.gecko > 0) { // FF 
+	  //if (YAHOO.env.ua.ie > 0) { // IE
+	  
+	 }
+	 //YAHOO.util.Event.onDOMReady(detectIE);
+  //-->
+</script> 
+    <!-- JS libraries needed for Wiki functionality -->
+
+<script type="text/javascript" src="/static/cog/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/static/filebrowser/js/FB_CKEditor.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+if (CKEDITOR) {
+	
+	// integration with django-filebrowser
+	
+	// uncomment 'filebrowserBrowseUrl ' link to enable browsing of server directories
+	// type=image restricts uploads to image files ('.jpg','.jpeg','.gif','.png','.tif','.tiff')
+	CKEDITOR.config.filebrowserBrowseUrl = '/admin/filebrowser/browse?pop=3&type=image';
+	// NOTE: additional parameter 'project' limits browsing to current project only
+	//CKEDITOR.config.filebrowserBrowseUrl = '/admin/filebrowser/browse?pop=3&type=image&project=ES-DOC-Models';
+	
+	// uncomment 'filebrowserUploadUrl' to enable direct upload of images to server
+	// NOTE: assumes project is available from request object
+	CKEDITOR.config.filebrowserImageUploadUrl = '/doc/upload/ES-DOC-Models/';
+	
+	// custom toolbar color
+	CKEDITOR.config.uiColor = "#B9E0E3";
+	
+	// custom color picker
+	CKEDITOR.config.extraPlugins = 'uicolor';
+	
+	// toolbar configuration
+	CKEDITOR.config.toolbar_Full =
+		[
+		    { name: 'document',    items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },
+		    //{ name: 'clipboard',   items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
+		    { name: 'editing',     items : [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ] },
+		    { name: 'forms',       items : [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+		    
+		    '/',
+		    
+		    //{ name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+		    { name: 'basicstyles', items : [ 'Bold','Italic','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+		    { name: 'paragraph',   items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ] },
+		    { name: 'links',       items : [ 'Link','Unlink','Anchor' ] },
+		    { name: 'insert',      items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak' ] },
+		    
+		    '/',		    
+
+		    // disable FontSize
+		    //{ name: 'styles',      items : [ 'Styles','Format','Font','FontSize' ] },
+		    { name: 'styles',      items : [ 'Styles','Format','Font' ] },
+		    
+		    // disable BGColor
+		 	//{ name: 'colors',      items : [ 'TextColor','BGColor' ] },
+		    { name: 'colors',      items : [ 'TextColor' ] },
+		    
+		    // add UIColor picker
+		    { name: 'tools',       items : [ 'Maximize', 'ShowBlocks','-','About', 'UIColor' ] }
+		    
+		];
+	CKEDITOR.config.toolbar = 'Full';
+
+}
+//]]>
+</script>
+   
+    <!-- placeholder file for inserting node-specific Google Analytics script -->
+
+    
+
+
+         <!-- icon library used for question mark icon -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+
+         <!--// loading CoG-specific styles. Needs to be last //-->
+         <link rel="stylesheet" type="text/css" href="/static/cog/css/cogstyle.css" />
+
+         <!--// hooks for page-specific head content. Both style statements and javascript need to be loaded in the header only. //-->
+         
+         
+         
+    </head>
+    
+    <body>
+        <div class="content_wrapper"><!--// makes the footers always at the bottom of the window //-->
+            <div class="custom_header_bar">
+                
+                    <div style="height:42px;" class="custom_header">
+<map name="logo">
+	<area href="http://esgf.llnl.gov/" shape="rect" coords="0,0,119,30" title="ESGF">
+	<area href="http://www.earthsystemcog.org" shape="rect" coords="125,0,177,30" title="ESGF">
+</map>
+
+
+
+<table style="height:42px; padding:0; margin:0; vertical-align:middle;background-color: transparent;">
+   <tr>
+       <td class="hosted_by" style="width:52px; font-size:10px; font-weight:bold; font-style:italic; padding-right:1px;">
+            Hosted by
+       </td>
+       <td style="text-align:left; vertical-align:middle; width:30px; padding-left:0;">
+           <img style="height:36px;" src="/mymedia/cu_39_transparent.png" alt="CU logo"/>
+       </td>
+       <td class="custom_header_location"><strong>
+       University of Colorado</strong><br>
+       Boulder</td>
+       <td class="powered_by">
+            Powered by
+        </td>
+       <td class="custom_header_esgf_cog">
+              <img style="vertical-align:middle; height:36px; margin:0;" src="/static/cog/img/cog_esgf_small.png"
+                   usemap="#logo" alt="ESGF-CoG logo"/>
+       </td>
+   </tr>
+</table>
+</div>
+
+                
+            </div> <!--// end div.custom_header //-->
+            <div class="container"> <!--// django class //-->
+
+                <!-- load optional notification banner -->
+                
+	                 <div class="span-max last" style="display:none;">
+   <div class="node-notification-box" >
+	   Insert node-wide notification text here.
+   </div>
+
+</div>
+                
+                <!-- load cog upper navigation bar and user menu -->
+  	            
+                    <!--// START: /cog/templates/common/cog_header.html //-->
+
+
+
+<div class="span-max last" >
+   <!--// first row of the header with user links-->
+   <!--load top-right user menu from cog/common/_user_menu.html-->
+   <table class="no-color">
+       <tr>
+           <td id="user_menu" style="text-align: right; padding:0; padding-right:2px; padding-bottom: 2px;">
+	           <!--//START: /cog/templates/cog/common/_user_menu.html //-->
+
+
+
+     Welcome, <strong>Guest</strong>.
+     | <a href="/login/?next=http://www.earthsystemcog.org/projects/es-doc-models/questionnaire/user_guide"> Login</a>
+     <!-- | <a href="/openid/login/?next=http://www.earthsystemcog.org/projects/es-doc-models/questionnaire/user_guide">OpenID Login</a> -->
+     | <a href="/user/add/?next=http://www.earthsystemcog.org/projects/es-doc-models/questionnaire/user_guide">Create Account</a>
+
+<!--//END: /cog/templates/cog/common/_user_menu.html //-->
+           </td>
+       </tr>
+       <tr>
+       <!-- shrink the space between the navigation and user menu on pages that don't have a project context e.g. no project name or logo -->
+       
+           
+               <!-- height of the td is 70px to match the height w/o an image. The td will expand if the project logo is larger -->
+               <!-- height of the project logo above the left nav bar is really controlled by the padding associated with the font-size
+               and padding of the node, since that is a different row. -->
+               <td style="height: 70px; vertical-align: bottom;  padding:0; padding-left:2px; margin:0;"> <!--must use vertical-align: bottom-->
+                    <span>
+                    
+                         <a style="padding:0; margin:0;" href="/projects/es-doc-models/">
+                    
+                    <img style="max-height: 150px; vertical-align: bottom;" src="/site_media/logos/es-doc-logo_purple_1.png" alt="ES-DOC-Models logo"/>
+                    </a>
+                    </span>
+               </td>
+           
+       
+   </tr>
+   <tr>
+       <td style="padding:0; padding-bottom: 1px; padding-right: 2px; font-size: 12px; color: #666; text-align: right; font-style: italic;">
+           You are at the <strong>CoG-CU</strong> node
+       </td>
+   </tr>
+   </table>
+</div>
+
+<!-- top navigation bar -->
+<div class="span-max last">
+   <div class="top_nav">
+       <div class="span-940">
+	       <div id="top_nav_left">
+               <ul>
+		           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/" >Home</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/aboutus/" >About Us</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/software/" >Software</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/developers/" >Developers</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/metrics/" >Metrics</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/governance/" >Governance</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/resources/" >Resources</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/contactus/" >Contact Us</a></li>
+
+                                
+                           
+				       
+                   
+               </ul>
+		   </div> <!--// end div id=top_nav_left //-->
+	   </div> <!--//end div.span-26 //-->
+	
+	   <div  class="span-5 last">
+		   <div id="top_nav_right">
+               <a href="https://www.earthsystemcog.org/projects/cog/contactus/">Technical Support</a>
+		   </div> <!--//end div id=top_nav_right //-->
+	   </div> <!--// end div.span-5 last //-->
+   </div><!--// end div.top_nav //-->
+
+   <!-- top navigation sub-bar -->
+   <!-- top nav...width=100%-->
+   <div class="top_nav">
+       <div class="span-940">
+	       
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+	       
+		   &nbsp; <!--in case there are no items-->
+	   </div> <!--// end div.span-26 //-->
+
+       <!--add links to MyProfile and the DataCart-->
+	   <div class="span-5 last">
+	       <div id="top_subnav_right">
+	           
+	       </div> <!--// end div id=top_subnav_right //-->
+	   </div>	<!--// end div.span-5 last//-->
+   </div>
+
+   <!-- anchor for message dialogs -->
+   <div id="myDialog" class="yui-skin-sam"></div>
+</div> <!--// end div.span-max last //-->
+&nbsp; <br>
+<!--// END: /cog/templates/common/cog_header.html //-->
+
+
+
+
+                
+	 
+                <!--Load block body from various templates -->
+                
+	<!--EXTENDS: /layouts/layout_base.html-->
+    <!--LAYOUT: /layouts/layout_sidebar_center.html-->
+    <div class="span-5">
+         
+    
+
+    
+    
+    <!-- project index -->
+    <div class="vertical_menu">
+	    
+	    	<!-- topic bar -->
+	    	
+                <div class="left_upper_widget_header">
+                    ES-DOC-Models
+                </div>
+            
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/doc/questionnaire/customization_options">Customization Options</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                       		<td>&nbsp;<a href="/projects/es-doc-models/" >Home</a></td>
+                       	
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/who_is_using_esdoc_tools">Who is Using ES-DOC?</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    The CIM and CVs
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim">What is the CIM?</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim2">CIM2</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim_versions">CIM Schema Versions</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim_cv">Baseline/CMIP5 CV Versions</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/controlled_vocabularies">Controlled Vocabularies</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/doc/questionnaire/cv_creation">CV Creation</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Questionnaire
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/help">Overview</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/admin_guide">Admin Guide</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/user_guide">User Guide</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/design">Design</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Viewer
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/viewer_motivation">Description and Demo</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Comparator
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/comparator_motivation">Description and Demo</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Search
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/motivation_cim_search">Description and Demo</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    
+	    
+    </div>
+        
+    <div class="vertical_menu">
+    
+        <!-- Unauthenticated Users -->
+        <div class="left_widget_header">
+            Visitors
+        </div>
+        <ul>
+            <li><a href="/news/list/es-doc-models/" class="listlink">&nbsp;List All News</a></li>
+            <li><a href="/doc/list/es-doc-models/" class="listlink">&nbsp;List All Files</a></li>
+            <li><a href="/ac/list/" class="listlink">&nbsp;List ESGF Data Groups</a></li>
+        </ul>
+ 
+        <!-- access restricted to project Contributors -->
+        
+    
+        <!-- access restricted to Project Administrators-->
+        
+       
+        <!-- access restricted to Node Administrators -->
+        
+    </div> <!--end of vertical menu-->
+
+ 
+
+    </div>
+
+    <div class="span-940 last">
+          <h1 class="title">ES-DOC Questionnaire Help</h1> 
+         
+
+    <!--// START: /cog/templates/cog/post/page_template_main.html //-->
+<!--// loading page body from page_template_main.html //-->
+
+
+
+
+  	<!-- Data search widget -->
+  	
+
+    <div id="cog_post_body">
+        <p>
+	<span style="text-align: justify; background-color: transparent; color: rgb(0, 0, 0); font-family: Arial; font-size: 11pt; white-space: pre-wrap;"><b>How do I start using the ES-DOC Questionniare?</b></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	<span id="docs-internal-guid-ff4e5484-5367-b887-f01d-dfffa99c9a18"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">The first step in using the ES-DOC Questionnaire is to sign up for a Questionnaire account. &nbsp;Clicking the &quot;sign up&quot; button at the top of the page will open the registration form (Figure 1).</span></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	&nbsp;</p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: center;">
+	<a href="/site_media/projects/es-doc-models/register.png"><img alt="" src="/site_media/projects/es-doc-models/register.png" style="width: 900px; height: 251px; border-width: 1px; border-style: solid;" /></a></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;">
+	<em>Figure 1</em></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	&nbsp;</p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	<span><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Once an account has been created the account-holder will be able to update their details (Figure 2).</span></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	&nbsp;</p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: center;">
+	<a href="/site_media/projects/es-doc-models/user.png"><img alt="" src="/site_media/projects/es-doc-models/user.png" style="width: 900px; height: 346px; border-width: 1px; border-style: solid;" /></a></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;">
+	<em>Figure 2</em></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	&nbsp;</p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	<span><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">It is particularly important to select an institute the user is affiliated with. Currently, users without an insittute will be unable to publish any CIM Documents.</span></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	&nbsp;</p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	<span><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Once a user&#39;s email address has been verified, they can join a Questionnaire project. &nbsp;The main Questionnaire Project page provides a button to do this.</span></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	&nbsp;</p>
+<p>
+	r</p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: center;">
+	<a href="/site_media/projects/es-doc-models/project_4.png"><img alt="" src="/site_media/projects/es-doc-models/project_4.png" style="width: 900px; height: 125px; border-width: 1px; border-style: solid;" /></a></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;">
+	<em>FIgure 3</em></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;">
+	&nbsp;</p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	<span><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Clicking that button will send a request to the Questionnaire Project Administrator who can approve or deny it. Until membership is granted, a user will be able to view CIM Documents in the Questionnaire but not create, edit, or publish them.</span></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	&nbsp;</p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;">
+	<font color="#000000" face="Arial"><span style="font-size: 14.6667px; white-space: pre-wrap;"><b>How do I create a CIM Document?</b></span></font></p>
+<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;">
+	&nbsp;</p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+	<span id="docs-internal-guid-ff4e5484-5397-1494-4d44-0482221474fd"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Once an appropriate customization exists, creating and editing CIM documents can begin. &nbsp;From the main ES-DOC Questionnaire Project Page (Figure 4) either use the drop-down menu to select a document type and click &ldquo;create&rdquo; or else choose an existing document from the provided list and click &ldquo;edit&rdquo;. &nbsp;In both cases, this will open the editing form in a new browser tab. &nbsp;</span></span></p>
+<div>
+	&nbsp;</div>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<div style="text-align: center;">
+	<a href="/site_media/projects/es-doc-models/project_5.png"><img alt="" src="/site_media/projects/es-doc-models/project_5.png" style="width: 900px; height: 246px; border-width: 1px; border-style: solid;" /></a>
+	<p>
+		<em>Figure 4</em></p>
+	<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;">
+		&nbsp;</p>
+	<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;">
+		<span id="docs-internal-guid-ff4e5484-5397-1494-4d44-0482221474fd"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Once an appropriate customization exists, creating and editing CIM documents can begin. &nbsp;From the main ES-DOC Questionnaire Project Page (Figure 4) either use the drop-down menu to select a document type and click &ldquo;create&rdquo; or else choose an existing document from the provided list and click &ldquo;edit&rdquo;. &nbsp;In both cases, this will open the editing form in a new browser tab (Figure 5). &nbsp;</span></span></p>
+	<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;">
+		&nbsp;</p>
+	<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;">
+		<a href="/site_media/projects/es-doc-models/edit_1.png"><img alt="" src="/site_media/projects/es-doc-models/edit_1.png" style="width: 900px; height: 556px; border-width: 1px; border-style: solid;" /></a></p>
+	<div style="text-align: center;">
+		<em>Figure 5</em></div>
+	<div>
+		<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: justify;">
+			&nbsp;</p>
+		<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+			<span id="docs-internal-guid-ff4e5484-539e-7b73-c4b1-5f211159a899"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Properties for a document appear from top to bottom and can be grouped in tabs by category. &nbsp;There are three different types of properties: atomic, enumeration, and relationship. &nbsp;</span></span></p>
+		<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+			&nbsp;</p>
+		<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+			<span style="background-color: transparent; color: rgb(0, 0, 0); font-family: Arial; font-size: 11pt; white-space: pre-wrap;">Atomic properties take simple values such as strings, dates, or integers. &nbsp;</span></p>
+		<div>
+			&nbsp;</div>
+		<div>
+			<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+				<span id="docs-internal-guid-ff4e5484-539f-2d7d-78e3-43fdb1dc5b98"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Enumeration property values are selected from a predefined list (Figure 6). &nbsp;In some cases you may choose &ldquo;other&rdquo; from the enumerated list and provide a custom value. &nbsp;</span></span></p>
+			<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+				&nbsp;</p>
+			<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: center;">
+				<a href="/site_media/projects/es-doc-models/edit_5.png"><img alt="" src="/site_media/projects/es-doc-models/edit_5.png" style="width: 600px; height: 130px; border-width: 1px; border-style: solid;" /></a></p>
+			<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;">
+				<em style="text-align: center;">Figure 6</em></p>
+			<div>
+				&nbsp;</div>
+			<div>
+				&nbsp;</div>
+			<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+				<span id="docs-internal-guid-ff4e5484-53a1-015d-c436-58f0d4b7aa66"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Relationship properties point to other CIM entities which themselves contain properties. &nbsp;Relationships can be rendered in one of two ways: either as <em>references</em> or in-line as </span><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; font-style: italic; vertical-align: baseline; white-space: pre-wrap;">subforms</span><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">. &nbsp;Relationship to other CIM Document must be rendered as a reference. &nbsp;The reference widget (Figure 7) allows users to select from published CIM Documents. &nbsp;Other types of relationships must be rendered as a subform (Figure 9). &nbsp;This is simply a nested set of property fields corresponding to the related document type. &nbsp;A subform could itself have a subform.</span></span></p>
+			<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+				&nbsp;</p>
+			<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: center;">
+				<a href="/site_media/projects/es-doc-models/edit_2.png"><img alt="" src="/site_media/projects/es-doc-models/edit_2.png" style="width: 600px; height: 68px; border-width: 1px; border-style: solid;" /></a></p>
+			<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;">
+				<em>Figure 7</em></p>
+			<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;">
+				&nbsp;</p>
+			<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;">
+				<span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; text-align: justify; white-space: pre-wrap;">Clicking on the reference widget will bring up a dialog box listing published documents from which to select the reference (Figure 8).</span></p>
+			<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;">
+				&nbsp;</p>
+			<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;">
+				<a href="/site_media/projects/es-doc-models/edit_3.png"><img alt="" src="/site_media/projects/es-doc-models/edit_3.png" style="width: 600px; height: 665px; border-width: 1px; border-style: solid;" /></a></p>
+			<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;">
+				<em style="text-align: center;">Figure 8</em></p>
+			<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;">
+				&nbsp;</p>
+			<div>
+				<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;">
+					&nbsp;</p>
+				<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center">
+					<a href="/site_media/projects/es-doc-models/edit_4.png"><img alt="" src="/site_media/projects/es-doc-models/edit_4.png" style="width: 800px; height: 329px; border-width: 1px; border-style: solid;" /></a></p>
+				<p dir="ltr" style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;">
+					<em>Figure 9</em></p>
+				<div>
+					&nbsp;</div>
+			</div>
+			<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+				<span id="docs-internal-guid-ff4e5484-53aa-a20c-4220-fe1d75a115da"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">What about hierarchical documents?</span></span></p>
+			<br />
+			<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+				<span id="docs-internal-guid-ff4e5484-53aa-a20c-4220-fe1d75a115da"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Some documents, such as those describing CMIP6 Realms (sea ice, biogeochemistry, etc.), contain relationships that should be treated as hierarchies of inline documents. &nbsp;For example, a sea ice realm contains several sub-processes including dynamics, thermodynamics, and radiative processes. &nbsp;These processes are rendered as part of a hierarchical component tree on the left-hand of the editing form (Figure 5). &nbsp;</span></span></p>
+			<br />
+			<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+				<span id="docs-internal-guid-ff4e5484-53aa-a20c-4220-fe1d75a115da"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Selecting any node of that tree renders the corresponding property collection on the right-hand side of the editing form. &nbsp;Additionally, toggling the checkbox next to each node will activate or deactivate the corresponding property collection. &nbsp;In the case of a deactivated property, none of that content will be included during publication. &nbsp;In this way a user can describe a model that does not, for instance, contain a thermodynamics sub-process.</span></span></p>
+			<div>
+				&nbsp;</div>
+			<div>
+				<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+					<span id="docs-internal-guid-ff4e5484-53bc-76b5-a3a8-32e86afb0388"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">What if I don&rsquo;t know the value of a CIM Document property?</span></span></p>
+				<br />
+				<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+					<span id="docs-internal-guid-ff4e5484-53bc-76b5-a3a8-32e86afb0388"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Some properties (those that are not required by a project) can be marked as ignored. &nbsp;A property that is explicitly ignored can remain blank while not affecting the &ldquo;completeness&rdquo; of that document. &nbsp;Ignoring a property can also help to clarify if a value is blank because it has not yet been filled in or if there simply is no suitable value. Choosing to ignore a property will force it to become read-only and requires users to explain why it is being ignored (Figure 10).</span></span></p>
+				<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+					&nbsp;</p>
+				<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: center;">
+					<a href="/site_media/projects/es-doc-models/edit_6.png"><img alt="" src="/site_media/projects/es-doc-models/edit_6.png" style="width: 200px; height: 111px; border-width: 1px; border-style: solid;" /></a></p>
+				<div style="text-align: center;">
+					<em>Figure 10</em></div>
+			</div>
+			<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+				&nbsp;</p>
+			<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+				&nbsp;</p>
+			<div>
+				<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+					<span id="docs-internal-guid-ff4e5484-53bf-7420-66a3-5c1fdadf5894"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">How do I publish a CIM Document?</span></span></p>
+				<br />
+				<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+					<span id="docs-internal-guid-ff4e5484-53bf-7420-66a3-5c1fdadf5894"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">All required properties of a document must have a value - or be explicitly ignored - before a user can publish that document. &nbsp;An icon next to the document&rsquo;s name on the ES-DOC Questionnaire Project Page (Figure 4) indicates whether or not a document is complete (as does the presence or absence of a &ldquo;publish&rdquo; button). &nbsp;</span></span></p>
+				<br />
+				<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;text-align: justify;">
+					<span id="docs-internal-guid-ff4e5484-53bf-7420-66a3-5c1fdadf5894"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Upon publication the document contents are serialized to XML and published to a local ATOM feed. &nbsp;This feed is checked regularly by other ES-DOC tools and newly published documents will eventually appear in the ES-DOC Archive where they can be viewed or compared with other documents of the same type.</span></span></p>
+				<div>
+					&nbsp;</div>
+			</div>
+			<div>
+				&nbsp;</div>
+		</div>
+		<div>
+			&nbsp;</div>
+	</div>
+	<hr />
+	<p>
+		<em><a href="https://earthsystemcog.org/projects/es-doc-models/questionnaire/help">Back to main help page</a></em>.</p>
+	<p>
+		&nbsp;</p>
+</div>
+<p>
+	&nbsp;</p>
+    </div> <!--// end div id=cog_post_body //-->
+
+    <!-- include last updated text -->
+    <!--// START: /cog/templates/cog/post/_post_last_update.html //-->
+
+    <!--clear:both added to move the last update down if any elements above are floated.-->
+    <!--clear:both means no floating elements allowed on either the left or the right side-->
+	<div id="last_update_text" style="font-size: 8pt; font-style: italic; text-align:center; clear:both;">
+	     Last Update: April 9, 2017, 11:31 a.m. by
+         
+             <a href="/user/detail/2172/">Allyn Treshansky</a>
+         
+	</div> <!--// end div id="last_update_text" //-->
+
+
+    <!--// add social media buttons //-->
+    <div id="social_media" style="text-align:center; padding-top: 4px; padding-bottom:8px;">
+        <!--// START: /cog/templates/cog/common/cog_social_media.html //-->
+
+<!--// add social media buttons //-->
+
+
+<!--twitter function -->
+<script type="text/javascript">
+    //<![CDATA[
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+//]]>
+</script>
+
+<table class="no_color" style="width:125px;margin-left:auto;margin-right:auto;">
+<tr>
+   <td>
+   <!-- Facebook -->
+   <div id="facebook">
+      <a href="#" onclick=" window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.earthsystemcog.org/projects/es-doc-models/questionnaire/user_guide','facebook-share-dialog','width=626,height=436');return false;">
+          <img src="/static/cog/img/facebook.png" height="20" alt="Facebook logo"/></a>
+    </div> <!--// end div id=facebook //-->
+    </td>
+
+    <td>
+    <!-- Twitter -->
+    <div id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="http%3A//www.earthsystemcog.org/projects/es-doc-models/questionnaire/user_guide">Tweet</a>
+    </div> <!--// end div id=twitter //-->
+    </td>
+</tr>
+</table>
+    
+
+
+		
+		
+    </div><!--// end div id=social_media //-->
+
+    <!--// include action links via cog/post/_post_actions.html  //-->
+    
+<!--// START: /cog/templates/cog/post/_post_actions.html //-->
+<!-- adds the links to update, delete, etc a post -->
+
+    
+
+<!--// END: /cog/templates/cog/post/_post_actions.html //-->
+	
+
+    
+    <!--// include attachments via cog/post/_post_attachements.html  //-->
+    <div id="attachments">
+        <!--// START: /cog/templates/cog/post/_post_attachements.html //-->
+
+
+
+
+    </div> <!--// end div id=attachments //-->
+    
+    <!--// add related paged via cog/post/_post_hierarchy.html  //-->
+    <div id="related_pages">
+       
+	   <!--// START: /cog/templates//cog/post/_post_hierarchy.html //-->
+<!--// Related Pages //-->
+
+
+
+
+   
+
+      
+   
+
+       
+    </div> <!--// end div id=related_pages //-->
+
+   
+           	
+
+    
+
+    </div>
+
+
+            </div> <!--// end div.container //-->
+            <!--// pushes the content wrapper down enough to hold the footer //-->
+            <div class="push"></div> <!--// end div.push //-->
+        </div> <!--// end div.content_wrapper //-->
+        <div class="footer_bar">
+            <!--adds a margin above the footer-->
+            <div class="footer_spacer"></div> <!--// end footer spacer //-->
+	        
+                <!--// START: /cog/templates/cog/common/cog_footer_bar_only.html //-->
+
+
+
+
+<div class="footer">
+    <table>
+	<tr>
+	  <!--// CoG sponsors //-->
+	<td style="width:30%;">
+	  <table>
+	    <tr>
+	      <td>ESGF sponsors and partners</td>
+	    </tr>
+	    <tr>
+	      <td>
+		  <a href="http://science.energy.gov/">DoE Office of Science</a> |
+		  <a href="https://verc.enes.org/ISENES2">IS-ENES</a> |
+                  <a href="http://www.nasa.gov">NASA</a> |
+                  <a href="http://www.noaa.gov">NOAA</a> |
+		<a href="http://nci.org.au/">NCI</a> |
+		<a href="http://www.nsf.gov">NSF</a> 
+	      </td>
+	    </tr>
+	   </table>
+	 </td>
+
+
+     <!--// CoG Version and ESGF Version (if found) //-->
+	 <td style="width:30%;">
+          <table >
+	    <tr>
+	      <td style="text-align:center;">CoG version 3.9.9</td>
+	    </tr>
+	    
+	   </table>
+	 </td>  
+	 
+	 <!--// ESGF sponsors //-->
+	 <td style="width:30%;">
+
+      <table>
+	    <tr>
+	      <td style="text-align:right;">Earth System CoG sponsors and partners</td>
+	    </tr>
+	    <tr>
+	      <td style="text-align:right;"><a href="http://www.noaa.gov">NOAA</a> |
+		  <a href="http://www.nasa.gov">NASA</a> |
+		  <a href="http://www.nsf.gov">NSF</a> |
+		  <a href="http://science.energy.gov/">DoE Office of Science</a> |
+		  <a href="https://verc.enes.org/ISENES2">IS-ENES</a></td>
+	    </tr>
+	  </table>
+
+	 </td>  
+	</tr>
+    </table>
+  </div><!--// end div.footer //-->
+
+
+
+
+
+            
+        </div> <!--// end footer_bar //-->
+        <div class="custom_footer_bar">
+            
+                
+  <div class="custom_footer">
+       <table class="custom_footer">
+       <tr>
+       <td style="width:30%;">http://www.earthsystemcog.org</td>
+       <td style="width:70%;text-align:right;">
+         <a href="mailto:cog_support@list.woc.noaa.gov">cog_support@list.woc.noaa.gov</a> |
+         <a href="http://www.colorado.edu/about/privacy-statement">privacy policy</a>
+       </td>
+       </tr>
+       </table>
+    </div>
+
+            
+        </div> <!--// end div.custom_footer_bar //-->
+        <!--END: /layouts/templates/layouts/layout_base.html-->
+    </body>
+</html>

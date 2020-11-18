@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<!--// LOCATION: /layouts/templates/layouts/layout_base.html //-->
+<!--// START: /layouts/templates/layouts/layout_base.html //-->
+
+
+<html lang="en">
+<!--creates classes for the various versions of internet explorer 9 and below. 10+ no longer accepts conditional.
+These are then used in the CSS to fix specific issues-->
+<!--[if lt IE 7 ]>   <html class="ie6">  <![endif]-->
+<!--[if IE 7 ]>      <html class="ie7">  <![endif]-->
+<!--[if IE 8 ]>      <html class="ie8">  <![endif]-->
+<!--[if IE 9 ]>      <html class="ie9">  <![endif]-->
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="edge" > <!--required to get IE out of quirks mode-->
+
+        <!--// consider removing these all together //-->
+        <!--// <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/screen.css"/> //-->
+        <!--// <link type="text/css" rel="stylesheet"  media="print" href="/static/css/blueprint/print.css"/> //-->
+
+		<!-- // frame busting JS // 
+		<script language="javascript">
+			/* break us out of any containing iframes */
+			/* IMPORTANT: THIS BREAKS FILE UPLOADER, DON'T DO IT */
+			//if (top != self) { top.location.replace(self.location.href); }
+		</script> -->
+		
+        <!--// CSS for grid layout //-->
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/reset.css"/>
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/grid.css"/>
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/typography.css" />
+
+         <!--// Load head section from template. Contains CSS //-->
+         
+
+    <!-- template for HTML meta tags -->
+
+
+
+<!-- favicon -->
+<link rel="Shortcut Icon" href="/static/cog/img/favicon_cog.ico" type="image/x-icon" />
+
+<!--logic for HTML title:
+1) If the page is within the project context, add the short name to the title
+2) If a project home page, just list use HOME vice the page title
+3) Look for either title or title2 it they exist
+4) If nothing else, just list ESGF-CoG
+-->
+<!-- titles should be less than 70 characters -->
+
+
+    
+        
+            <title>ES-DOC-Models Resources | ES-DOC-Models | ESGF-CoG</title>
+        
+    
+
+
+
+
+	
+
+
+    <!--LOCATION: /cog/templates/cog/common/yui.html-->
+
+<!-- Loading YUI CSS libraries -->
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/fonts/fonts-min.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/button/assets/skins/sam/button.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/container/assets/skins/sam/container.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/assets/skins/sam/treeview.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/tabview/assets/skins/sam/tabview.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/autocomplete/assets/skins/sam/autocomplete.css" />
+<!-- Optional CSS for for date editing with Calendar-->
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/calendar/assets/skins/sam/calendar.css" />
+
+<!-- Loading dependent JavaScript source files --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/yahoo/yahoo-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/yahoo-dom-event/yahoo-dom-event.js" ></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/event/event-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/element/element-min.js" ></script>
+<!-- Optional dependency source file --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/animation/animation-min.js"></script>
+<!-- Optional dependency source file for date editing with Calendar--> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/calendar/calendar-min.js" ></script>
+<!-- Optional dependency source file to decode contents of yuiConfig markup attribute--> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/json/json-min.js" ></script>
+<!-- TreeView source file --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/treeview/treeview-min.js" ></script>
+<!-- Loaing Source files for TabView -->
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/tabview/tabview-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/connection/connection-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/button/button-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/dragdrop/dragdrop-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/container/container-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/datasource/datasource-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/autocomplete/autocomplete-min.js"></script>
+
+    <!-- File containing functionality for creating overlay panels with YUI library -->
+
+<script type="text/javascript">
+//<![CDATA[
+	YAHOO.namespace("cog");
+
+    var handleDismiss = function() { 
+        YAHOO.cog.myDialog.hide(); 
+    }; 
+            
+    /**
+    Function to show a small message window, with a title and a 'Dismiss' button.
+    The HTML page must contain an element of id 'myDialog' for the window to be anchored:
+        <div id="myDialog" class="yui-skin-sam"></div>
+    */
+    function showMessage(title, message) {
+
+        YAHOO.cog.myDialog = new YAHOO.widget.SimpleDialog("msgDialog", {
+            width: "400px", 
+            fixedcenter: true, 
+            constraintoviewport: true, 
+            underlay: "shadow", 
+            close: true, 
+            visible: false, 
+            draggable: true,
+            modal:true,
+            buttons: [ { text:"Dismiss", handler:handleDismiss, isDefault:true } ]
+        });
+                    
+        YAHOO.cog.myDialog.setHeader(title);
+        YAHOO.cog.myDialog.setBody("<div style='text-align:center'>"+message+"</div>");
+        YAHOO.cog.myDialog.cfg.setProperty("underlay","matte");
+        
+        YAHOO.cog.myDialog.render('myDialog');
+        YAHOO.cog.myDialog.show();
+    }
+    
+    /**
+    Default handler to hide the current dialog
+    */
+    var handleNo = function() {
+        // hide dialog
+        this.hide();
+    };
+    
+    /**
+    Function to create a confirmation dialog with 'Yes', 'No' buttons connected to specific handlers.
+    The HTML page must contain an element of id 'myDialog' for the window to be anchored:
+        <div id="myDialog" class="yui-skin-sam"></div>
+    */
+    function createConfirmationDialog(dialogHeader, dialogText, yesHandler, noHandler) {
+    	    	
+    	var mySimpleDialog = new YAHOO.widget.SimpleDialog("confDialog",
+                { width: "30em",
+                  fixedcenter: true,
+                  visible: false,
+                  draggable: true,
+                  close: true,
+                  modal: true,
+                  effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration:0.25},
+                  text: dialogText,
+                  constraintoviewport: true,
+                  buttons: [ { text:"Yes", handler:yesHandler },
+                             { text:"No",  handler:noHandler, isDefault:true } ]
+                } );
+        mySimpleDialog.setHeader(dialogHeader);
+        mySimpleDialog.render("myDialog");
+        mySimpleDialog.show();
+    	
+        return mySimpleDialog;
+    }
+    
+    /**
+    Dialog to confirm a URL invocation.
+    The widget is the HTML <a></a> element.
+    The page must include an anchor div element of the form: <div id="myDialog" class="yui-skin-sam"></div>,
+    as well as include the javascript code in the two files: 'cog/common/yui.html' and 'cog/common/yui_panels.html'.
+    */
+    function urlConfirmationDialog(dialogHeader, dialogText, widget) {
+
+        var getUrl = function() {
+            // hide dialog
+            this.hide();
+            // request URL
+            window.location = widget.href;
+        };
+
+        var dlg = createConfirmationDialog(dialogHeader, dialogText, getUrl, handleNo);
+        
+        // return false to prevent link from being invoked automatically
+        return false;
+
+    }
+    
+    /** Function to show a modal waiting panel */
+    function showWaitPanel() {
+    	 
+    	if (YAHOO.cog.waitPanel==null) {
+	    	YAHOO.cog.waitPanel =  
+	    		new YAHOO.widget.Panel("wait",   
+	    		            { width:"240px",  
+	    		              fixedcenter:true,  
+	    		              close:false,  
+	    		              draggable:false,  
+	    		              zindex:4, 
+	    		              modal:true, 
+	    		              visible:false 
+	    		            }  
+	    		); 
+	    		 
+	    	YAHOO.cog.waitPanel.setHeader("Please wait..."); 
+	    	YAHOO.cog.waitPanel.setBody('<img src="/static/cog/img/rel_interstitial_loading.gif" />'); 
+	    	YAHOO.cog.waitPanel.render("myDialog"); 
+    	}
+    	YAHOO.cog.waitPanel.show();
+    	
+    }
+    
+    /** Function to hide the waiting panel */
+    function hideWaitPanel() {
+    	YAHOO.cog.waitPanel.hide();
+    }
+//]]>
+</script>
+    <!-- file containing common javascript utilities -->
+
+<script type="text/javascript">
+<!--
+
+    /* redefining javascript trim() fn,
+     * which doesn't exist in IE 8.*,
+     */
+
+     String.prototype.trim = function() {
+         return this.replace(/^\s+|\s+$/g,'');
+     };
+
+	// function to switch the visibility of an HTML element
+    function toggle_visibility(id) {
+       var e = this.document.getElementById(id);
+       if (e!=null) {
+	       if (e.style.display == 'block') {
+	          e.style.display = 'none';
+	       } else {
+	          e.style.display = 'block';
+	       }
+       }
+    }
+    
+    // function to toggle the visibility of an HTML element and change the hyperlink text
+	function openclose(id, hlink, showText, hideText) {
+	    var e = this.document.getElementById(id);
+	    if (e!=null) {
+		       if (e.style.display == 'block') {
+		          e.style.display = 'none';
+		          hlink.innerHTML = showText;
+		       } else {
+		          e.style.display = 'block';
+		          hlink.innerHTML = hideText;
+		       }
+	    }
+	 }
+    
+	// function to set the visibility of an HTML element
+	function set_visibility(id, bool) {
+	   var e = this.document.getElementById(id, bool);
+	   if (e!=null) {
+	       if (bool) {
+	          e.style.display = 'block';
+	       } else {
+	          e.style.display = 'none';
+	       }
+	   }
+	}
+	
+	// function to delete an HTML element by id
+	function delete_element(id) {
+		   var e = this.document.getElementById(id);
+		   if (e!=null) {
+		       e.parentNode.removeChild(e);
+		   }
+		}
+
+    
+//-->
+</script>
+
+<!-- Detect browser on load -->
+<script type="text/javascript">
+  <!--
+    // placeholder for browser-specific js that should be run
+	function detectBrowser() {
+	  
+	  //if (YAHOO.env.ua.webkit) { // safari
+	  //if (YAHOO.env.ua.gecko > 0) { // FF 
+	  //if (YAHOO.env.ua.ie > 0) { // IE
+	  
+	 }
+	 //YAHOO.util.Event.onDOMReady(detectIE);
+  //-->
+</script>
+    <!-- JS libraries needed for Wiki functionality -->
+
+<script type="text/javascript" src="/static/cog/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/static/filebrowser/js/FB_CKEditor.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+if (CKEDITOR) {
+	
+	// integration with django-filebrowser
+	
+	// uncomment 'filebrowserBrowseUrl ' link to enable browsing of server directories
+	// type=image restricts uploads to image files ('.jpg','.jpeg','.gif','.png','.tif','.tiff')
+	CKEDITOR.config.filebrowserBrowseUrl = '/admin/filebrowser/browse?pop=3&type=image';
+	// NOTE: additional parameter 'project' limits browsing to current project only
+	//CKEDITOR.config.filebrowserBrowseUrl = '/admin/filebrowser/browse?pop=3&type=image&project=ES-DOC-Models';
+	
+	// uncomment 'filebrowserUploadUrl' to enable direct upload of images to server
+	// NOTE: assumes project is available from request object
+	CKEDITOR.config.filebrowserImageUploadUrl = '/doc/upload/ES-DOC-Models/';
+	
+	// custom toolbar color
+	CKEDITOR.config.uiColor = "#B9E0E3";
+	
+	// custom color picker
+	CKEDITOR.config.extraPlugins = 'uicolor';
+	
+	// toolbar configuration
+	CKEDITOR.config.toolbar_Full =
+		[
+		    { name: 'document',    items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },
+		    //{ name: 'clipboard',   items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
+		    { name: 'editing',     items : [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ] },
+		    { name: 'forms',       items : [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+		    
+		    '/',
+		    
+		    //{ name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+		    { name: 'basicstyles', items : [ 'Bold','Italic','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+		    { name: 'paragraph',   items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ] },
+		    { name: 'links',       items : [ 'Link','Unlink','Anchor' ] },
+		    { name: 'insert',      items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak' ] },
+		    
+		    '/',		    
+
+		    // disable FontSize
+		    //{ name: 'styles',      items : [ 'Styles','Format','Font','FontSize' ] },
+		    { name: 'styles',      items : [ 'Styles','Format','Font' ] },
+		    
+		    // disable BGColor
+		 	//{ name: 'colors',      items : [ 'TextColor','BGColor' ] },
+		    { name: 'colors',      items : [ 'TextColor' ] },
+		    
+		    // add UIColor picker
+		    { name: 'tools',       items : [ 'Maximize', 'ShowBlocks','-','About', 'UIColor' ] }
+		    
+		];
+	CKEDITOR.config.toolbar = 'Full';
+
+}
+//]]>
+</script>
+
+    <!-- placeholder file for inserting node-specific Google Analytics script -->
+
+    <!--// START: /cog/templates/cog/common/right_column_css.html //-->
+
+<!-- this page contains the CSS and JavaScript needed to run the Project Browser -->
+
+
+
+<link rel="stylesheet" type="text/css" media="screen, projection" href="/static/css/yui/tabview.css" />
+
+<!--// note do not use scoped for this style because it is loaded further down the template heirarchy //-->
+<style type="text/css">
+
+	/* NOTE: scrollbar controlled by "overflow-y: auto;" in tabview.css
+	   NOTE: overall widget height also controlled by .yui-content
+	   in tabview.css */
+
+	#project_widget {
+	    margin:     0;
+	    padding:    0;
+	    font-size:  11px;
+	    text-align: left;
+	    background-color: #FFFFFF;
+        border: 1px solid #CCCCCC;
+	    color:   #666;
+	    display: block;
+	}
+
+	.project_browser_bar {
+		margin-bottom:    2px;
+		margin-top:       2px;
+		padding:          4px 5px 3px 3px;
+		font-size:        11px;
+		text-align:       left;
+	    font-weight:      bold;
+		background-color: #FDF3CF;
+		color:            #666;
+		display:          block;
+    }
+
+    #project_browser_controls {
+        /*border-top: 1px solid #CCCCCC;*/
+		background-color: #FCE79F;
+		padding:          0;
+		margin:           0;
+	}
+
+    #parent_projects, #peer_projects, #child_projects {
+		margin-left:  0.3em;
+		margin-right: 0.3em;
+	}
+
+    #all_projects, #my_projects {
+		max-height: 265px;
+		margin:     0.3em;
+	}
+
+
+	#tagAutoComplete {
+           width:         138px;
+           padding-bottom: 20px;
+    }
+
+	.project_browser_bar a:link,
+	.project_browser_bar a:visited {
+		color:           #666;
+		text-decoration: none;
+	}
+
+
+    #parent_projects a, #peer_projects a, #child_projects a, #all_projects a, #my_projects a {
+        line-height: 1.3;
+    }
+
+	.project_widget table td {
+	    /* important: must align project labels with middle of checkbox */
+		vertical-align: middle;
+	}
+
+
+    /* enable vertical scrollbar if large number of items needs to be displayed (in conjunction with large autoComp.maxResultsDisplayed) */
+    /* set scrolling */
+
+
+    /* widget with expandable project trees */
+    .yui-skin-sam .yui-navset .yui-content,
+    .yui-skin-sam .yui-navset .yui-navset-top .yui-content {
+	    background:#FFFFFF; /* content background color */
+        padding:      0;
+        max-height: 270px; /* PROJECT BROWSER HEIGHT: overall height of project browser */
+        overflow-y: auto;  /* PROJECT BROWSER: external scrollbar */
+        overflow-x: hidden;
+        border-top: 1px solid white;
+}
+
+    /* selected tab */
+    .yui-skin-sam .yui-navset .yui-nav .selected a,
+    .yui-skin-sam .yui-navset .yui-nav .selected a:focus, /* no focus effect for selected */
+    .yui-skin-sam .yui-navset .yui-nav .selected a:hover { /* no hover effect for selected */
+         background:      #FFFFFF; /* selected tab background */
+         color:           #666666;
+         border:          0;
+	     margin-bottom:  -1px;
+         text-decoration: none;
+}
+
+
+    .yui-skin-sam .yui-ac-content li {
+        padding:      0;
+        padding-left: 4px;
+        line-height:  1.3; /* make same as #parent_projects a */
+    }
+ </style>
+
+
+<!-- COG custom filters -->
+
+<script type="text/javascript">
+    //<![CDATA[
+    
+       // function to select a project browser tab
+       function gotoTab(itab) { // itab=0,1,2,3,...
+       	  myTabs.set('activeIndex', itab);
+	   }
+
+       // function to populate the project widget via ajax call
+       function loadProjectBrowser(project_short_name) {
+
+    	   // loop over YUI tab identifiers, execute separate ajax requests
+    	   var tabs = ['this', 'all', 'my', 'tags'];
+    	   for (var i=0; i<tabs.length; i++) {
+
+	    	   // build request URL
+	    	   // example: /project_browser/<project_short_name>/browse/<this|all|my|tags>/[?tag=<tag>]
+               // the tag is pulled from the request URL by the project_browser function in views_project.py
+	    	   var url = "/project_browser/"+project_short_name+"/browse/"+tabs[i]+"/";
+	    	   var tag = document.getElementById('projectBrowserText').value;
+	    	   if (tag != null && tag!="") url += "?tag="+tag;
+
+	    	   // define the callback function dynamically
+	    	   // so to pass in the target tab identifier as extra argument
+	    	   var callback = {
+	 				  success:handleSuccess,
+	 				  failure: handleFailure,
+	 				  cache:false,
+	 				  timeout:5000,
+	 				  argument: []
+	    	   };
+			   // pass in target tab identifier as extra argument to ajax callback (e.g. thisProjectBrowser)
+			   callback.argument[0] = tabs[i]+"ProjectsBrowser";
+
+			   // execute asynchronous GET request
+			   var transaction = YAHOO.util.Connect.asyncRequest('GET', url, callback, null);
+
+    	   }
+    	   
+    	   // check session flag to preselect a tab
+    	   
+    	   
+    	   // always delete the session flag after using it
+    	   var x = "None";
+
+       }
+              
+       // function that submits the form to save the currently selected project tag into the user preferences
+       function saveUserTag() {
+         		    	   
+	    	var tag = document.getElementById('projectBrowserText').value;
+	    	var form = document.getElementById('save-user-tag-form');
+	    	if (tag != null && tag!="") {
+	    		form.tag.value = tag;
+	    		form.submit();
+	    		return True;
+	   		}
+	   		
+       }
+       
+       // function that submits the form to remove the named tag from the user preferences
+       function deleteUserTag(tag) {
+	   		
+	   		var url = "/project_browser/delete_user_tag/?tag="+tag;
+	   		var form = document.getElementById('delete-user-tag-form');
+	    	if (tag != null && tag!="") {
+	    		form.tag.value = tag;
+	    		form.submit();
+	    		return True;
+	   		}
+	   		
+       }
+
+		// function called if the ajax request failed
+		var handleFailure = function(o) {
+			// do nothing
+			//showMessage("An Error Occurred",
+			//		    "HTTP Status Code: "+o.status+"<br/>Message: "+o.statusText);
+		};
+
+		// function called if the ajax request succeeded
+		var handleSuccess = function(o) {
+
+			// retrieve target tab id from callback extra argument
+			tabId = o.argument[0];
+
+			// replace browser window with new content
+			document.getElementById(tabId).innerHTML = o.responseText;
+
+		};
+
+       // function to provide an alert when changing nodes
+       function changeNode(name, local_name) {
+           // read full cookies string to see node_warning exists
+           if ( document.cookie.indexOf( 'node_warning=skip' ) > -1 ) {
+           }else{
+               if (name != local_name) {
+                   alert("You are leaving the " + local_name + " node for the " + name + " node. \n\nChanging nodes MAY require " +
+                           "an additional login.");
+
+                   //set cookie so warning is not seen again for one year or until cookie is deleted by the user.
+                   var now = new Date();
+                   var yr = now.getFullYear();
+                   yr = yr + 1;
+                   now.setFullYear(yr);
+                   document.cookie = "node_warning=skip; expires=" + now.toUTCString() + "; path=/";
+               }
+           }
+       }
+    //]]>
+</script>
+
+<script type="text/javascript">
+   //<![CDATA[
+
+   	   // populate project tags from django database query
+   	   var projectTags = [
+   	   	  "Model coupling","Regridding","Climate change","Informatics_2014","Cyberinstrastructure","MIP","Modeling System","Workshop","Working Group","Observations","University course","Informatics_2015","Climate Impacts","Metadata","Model framework","ESGF Node"
+        ];
+
+       function initTags() {
+           var dataSource = new YAHOO.util.LocalDataSource(projectTags.sort()); // sort tags alphabetically
+           var autoComp = new YAHOO.widget.AutoComplete("projectBrowserText", "tagContainer", dataSource);
+           autoComp.prehighlightClassName = "yui-ac-prehighlight";
+           autoComp.useShadow = true;
+           autoComp.allowBrowserAutocomplete = false;
+           autoComp.animSpeed = 0.2;
+           // Maximum number of results to display. A value of 0 or less will allow an unlimited number of results.
+           autoComp.maxResultsDisplayed = 100; // was 10 and not all were showing up
+           autoComp.minQueryLength = 0;
+           autoComp.typeHead = true;
+           //autoComp.alwaysShowContainer = true;
+       }
+       YAHOO.util.Event.onContentReady("project_widget", initTags);
+   //]]>
+</script>
+
+<!-- tooltip Javascript -->
+<script type="text/javascript" src="/static/js/tooltip/script.js"></script>
+
+<!-- tooltip CSS -->
+<link rel="stylesheet" type="text/css" href="/static/js/tooltip/style.css" />
+
+<!--// END: /cog/templates/cog/common/right_column_css.html //-->
+
+
+
+
+         <!-- icon library used for question mark icon -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+
+         <!--// loading CoG-specific styles. Needs to be last //-->
+         <link rel="stylesheet" type="text/css" href="/static/cog/css/cogstyle.css" />
+
+         <!--// hooks for page-specific head content. Both style statements and javascript need to be loaded in the header only. //-->
+         
+
+    <!--// styles and scripts for the resources page. Loaded from /cog/templates/cog/common/rollup.html //-->
+    <!-- note: pixel styles must be adjusted to specific icons -->
+    <!--// note: don't use scoped for this style because it is one level above the location where it is used //-->
+    <style type="text/css">
+    /** the padding-left controls how far the text is from the icon **/
+    /** the background size controls the size of the image. We are starting with a 22x22 image that can be shrunk slightly. **/
+         .folder {display:table-cell; height:22px;  vertical-align:middle; padding-left:27px; font-weight:bold; background: url(/static/cog/img/folder_icon.png) no-repeat; background-size: 22px 22px; }
+         .bookmark {margin-bottom:4px; display:block; padding-left: 24px; background: transparent url(/static/cog/img/bookmark_16x16.png) 4px 0 no-repeat;}
+    </style>
+
+    <script>
+       //<![CDATA[
+
+       // function to initialize the resource tree object
+       var tree;
+       function bookmarkTreeInit() {
+
+           treeId = this.id
+           tree = new YAHOO.widget.TreeView(document.getElementById(treeId));
+           tree.subscribe('clickEvent',tree.onEventToggleHighlight);
+           //tree.setNodesProperty('propagateHighlightUp',true);
+           tree.setNodesProperty('propagateHighlightDown',true);
+           //tree.singleNodeHighlight = true;
+           tree.render();
+       }
+      //]]>
+   </script>
+   <!--// css for the governance page. Loaded from /cog/templates/cog/common/rollup.html //-->
+   <!--// note: don't use scoped for this style because it is one level above the location where it is used //-->
+   <style type="text/css">
+	.leftcolumn {
+		width: 130px;
+		text-align: right;
+		vertical-align: top;
+	}
+   </style>
+
+         
+         
+    </head>
+    
+    <body>
+        <div class="content_wrapper"><!--// makes the footers always at the bottom of the window //-->
+            <div class="custom_header_bar">
+                
+                    <div style="height:42px;" class="custom_header">
+<map name="logo">
+	<area href="http://esgf.llnl.gov/" shape="rect" coords="0,0,119,30" title="ESGF">
+	<area href="http://www.earthsystemcog.org" shape="rect" coords="125,0,177,30" title="ESGF">
+</map>
+
+
+
+<table style="height:42px; padding:0; margin:0; vertical-align:middle;background-color: transparent;">
+   <tr>
+       <td class="hosted_by" style="width:52px; font-size:10px; font-weight:bold; font-style:italic; padding-right:1px;">
+            Hosted by
+       </td>
+       <td style="text-align:left; vertical-align:middle; width:30px; padding-left:0;">
+           <img style="height:36px;" src="/mymedia/cu_39_transparent.png" alt="CU logo"/>
+       </td>
+       <td class="custom_header_location"><strong>
+       University of Colorado</strong><br>
+       Boulder</td>
+       <td class="powered_by">
+            Powered by
+        </td>
+       <td class="custom_header_esgf_cog">
+              <img style="vertical-align:middle; height:36px; margin:0;" src="/static/cog/img/cog_esgf_small.png"
+                   usemap="#logo" alt="ESGF-CoG logo"/>
+       </td>
+   </tr>
+</table>
+</div>
+
+                
+            </div> <!--// end div.custom_header //-->
+            <div class="container"> <!--// django class //-->
+
+                <!-- load optional notification banner -->
+                
+	                 <div class="span-max last" style="display:none;">
+   <div class="node-notification-box" >
+	   Insert node-wide notification text here.
+   </div>
+
+</div>
+                
+                <!-- load cog upper navigation bar and user menu -->
+  	            
+                    <!--// START: /cog/templates/common/cog_header.html //-->
+
+
+
+<div class="span-max last" >
+   <!--// first row of the header with user links-->
+   <!--load top-right user menu from cog/common/_user_menu.html-->
+   <table class="no-color">
+       <tr>
+           <td id="user_menu" style="text-align: right; padding:0; padding-right:2px; padding-bottom: 2px;">
+	           <!--//START: /cog/templates/cog/common/_user_menu.html //-->
+
+
+
+     Welcome, <strong>Guest</strong>.
+     | <a href="/login/?next=http://www.earthsystemcog.org/projects/es-doc-models/resources/"> Login</a>
+     <!-- | <a href="/openid/login/?next=http://www.earthsystemcog.org/projects/es-doc-models/resources/">OpenID Login</a> -->
+     | <a href="/user/add/?next=http://www.earthsystemcog.org/projects/es-doc-models/resources/">Create Account</a>
+
+<!--//END: /cog/templates/cog/common/_user_menu.html //-->
+           </td>
+       </tr>
+       <tr>
+       <!-- shrink the space between the navigation and user menu on pages that don't have a project context e.g. no project name or logo -->
+       
+           
+               <!-- height of the td is 70px to match the height w/o an image. The td will expand if the project logo is larger -->
+               <!-- height of the project logo above the left nav bar is really controlled by the padding associated with the font-size
+               and padding of the node, since that is a different row. -->
+               <td style="height: 70px; vertical-align: bottom;  padding:0; padding-left:2px; margin:0;"> <!--must use vertical-align: bottom-->
+                    <span>
+                    
+                         <a style="padding:0; margin:0;" href="/projects/es-doc-models/">
+                    
+                    <img style="max-height: 150px; vertical-align: bottom;" src="/site_media/logos/es-doc-logo_purple_1.png" alt="ES-DOC-Models logo"/>
+                    </a>
+                    </span>
+               </td>
+           
+       
+   </tr>
+   <tr>
+       <td style="padding:0; padding-bottom: 1px; padding-right: 2px; font-size: 12px; color: #666; text-align: right; font-style: italic;">
+           You are at the <strong>CoG-CU</strong> node
+       </td>
+   </tr>
+   </table>
+</div>
+
+<!-- top navigation bar -->
+<div class="span-max last">
+   <div class="top_nav">
+       <div class="span-940">
+	       <div id="top_nav_left">
+               <ul>
+		           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/" >Home</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/aboutus/" >About Us</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/software/" >Software</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/developers/" >Developers</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/metrics/" >Metrics</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/governance/" >Governance</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/resources/" style='color:#358C92; background-color: #FFFFFF'>Resources</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/contactus/" >Contact Us</a></li>
+
+                                
+                           
+				       
+                   
+               </ul>
+		   </div> <!--// end div id=top_nav_left //-->
+	   </div> <!--//end div.span-26 //-->
+	
+	   <div  class="span-5 last">
+		   <div id="top_nav_right">
+               <a href="https://www.earthsystemcog.org/projects/cog/contactus/">Technical Support</a>
+		   </div> <!--//end div id=top_nav_right //-->
+	   </div> <!--// end div.span-5 last //-->
+   </div><!--// end div.top_nav //-->
+
+   <!-- top navigation sub-bar -->
+   <!-- top nav...width=100%-->
+   <div class="top_nav">
+       <div class="span-940">
+	       
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+	       
+		   &nbsp; <!--in case there are no items-->
+	   </div> <!--// end div.span-26 //-->
+
+       <!--add links to MyProfile and the DataCart-->
+	   <div class="span-5 last">
+	       <div id="top_subnav_right">
+	           
+	       </div> <!--// end div id=top_subnav_right //-->
+	   </div>	<!--// end div.span-5 last//-->
+   </div>
+
+   <!-- anchor for message dialogs -->
+   <div id="myDialog" class="yui-skin-sam"></div>
+</div> <!--// end div.span-max last //-->
+&nbsp; <br>
+<!--// END: /cog/templates/common/cog_header.html //-->
+
+
+
+
+                
+	 
+                <!--Load block body from various templates -->
+                
+	<!--EXTENDS: /layouts/templates/layouts/layout_base.html-->
+	<!--LAYOUT: layouts/layout_sidebar_center_right.html -->
+         
+    <div class="span-5">
+         
+    
+
+    
+    
+    <!-- project index -->
+    <div class="vertical_menu">
+	    
+	    	<!-- topic bar -->
+	    	
+                <div class="left_upper_widget_header">
+                    ES-DOC-Models
+                </div>
+            
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/doc/questionnaire/customization_options">Customization Options</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                       		<td>&nbsp;<a href="/projects/es-doc-models/" >Home</a></td>
+                       	
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/who_is_using_esdoc_tools">Who is Using ES-DOC?</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    The CIM and CVs
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim">What is the CIM?</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim2">CIM2</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim_versions">CIM Schema Versions</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim_cv">Baseline/CMIP5 CV Versions</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/controlled_vocabularies">Controlled Vocabularies</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/doc/questionnaire/cv_creation">CV Creation</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Questionnaire
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/help">Overview</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/admin_guide">Admin Guide</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/user_guide">User Guide</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/design">Design</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Viewer
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/viewer_motivation">Description and Demo</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Comparator
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/comparator_motivation">Description and Demo</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Search
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/motivation_cim_search">Description and Demo</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    
+	    
+    </div>
+        
+    <div class="vertical_menu">
+    
+        <!-- Unauthenticated Users -->
+        <div class="left_widget_header">
+            Visitors
+        </div>
+        <ul>
+            <li><a href="/news/list/es-doc-models/" class="listlink">&nbsp;List All News</a></li>
+            <li><a href="/doc/list/es-doc-models/" class="listlink">&nbsp;List All Files</a></li>
+            <li><a href="/ac/list/" class="listlink">&nbsp;List ESGF Data Groups</a></li>
+        </ul>
+ 
+        <!-- access restricted to project Contributors -->
+        
+    
+        <!-- access restricted to Project Administrators-->
+        
+       
+        <!-- access restricted to Node Administrators -->
+        
+    </div> <!--end of vertical menu-->
+
+
+
+    </div>
+    <div class="span-740">
+          <h1 class="title">ES-DOC-Models Resources</h1> 
+         
+
+    <!-- load the template for the page (e.g. contact_us) -->
+	
+		<!--//BEGIN  /templates/cog/bookmarks/_bookmarks.html //-->
+
+
+ 
+ 
+
+    <!-- create and display resources tree -->
+    
+
+    
+    <!-- anchor for dialogs -->
+    <div id="myDialog" class="yui-skin-sam"></div>
+       
+    <!-- This project resources -->
+    <!-- list_bookmarks located in cog_utils -->
+    <div id='folder_tree' class='yui-skin-sam'><div id='ES-DOC-Models_folderTree'><ul><li class='expanded'><div class='folder'>Bookmarks</div> <ul><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/es-docreport.pdf'>Nov 2016 Status Report</a><br/>Report generated for the 30 Nov 2016 PI meeting<br/></span></li><li class='expanded'><div class='folder'>Minutes</div> <ul><li><div class='folder'>2017</div> <ul><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170710.pdf'>10 July 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170703.pdf'>03 July 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170619.pdf'>19 June 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170612.pdf'>12 June 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170606.pdf'>06 June 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170530.pdf'>30 May 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170522.pdf'>22 May 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170508.pdf'>08 May 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170502.pdf'>02 May 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170410.pdf'>10 April 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/minutes_170403.pdf'>03 April 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170327.pdf'>27 March 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170320.pdf'>20 March 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170313.pdf'>13 March 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170306.pdf'>06 March 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170227.pdf'>27 February 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170220.pdf'>20 February 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/minutes_170213.pdf'>13 February 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170206.pdf'>06 February 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_1701125.pdf'>25 January 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170118.pdf'>18 January 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/minutes_170109.pdf'>09 January 2017 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/minutes_1710103.pdf'>03 January 2017 Weekly Telco</a></span></li></ul></li><li><div class='folder'>2016</div> <ul><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/minutes_161219.pdf'>19 December 2016 Weekly Telco</a></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/minutes_161212.pdf'>12 December 2016 Weekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_161130_pi'>30 Nov 2016 PI Meeting</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_161129'>28 Nov 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_161121'>21 Nov 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_161114'>14 Nov 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_161031'>31 Oct 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_161024'>24 Oct 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_161010'>10 Oct 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_161017'>17 Oct 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_161005'>03 Oct 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160919'>19 Sep 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160914'>14 Sep 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160906'>06 Sep 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160822'>22 Aug 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160725'>25 Jul 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160711'>11 Jul 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160705'>05 Jul 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160628'>28 Jun 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160620'>20 Jun 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160613'>13 Jun 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160606'>06 Jun 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160531'>31 May 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160523'>23 May 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160516'>16 May 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160509'>09 May 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160418'>18 Apr 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160411'>11 Apr 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/160404'>04 Apr 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160321'>21 Mar 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160222'>22 Feb 2016 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160208'>08 Feb 2016 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160125'>25 Jan 2016 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_160111'>11 Jan 2016 Biweekly</a></span></li></ul></li><li><div class='folder'>2015</div> <ul><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_151214'>14 Dec 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_151201'>01 Dec 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_151116'>16 Nov 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_151102'>02 Nov 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_151019'>19 Oct 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_150928'>28 Sep 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_150914'>14 Sep 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_150728'>28 July 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_150714'>14 July 2015 Biweekly </a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_150623'>23 Jun 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_150526'>26 May 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_150512'>05 May 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_150331'>31 Mar 2015 Biweekly </a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_150317'>17 Mar 2015 Biweekly </a></span></li><li><span class='bookmark'><a href='https://earthsystemcog.org/projects/es-doc-models/minutes_150302'>03 Mar 2015 Biweekly </a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_150217'>17 Feb 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_150203'>03 Feb 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_140120'>20 Jan 2015 Biweekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_150106'>06 Jan 2015 Biweekly</a></span></li></ul></li><li><div class='folder'>2014</div> <ul><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_161114'>14 Nov 2016 Weekly</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_141223'>23 Dec 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_141209'> 09 Dec 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_141125'>25 Nov 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/mintues_141111'>11 Nov 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_141107'>11 Nov 2014 PI Telco</a><br/>CMIP6 Planning<br/></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_141028'>28 Oct 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_141014'>14 Oct 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_140930'>30 Sep 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_1409_pi'>10 Sep 2014 PI Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_140902_biweekly'>02 Sep 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_140819'>19 Aug 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_140722'>22 July 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_140708_biweekly'>08 July 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://earthsystemcog.org/projects/es-doc-models/minutes_140624'>24 Jun 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_1405_pi'>06 May 2014 Prioritization Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_140513'>13 May 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_1405_pi'>05 May 2014 PI Telco</a></span></li><li><span class='bookmark'><a href='https://earthsystemcog.org/projects/es-doc-models/minutes_140415'>15 Apr 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://earthsystemcog.org/projects/es-doc-models/minutes_140401'>01 Apr 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://earthsystemcog.org/projects/es-doc-models/minutes_140318_biweekly'>18 Mar 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://earthsystemcog.org/projects/es-doc-models/minutes_140304'>04 Mar 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://earthsystemcog.org/projects/es-doc-models/minutes_140218_telco'>18 Feb 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='https://earthsystemcog.org/projects/es-doc-models/minutes_14020_splash'>04 Feb 2014 PI Telco</a><br/>Dedicated to the Splash Page<br/></span></li><li><span class='bookmark'><a href='https://www.earthsystemcog.org/projects/es-doc-models/minutes_140121'>21 Jan 2014 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_140107_prioritization'>07 Jan 2014 Prioritization Telco</a></span></li></ul></li><li><div class='folder'>2013</div> <ul><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_131112'>12 Nov 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_131029'>29 Oct 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_131015'>15 Oct 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_131001'>01 Oct 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/mintues_130917'>17 Sep 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_130903'>03 Sep 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_130723'>23 July 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_130611'>11 Jun 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_130528'>28 May 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_130515'>15 May 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_130320'>20 Mar 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_130306'>06 Mar 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_130220'>20 Feb 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_130123'>23 Jan 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_130123'>23 Jan 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_130109'>09 Jan 2013 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_130719'>19 July 2013 Prioritization Telco</a></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/projects/es-doc-models/minutes_131126_pi'>26 Nov 2013 PI Telco</a></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/projects/es-doc-models/minutes_131206_pi'>06 Dec 2013 PI </a><br/>Face-to-Face. Held at LBNL<br/></span></li></ul></li><li><div class='folder'>2012</div> <ul><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_121114'>14 Nov 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_121031'>31 Oct 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_121017'>17 Oct 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_121010'>10 Oct 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120919'>19 Sep 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120905'>05 Sep 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120822'>22 Aug 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120808'>08 Aug 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120725'>25 July 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120627'>27 Jun 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120613'>13 Jun 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120530'>30 May 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120516'>16 May 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120502'>02 May 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120418'>18 Apr 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120404'>04 Apr 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120321'>21 Mar 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120307'>07 Mar 2012 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_121108'>08 Nov 2012 Prioritization Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120726'>26 July 2012 Prioritization Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_120702_pi'>02 July 2012 PI Telco</a></span></li></ul></li><li><div class='folder'>2011</div> <ul><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_111207'>07 Dec 2011 Biweekly Teco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_111027'>27 Oct 2011 Biweekly Telco</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/projects/es-doc-models/minutes_110630'>30 Jun 2011 Biweekly Telco</a></span></li></ul></li></ul></li><li class='expanded'><div class='folder'>Presentations</div> <ul><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/esdoc10minutes.pdf'>A ten minute introduction to ES-DOC technology!</a><br/>Bryan Lawrence, CEDA Vocabulary Meeting, March 1st, 2016<br/></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/esdoc4cmip6.pdf'>es-doc for cmip6</a><br/>Bryan Lawrence, Sebastien Denvil, Mark Greenslade, Eric Guilyardi, David Hassell, Sylvia Murphy, Charlotte Pascoe, Allyn Treshansky, the es-doc consortium; IS-ENES2 and NOAA partners, 17 Feb, 2016.<br/></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/AGU-Poster-2015-v6.pdf'>Earth System Documentation (ES-DOC) Preparation for CMIP6</a><br/>Poster given at the 2015 AGU Meeting in San Francisco. 
+
+<br/></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/ES-DOC-AGU-2013-IN21D-The-ES-DOC-Project.pptx'>The ES-DOC Project</a><br/>Presentation give by Mark and Sylvia AGU December 2013<br/></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/ES-DOC-AGU-2013-IN22A-07-The-ES-DOC-Software-Process.pptx'>The ES-DOC Software Process</a><br/>Presentation given by Mark AGU December 2013<br/></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/pres_where_are_we_going_isenes_bryan_1405.pdf'>ES-DOC, Why, Where we have been, Where we are going</a><br/>Presentation given by Bryan at the May 2014 IS-ENES meeting. <br/></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/es-doc-models/EGU-2014-12988.pdf'>Earth System Documentation</a><br/>Presentation given at EGU 2014<br/></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/ESGF_ES-DOC_dec2013_Guilyardi.pptx'>ES-DOC and ESGF</a><br/>Presentation given by Eric at the 2013 ESGF meeting in Livermore CA<br/></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/treshansky_metadata_qed-2013.pdf'>Metadata: Describing Models and Techniques</a><br/>Talk on the ES-DOC tools, particularly the Questionnaire given by Allyn Treshansky at the 2013 QED Workshop ...August 2013 <br/></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/LawrenceAGU2012.pdf'>Issues to Address Before we can have an Open Climate Modelling Ecosystem</a><br/>Talk presented at the Fall AGU Meeting discussing the role of Metafor and Curator in CMIP5 and the future role of ES-DOC...Dec 2012
+<br/></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/poster_1212_agu_cog_small.pdf'>Earth System CoG Collaboration Environment</a><br/>Poster presented at the Fall AGU meeting showing the CIM Viewer and the CIM Editor support for the Dynamical Core Model Intercomparison Project (DCMIP)...Dec 2012<br/></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/es-doc-models/pres_1301_isenes_morgan.pdf'>Earth System Documentation</a><br/>Mark Morgan's presentation to the IS-ENES General Assembly...Jan 2013<br/></span></li></ul></li></ul></li></ul></div></div><script>YAHOO.util.Event.onContentReady('ES-DOC-Models_folderTree', bookmarkTreeInit, this);</script>
+    
+
+    
+<!--//END  /templates/cog/bookmarks/_bookmarks.html //-->   
+	
+
+	<!-- social media buttons -->
+	<div style="text-align:center; padding-top: 4px; padding-bottom:8px;">
+	    <!--// START: /cog/templates/cog/common/cog_social_media.html //-->
+
+<!--// add social media buttons //-->
+
+
+<!--twitter function -->
+<script type="text/javascript">
+    //<![CDATA[
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+//]]>
+</script>
+
+<table class="no_color" style="width:125px;margin-left:auto;margin-right:auto;">
+<tr>
+   <td>
+   <!-- Facebook -->
+   <div id="facebook">
+      <a href="#" onclick=" window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.earthsystemcog.org/projects/es-doc-models/resources/','facebook-share-dialog','width=626,height=436');return false;">
+          <img src="/static/cog/img/facebook.png" height="20" alt="Facebook logo"/></a>
+    </div> <!--// end div id=facebook //-->
+    </td>
+
+    <td>
+    <!-- Twitter -->
+    <div id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="http%3A//www.earthsystemcog.org/projects/es-doc-models/resources/">Tweet</a>
+    </div> <!--// end div id=twitter //-->
+    </td>
+</tr>
+</table>
+    
+
+
+		
+		
+	</div>
+
+	<!-- Edit this project details - access restricted to project administrators -->
+	
+
+    <!-- children projects-->
+ 	
+
+    <!-- peer projects-->
+ 	
+		<p></p>
+		<div class="header_bar">
+		     <a href="" onclick="javascript:toggle_visibility('peer_rollup'); return false;" class="listlink">&nbsp;View Peer Project Resources (5)</a>
+		</div>
+		<div id="peer_rollup" style="display:none">
+		    
+	    		
+	    			<br/>
+	    			<div class="mybox" style="padding:0;">
+	    				<div class="header-gray">
+	    					<div style="text-align:center; font-weight:bold; padding-top:1px;">
+                                Downscaling-2013 Project Resources
+                            </div>
+	    				</div>
+	    				<div style="padding:4px;">
+							<!--//BEGIN  /templates/cog/bookmarks/_bookmarks.html //-->
+
+
+ 
+ 
+
+    <!-- create and display resources tree -->
+    
+
+    
+    <!-- anchor for dialogs -->
+    <div id="myDialog" class="yui-skin-sam"></div>
+       
+    <!-- This project resources -->
+    <!-- list_bookmarks located in cog_utils -->
+    <div id='folder_tree' class='yui-skin-sam'><div id='Downscaling-2013_folderTree'><ul><li class='expanded'><div class='folder'>Bookmarks</div> <ul><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/downscaling-2013/20130721_ProvisionalAgenda.pdf'>Provisional workshop Agenda</a></span></li><li class='expanded'><div class='folder'>Presentations</div> <ul><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/WWG_Powerpoint.pptx'>20130816 QED2013 JBarsugli_Water resources working group discussions</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/Caspar_NCPP_AgSummary-1.pdf'>20130816 QED2013 CAmmann Agriculture working group summary notes</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/doc/detail/1276/'>20130816 QED2013 CWalthall Climate Hubs</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/doc/detail/1275/'>20130816 QED2013 ARay Ecosystems WG</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/08162013_Human_health_working_group.pptx'>20130816 QED2013 GGuentchev Human Health Working Group</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/ncpp/20130816_QED2013_RRood_NCPP_Synthesis.pptx'>20130816 QED2013 RRood NCPP Synthesis</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130815QED2013JGrossClimateDataintheRealWorld.pptx'>20130815 QED2013 JGross Climate Data in the Real World</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130815QED2013LBrekkeBureauofReclamation.pptx'>20130815 QED2013 LBrekke Bureau of Reclamation</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130815QED2013PKinneyRespiratoryHealth.pptx'>20130815 QED2013 PKinney Respiratory Health</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130815QED2013SSahaHealthNeedsandImpacts.pptx'>20130815 QED2013 SSaha Health Needs and Impacts</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130815QED2013AWoottenNCU.pptx'>20130815 QED2013 AWootten NCU</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130814QED2013LMearnsSamplingRCMsGCMs.pptx'>20130815 QED2013 LMearns Sampling RCMs GCMs</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130814QED2013JWinklerTartCherriesandBamboo.pptx'>20130814 QED2013 JWinkler Tart Cherries and Bamboo</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/QED_2013_ClimateTranslator_OCGIS_Demo_20130811.pdf'>20130814 QED2013 BKoziol Climate Translator OCGIS Demo</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/Ammann_ObsDiscussion_NCPP_QED2013.pdf'>20130812 QED2013 CAmmann Evaluation of Observed Datasets</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/Ammann_ModelAnalysis_NCPP_QED2013.pdf'>20130813 QED2013 CAmmann Comparison of Downscaled Data</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/Ammann_ClimateTranslator_NCPP_QED2013.pdf'>20130812 QED2013 CAmmann ClimateTranslator</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130812QED2013KHayhoeNeedforEvaluation.pptx'>20130812 QED2013 KHayhoe Need for Evaluation</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130814QED2013EMaurerDownscalingforWater.pptx'>20130814 QED2013 EMaurer Downscaling for Water</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130814QED2013AAdamsTampaBayWater.pptx'>20130814 QED2013 AAdams Tampa Bay Water</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130814QED2013RHorton.mp4'>20130814 QED2013 RHorton mp4</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130814QED2013RHorton.mov'>20130814 QED2013 RHorton mov</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130813QED2013GGuentchevEvaluationofIndicesforApplications.pptx'>20130813 QED2013 GGuentchev Evaluation of Indices for Applications</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130813QED2013XLiangRCMClimateChangeProjectionUncertainty.pptx'>20130813 QED2013 XLiang RCM Climate Change Projection Uncertainty</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/doc/detail/1254/'>20130813 QED2013 KDixon Perfect Model Experiments</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130813QED2013JLanzanteIdealizedTests.pptx'>20130813 QED2013 JLanzante Idealized Tests</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130813QED2013JMorisetteConnectingDownscaledClimateDatatoEco.pptx'>20130813 QED2013 JMorisette Connecting Downscaled Climate Data to Ecological Modeling</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130813QED2013JKimRCMES.pptx'>20130813 QED2013 JKim RCMES</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130813QED2013JBarsugliIdealizedExample.pptx'>20130813 QED2013 JBarsugli Idealized Example</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130813QED2013MBukovskyNAM.pdf'>20130813 QED2013 MBukovsky NAM</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130813QED2013ARayDevelopingAppilicationsRelatedandProcessBasedMetrics.pptx'>20130813 QED2013 ARay Developing Appilications-Related and Process-Based Metrics</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130813QED2013AStonerHowtoAccessandUsePMD.pptx'>20130813 QED2013 AStoner Comparing statistical downscaling methods: From simple to complex</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130812QED2013TBogdanNCARWelcome.m4v'>20130812 QED2013 TBogdan NCAR Welcome</a><br/>m4v of Thomas Bogdan's welcome to QED2013<br/></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130812QED2013CAmmannEvaluationofObservedDatasets.ppt'>20130812 QED2013 CAmmann Evaluation of Observed Datasets</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130812QED2013BLivnehBCSDDailyDataset.pptx'>20130812 QED2013 BLivneh BCSD Daily Dataset</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130812QED2013EGutmannClimateDatafromObsStatsPhys.pptx'>20130812 QED2013 EGutmann Climate Data from Observations, Statistics, and Physics</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130812QED2013ARayGriddedObs.pptx'>20130812 QED2013 ARay Gridded Observation Experiences</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130812QED2013RBehnkeStationComparison.pptx'>20130812 QED2013 RBehnke Station Comparison</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130812QED2013DBeharTheStakesonClimateChange.pptx'>20130812 QED2013 DBehar The Stakes on Climate Change</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130812QED2013ATreshanskyMetadata.pdf'>20130812 QED2013 ATreshansky Metadata: Describing models and methods</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130812QED2013CUejioGriddedObservationNeedsforHealthImpacts.pptx'>20130812 QED2013 CUejio Gridded Observation Needs for Health Impacts</a></span></li><li><span class='bookmark'><a href='http://earthsystemcog.org/site_media/projects/downscaling-2013/20130812_NCPP_QED_Workshop_RBRood_Community.pptx'>20130812 QED2013 RRood Community of Practice</a><br/>Rood opening talk in workshop.
+  -  Invitation to Community
+  -  Some NCPP details in backup material<br/></span></li></ul></li></ul></li></ul></div></div><script>YAHOO.util.Event.onContentReady('Downscaling-2013_folderTree', bookmarkTreeInit, this);</script>
+    
+
+    
+<!--//END  /templates/cog/bookmarks/_bookmarks.html //-->   
+						</div>
+					</div>
+				
+		    
+	    		
+	    			<br/>
+	    			<div class="mybox" style="padding:0;">
+	    				<div class="header-gray">
+	    					<div style="text-align:center; font-weight:bold; padding-top:1px;">
+                                EarthSystemBridge Project Resources
+                            </div>
+	    				</div>
+	    				<div style="padding:4px;">
+							<!--//BEGIN  /templates/cog/bookmarks/_bookmarks.html //-->
+
+
+ 
+ 
+
+    <!-- create and display resources tree -->
+    
+
+    
+    <!-- anchor for dialogs -->
+    <div id="myDialog" class="yui-skin-sam"></div>
+       
+    <!-- This project resources -->
+    <!-- list_bookmarks located in cog_utils -->
+    <div id='folder_tree' class='yui-skin-sam'><div id='EarthSystemBridge_folderTree'><ul><li class='expanded'><div class='folder'>Bookmarks</div> <ul><li><span class='bookmark'><a href='https://earthsystemcog.org/projects/earthsystembridge/nuopc-bmi_interfaceanalysis'>NUOPC-BMI Interface Analysis</a></span></li></ul></li></ul></div></div><script>YAHOO.util.Event.onContentReady('EarthSystemBridge_folderTree', bookmarkTreeInit, this);</script>
+    
+
+    
+<!--//END  /templates/cog/bookmarks/_bookmarks.html //-->   
+						</div>
+					</div>
+				
+		    
+	    		
+	    			<br/>
+	    			<div class="mybox" style="padding:0;">
+	    				<div class="header-gray">
+	    					<div style="text-align:center; font-weight:bold; padding-top:1px;">
+                                DCMIP-2012 Project Resources
+                            </div>
+	    				</div>
+	    				<div style="padding:4px;">
+							<!--//BEGIN  /templates/cog/bookmarks/_bookmarks.html //-->
+
+
+ 
+ 
+
+    <!-- create and display resources tree -->
+    
+
+    
+    <!-- anchor for dialogs -->
+    <div id="myDialog" class="yui-skin-sam"></div>
+       
+    <!-- This project resources -->
+    <!-- list_bookmarks located in cog_utils -->
+    <div id='folder_tree' class='yui-skin-sam'><div id='DCMIP-2012_folderTree'><ul><li class='expanded'><div class='folder'>Bookmarks</div> <ul><li class='expanded'><div class='folder'>Datasets</div> <ul><li><div class='folder'>CAM-FV</div> <ul><li><span class='bookmark'><a href='http://hydra.fsl.noaa.gov/thredds/esgcet/1/dcmip-2012.cam-fv.410.medium.L30.latlon.hydro.4th_order_div_damping.v1.html#dcmip-2012.cam-fv.410.medium.L30.latlon.hydro.4th_order_div_damping.v1'>dcmip-2012.cam-fv.410.medium.L30.latlon.hydro.4th_order_div_damping</a></span></li><li><span class='bookmark'><a href='http://www.cnn.com/'>Great Image</a>&nbsp;&nbsp;[ <img src='/static/cog/img/notes_16x16.png' style='vertical-align:bottom;' /><a href='/post/detail/901/'> Notes</a> ]<br/>We need to talk figure<br/></span></li></ul></li></ul></li><li class='expanded'><div class='folder'>NCL Scripts</div> <ul></ul></li><li class='expanded'><div class='folder'>References</div> <ul></ul></li></ul></li></ul></div></div><script>YAHOO.util.Event.onContentReady('DCMIP-2012_folderTree', bookmarkTreeInit, this);</script>
+    
+
+    
+<!--//END  /templates/cog/bookmarks/_bookmarks.html //-->   
+						</div>
+					</div>
+				
+		    
+	    		
+	    			<br/>
+	    			<div class="mybox" style="padding:0;">
+	    				<div class="header-gray">
+	    					<div style="text-align:center; font-weight:bold; padding-top:1px;">
+                                DCMIP-2016 Project Resources
+                            </div>
+	    				</div>
+	    				<div style="padding:4px;">
+							<!--//BEGIN  /templates/cog/bookmarks/_bookmarks.html //-->
+
+
+ 
+ 
+
+    <!-- create and display resources tree -->
+    
+
+    
+    <!-- anchor for dialogs -->
+    <div id="myDialog" class="yui-skin-sam"></div>
+       
+    <!-- This project resources -->
+    <!-- list_bookmarks located in cog_utils -->
+    <div id='folder_tree' class='yui-skin-sam'><div id='DCMIP-2016_folderTree'><ul><li class='expanded'><div class='folder'>Bookmarks</div> <ul><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/dcmip-2016/Pushp_DCMIP_2016.pdf'>From GCMs to river flow in the midst of uncertainties: Can potential future plights could be alleviated with currently available forecasting skill ?</a><br/>The northwest part of India (NWI) known as the “wheat bowl” of the country, receives 20% - 25% of its annual precipitation during winter season. This precipitation is very important for the wheat crop, as it supplements the moisture and maintains low temperature during the reproductive stages. Most of the winter precipitation in the region is in the form of snowfall over western Himalayas. This precipitation, in turn, helps in maintaining the glaciers, which serve as the vast storehouse of freshwater supply to millions of people downstream throughout the year through rivers of western Himalayan origin. Therefore, for a country like India that gets more than 70% of its wheat production and fresh water from NWI region, the question arises whether strategies of winter-time precipitation prediction that have proved useful elsewhere can they be adapted to the exceptionally complex terrain of Himalayas as well? The aim of the present study is in two-folds. Firstly, it attempts to assess the seasonal predictive skill of six general circulation models (GCMs) (out of which four of them are from IRI Columbia University, one form NCEP and one from NCMRWF India at 1-month lead), for a period of 31 years (1982-2012). Secondly, an attempt has been also made to reproduce the information of the GCMs at higher resolution using downscaling approaches (both dynamical and statistical downscaling). The first part of the study reveals that the GCMs in general underestimate the observed climatology and inter-annual variability of precipitation and temperature and their skill is not satisfactory even with multimodel ensemble techniques. The second part of the work shows that dynamical downscaling (at 30 km resolution) with customized RegCM significantly reduces GCM biases. Further a comparison between Canonical Correlation Analysis (CCA) based statistical downscaling and Quintile Mapping (QM) based bias corrected dynamical downscaling has been made. The results suggest that the QM based bias corrected dynamical downscaling further improves the skill over domain of interest compared to CCA based statistical downscaling approach. Furthermore, the study reflects the model’s robustness at the event scale and paves a path for using dynamic downscaling methods in basin-scale studies. Finally, the plausible reasons of model failure and how DCMIP framework has played a key role in addressing such issues is highlighted.<br/></span></li></ul></li></ul></div></div><script>YAHOO.util.Event.onContentReady('DCMIP-2016_folderTree', bookmarkTreeInit, this);</script>
+    
+
+    
+<!--//END  /templates/cog/bookmarks/_bookmarks.html //-->   
+						</div>
+					</div>
+				
+		    
+	    		
+	    			<br/>
+	    			<div class="mybox" style="padding:0;">
+	    				<div class="header-gray">
+	    					<div style="text-align:center; font-weight:bold; padding-top:1px;">
+                                WIP Project Resources
+                            </div>
+	    				</div>
+	    				<div style="padding:4px;">
+							<!--//BEGIN  /templates/cog/bookmarks/_bookmarks.html //-->
+
+
+ 
+ 
+
+    <!-- create and display resources tree -->
+    
+
+    
+    <!-- anchor for dialogs -->
+    <div id="myDialog" class="yui-skin-sam"></div>
+       
+    <!-- This project resources -->
+    <!-- list_bookmarks located in cog_utils -->
+    <div id='folder_tree' class='yui-skin-sam'><div id='WIP_folderTree'><ul><li class='expanded'><div class='folder'>Bookmarks</div> <ul><li><span class='bookmark'><a href='https://docs.google.com/document/d/1lNWCak7UXUf5BeofHlrho7tCL5nHmw8Ok-7JVKOXvOA/edit'>WGCM-18 Meeting Notes</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/presentation/d/1M4FB1n79cAu9rPHOQw-RteUB8piSl26s79OsBZkmQjA/edit#slide=id.p54'>WGCM-18 slide deck</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1oUVsbTMXUpu8AfIwBWnBX068-iKfrp5Si76IH38T_Dw/edit'>Discussion of position papers</a><br/>Notes on WIP discussion of the position papers we intend to produce.<br/></span></li><li class='expanded'><div class='folder'>CMIP6 Data Volume</div> <ul><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/wip/data_volume.stdres.txt'>data_volume.stdres.txt</a><br/>Output from dreqDataVol.py assuming standard model resolutions.<br/></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/wip/data_volume.modelres.txt'>data_volume.modelres.txt</a><br/>Output from dreqDataVol.py using model resolutions supplied by centers<br/></span></li><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/wip/dreqDataVol.py'>dreqDataVol.py</a><br/>Wrapper program around drq 01.beta.34 from Martin Juckes for data volume estimation<br/></span></li></ul></li><li class='expanded'><div class='folder'>Meetings</div> <ul><li><span class='bookmark'><a href='https://docs.google.com/document/d/1Th9-bw9dWY0Ctv1j2TxE53fhz2lIRZybvaKwbYLjRaA/edit'>WIP_Meeting_Notes_2018-12-18</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1sUboNUwWnqgpO1YA32wgPaXzFDK0oaiq206_37TkUds/edit'>WIP_Meeting_Notes_2019-01-22</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1cUZu6OdRSS-tBNc_VuxoZoMPp1cHerXDf6t1x1iG5u0/edit'>WIP_Meeting_Notes_2019-02-05</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1Fm-yriuvbkHVLxK7uT6umDJODx-WNgkZ52F5xRKY89M/edit'>WIP_Meeting_Notes_2019-02-19</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1nYtKNiNGRp04zdhSY8_DUiR4a4vrz4nG2ZIugmm2k34/edit?usp=sharing'>WIP_Meeting_Notes_2018-11-20</a></span></li><li><span class='bookmark'><a href='https://drive.google.com/open?id=1OKZtOAykauEeoIEDVSKp96fR2YpiA9zyLj8JmHPeLPg'>WIP_Meeting_Notes_2018-10-02</a></span></li><li><span class='bookmark'><a href='https://drive.google.com/open?id=12u7iGR3Y6cGFMrHqCVldnsWhYs2IwnpLmI9VDulkobM'>WIP_Meeting_Notes_2018-09-18</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1laEmV-ZxPg8gWqbk1GHyU9rckeVuY21PU2jT9_YcKNw/edit?usp=sharing'>WIP_Meeting_Notes_2018-08-21</a></span></li><li><span class='bookmark'><a href='https://drive.google.com/open?id=1UTpckvXzHWVX3skxoRgm0rCuuKvwet1jjatY_zYDuUI'>WIP_Meeting_Notes_2018-08-07</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1jZdgv7yHwd8YJY6SD00oyzzCyKYld1XBxSh2DBH6XNs/edit'>WIP_Meeting_Notes_2018-07-24</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1Zsl1Es3sawceqIueyFgGIdVJuQllG-B3zOwysYec3A0/edit'>WIP_Meeting_Notes_2018-06-12</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1J5vLBhdg9LmdgVyf5q-rqrgeTSkogROWzhuIV9fk_nM/edit'>WIP_Meeting_Notes_2018-05-02</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1AV6EUOl8OYCu-sbA4_Wg_FC7TvYFvkNgs0QoUsmlii0/edit'>WIP_Meeting_Notes_2018-04-17</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1Ut_nxpd7D63hrHS9m3p_l3VAvlBtVQDUr0UyJGQid_I/edit?usp=sharing'>WIP_Meeting_Notes_2018-03-20</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1YiP7tmtpvrhUoi8GIb9nzn3ssodn57qFMPqzW6tYaNI/edit?usp=sharing'>WIP_Meeting_Notes_2018-02-13</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1-b4RZtHfKiCCwc_CLOatmjJXyqUsBSbNSDdcvRycejk/edit?usp=sharing'>WIP_Meeting_Notes_2018-01-30</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1n_0-wlMyMugn9e3aUTeKCAh6XRFIUISNfabdwwocuEc/edit'>WIP_Meeting_Notes_2017-12-19</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1vsqeEDutNcZN4pHK534MAnkF5sKXcmjPAEfADdJNeF0/edit'>WIP_Meeting_Notes_2017-11-28</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1zpFKTmzy5sYARhogzw59ClzBNiE9QCAoJNl4yXfrTRM/edit'>WIP_Meeting_Notes_2017-11-21</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1qWnGdlKfmQzpoq2u4QT-nqATuztYhYbcsiPvnAJXI1I/edit'>WIP_Meeting_Notes_2017-10-24</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1-Nbq58KSFSyQQbKO8Bq5tqIFDqaPlzfREVau8jeOSIg/edit'>WIP_Meeting_Notes_2017-10-03</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1SMMQNkl_K0qTyMAe4GxrD4m93m8OiNO6RhzUEDGEPDQ/edit'>WIP_Meeting_Notes_2017-09-26</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/12WRn2WELr0O1CDWImKfgmOrvBhXkfmtbTE4l-Ae5ovU/edit'>WIP_Meeting_Notes_2017-09-19</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1yXDDMWt9SDE12Mq4MyWS71ePLQ4wDj16cEBWc8uwze4/edit'>WIP_Meeting_Notes_2017-08-29</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1mtPWxHMbp4ByI66uPoQTjQ92JD6h-oOZblK8DRMxFis/edit'>WIP_Meeting_Notes_2017-08-15</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1zkDbwiic1XdA46yEegiiW8y4zWSWvepT_4k14uf9MTI/edit'>WIP_Meeting_Notes_2017-07-18</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/16xxXGevIdxXVncyNXarCMf0T2oLc9xMjlIHJhbbMt_8/edit'>WIP_Meeting_Notes_2017-07-11</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1i1cGLZW0lyfW4GZ0ygc5uT6465F-Nw2ZwaOUw1oHZzs/edit'>WIP_Meeting_Notes_2017-06-20</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1FRRsOwikfk7Efeg0Ve4t6LGmhUy63Cb0jk090vuvxGE/edit'>WIP_Meeting_Notes_2017-05-09</a></span></li><li><span class='bookmark'><a href='https://drive.google.com/open?id=1AvR8ce3FzCo08ubJX4wbHMDd2pU8S8ebSo0UyQ0EvNg'>WIP_Meeting_Notes_2017-04-11</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1i0tEr9qe7p89jfbDiflF4Fi-sY5KJR3ZfNq5WkPKDS4/edit'>WIP_Meeting_Notes_2017-03-14</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/19Mj-sPvPUf0Mu8WW-npJaHwVf1Vq5JzmL4liHRcjs7k/edit'>WIP_Meeting_Notes_2017-02-28</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1YifkmcyMMP_TGhOTCN1b_Af-eMptPWyHJLZzBzP2BXc/edit?usp=sharing'>WIP_Meeting_Notes_2016-12-20</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1OTYkDLlwV0iKxbNrSbB8gGuojFTTXXd4YsPQ_RJLD5Q/edit'>WIP_Meeting_Notes_2016-11-15</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1K2bBv5yhWFR_RO1uYZm8PWZdXE5wW4BFibqLn4xyIPs/edit'>WIP_Meeting_Notes_2016-10-18</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/19pT-4ZzrxicNxr99cqQxK4XVoYdAoAXEvQ8d-yqR0ag/edit'>WIP_Meeting_Notes_2016-10-04</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1Q6XdlZSAdaSacprlavOj9NLKKvSsJjuNNqdhRWfbxYE/edit'>WIP_Meeting_Notes_2016-09-20</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1AkuH9NNW2c5tEGDVC3bl1TEa_8_vjUN0F9_Y8-N3Tvo/edit'>WIP_Meeting_Notes_2016-09-06</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1_8c50SOPGAFzUHGNM4XGzg5avczfLwsfG7IplHlPKo8/edit'>WIP_Meeting_Notes_2016-07-12</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1uyI7I6nPVPSiQP01X8R6sq_ZBB5LW_x0NgD0LatUsCk/edit'>WIP_Meeting_Notes_2016-06-28</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1mB1B_oYxGwYYn0SACKsolc1sCqhmL9WTv6IHz9-E_ps/edit'>WIP_Meeting_Notes_2016-06-14</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1Qalup94_TJ214C7JGiSQoURMKfDqL5IQN6s0ybmEBmI/edit'>WIP_Meeting_Notes_2016-05-24</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1cF9I1S49Sbfi-s-ezJfFLvM-TW7ux7Uf7LsopZV00ck/edit'>WIP_Meeting_Notes_2016-05-10</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1jO4e11K-k_ckFHoFE3EryqP4GA_LGJ0SyhtabJEtG3U/edit'>WIP_Meeting_Notes_2016-04-26</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1eTGxuhZzLQs3fOOgkNAHkCY38AcTig7QxKu3ceOTFoc/edit'>WIP_Meeting_Notes_2016-03-15</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1Q9yX8p6iVFtdMZHgpXMVujVEiNHagCFrS6NTGj3G19M/edit'>WIP_Meeting_Notes_2016-03-01</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1jY4cNNnJpjYld3cerUWJCqXA9C-RKYQq_2XLn9963X8/edit'>WIP_Meeting_Notes_2016-02-02</a></span></li><li><span class='bookmark'><a href='https://drive.google.com/open?id=1Qlgqond8BNx9KoZemXo1d7hn2ELKM-3y1ES4-rPdcL8'>WIP_Meeting_Notes_2015-10-13</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1WCMm-RijubUVUUO9-OekoW4HXZVz6PpGBPG1C7OpRuM/edit'>WIP_Meeting_Notes_2016-01-19</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/16KXZZ_pWemt0h_e-r-n1yAFJGxUlTPuEg6ljd0T0l6I/edit'>WIP_Meeting_Notes_2016-01-05</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/142blLvDgvWbiqQI7vGwf7Z8ug0cvbgoXk2X1c9JVeBM/edit?usp=sharing'>WIP_Meeting_Notes_2015-12-02</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/10fCUAQGe_FYXNdd3m5t3C8nOMi7Txj3-kqX112yIcME/edit?usp=sharing'>WIP_Meeting_Notes_2015-09-29</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1BNF8eZJN3cQwWIwAb0nfkI9mlin3z_zTt0fH2a-6Ptc/edit?usp=sharing'>WIP_Meeting_Notes_2015-09-15</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1eIPH7jetGdx27ncJB9U7-UikExSB5hQsGxSJCYGKM6k/edit?usp=sharing'>WIP_Meeting_Notes_2015-09-01</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1Mj7qUzJ_1Vs5kP2NTWIvSFedomLuu-dTxX0G4GRvhs4/edit?usp=sharing'>WIP_Meeting_Notes_2015-08-18</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1P1u754kfPW3kQjoxBPo99Ag9b44umr9iFFU2TmUs2OM/edit?usp=sharing'>WIP_Meeting_Notes_2015-08-04</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1l8d09b7f_UcfH6INg7aSc03Fmu1S8Bpfd0rOr6BDs_Y/edit?usp=sharing'>WIP_Meeting_Notes_2015-07-21</a></span></li><li><span class='bookmark'><a href='https://drive.google.com/open?id=10W8rAsxRPfbRDVc0Cjsn6dHJNWeOtU3fP_WXKyN4UKs'>WIP_Meeting_Notes_2015-06-09</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1SNBaGPA5LdwNTYd9QRBEI0LVpmBQG1rr-FCU1620KHA/edit'>WIP_Meeting_Notes_2015-04-28</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1B5uBkATUJWYcPJRUolXAy36DaH_l6aijHQMc97YtyXE/edit'>WIP_Meeting_Notes_2015-04-14</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1MZsktE5GJWBhSlOUmm4elWLckDHyemvgWLWsvFqxtsM/edit'>WIP_Meeting_Notes_2014-09-26</a></span></li></ul></li><li class='expanded'><div class='folder'>MIP_Protocols</div> <ul><li><span class='bookmark'><a href='https://docs.google.com/document/d/1OmKGkhMCxn3L0GiZ-DcD0T0-e2iqtdv185nTt0iFtPA/edit'>CMIP6 Endorsed-MIP Data Request spreadsheet: Guidance document</a><br/>Instructions on filling the CMIP6 Endorsed-MIP Data Request<br/></span></li><li><span class='bookmark'><a href='https://docs.google.com/spreadsheets/d/1SqEBWSpBYSwahvv20y7qbjOBvwHC5QSEbgveOPUjtUE/edit'>CMIP6 Endorsed-MIP Data Request spreadsheet</a><br/>To be sent to the MIPs to fill in their data request.<br/></span></li><li><span class='bookmark'><a href='https://docs.google.com/spreadsheets/d/1_4kKtc2Npy1HlOXGBO_0Kmlw0CJtM5eOhtxcd4EtCa0/edit#gid=1002749640'>Endorsed MIP applications: experiment spreadsheet</a><br/>This is a spreadsheet of experiments proposed by the endorsed-MIP applicants.<br/></span></li><li><span class='bookmark'><a href='https://drive.google.com/?usp=docs_home&authuser=0#folders/0B9ck8V9dgI_CdTJqdXJfRnp0c00'>Endorsed MIP applications: Sep 2014</a><br/>This is the list of groups that have applied for CMIP6 endorsement, as of Sep 2014. These will be discussed at WGCM-18<br/></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1gglXx9OuFidPbCwRriXuMVWesznrQHTHcl76Ag6UeRY/edit#heading=h.qrffcgz7iae6'>MIP Checklist</a><br/>This document lists the steps to be taken by groups organising MIPs, and the bodies that need to be contacted.<br/></span></li><li><span class='bookmark'><a href='https://drive.google.com/?tab=mo&authuser=0#folders/0B9ck8V9dgI_CdTJqdXJfRnp0c00'>Endorsed MIP protocols - WGCM draft</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1t4HMip4xm6cMTIoqJXHhrwoaLLllY3Jb-0SzsQbumh0/edit'>MIP protocols - scoping document</a><br/>Draft WIP position paper on protocols.<br/></span></li></ul></li><li class='expanded'><div class='folder'>Papers</div> <ul><li><div class='folder'>Final Versions</div> <ul><li><span class='bookmark'><a href='http://www.earthsystemcog.org/site_media/projects/wip/CMIP6_ESDOC_documentation.pdf'>CMIP6_ESDOC_documentation</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1LNhw23tQotVomnkWQqfCPrBWspZi0bpdv2a1IegvHKI/edit'>CMIP6 Errata System</a></span></li><li><span class='bookmark'><a href='https://goo.gl/v1drZl'>CMIP6_global_attributes_filenames_CVs</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1oFie37HV0cCpKrcOEVc_ATTAoeklm2zc3ZEfzCdWC4M/edit#heading=h.ssqo7vyqs8qz'>CMIP6_ESGF_Publication_Requirements</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1ai92WU0h2AjJ8B5MJHJCuSAwLaRLyiZhX3gaoZzgv3Y/edit#heading=h.axzifdeyo41s'>CMIP6_Quality_Assurance</a></span></li><li><span class='bookmark'><a href='https://drive.google.com/open?id=1n_vFZB0r1_dTrSD5yEqwi5wMz3pjRcXZqzxcj4AP-ig'>CMIP6_Licensing_and_Access_Control</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/14Vw0CT-xTCeK19LpCcF8RElu0ue1dt2faNciqKGpFGE/edit?usp=sharing'>CMIP6_Replication_and_Versioning</a></span></li><li><span class='bookmark'><a href='https://drive.google.com/open?id=13VjI377yNRnBE9fHkAqRY5o-QlUQvlFaoTkPdwZaNio'>CMIP6_PID_Implementation_Plan</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1o6IqLgRmNLBvZS92J00miJgUkt26UI1FADL4oacFvS8/edit?usp=sharing'>CMIP6_Data_Citation_LTA</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1oRWqxtWWEfsucTVhk0G3bMqHC0BL4dJwADrOG8Ukj-g/edit?usp=sharing'>CDNOT_Terms_of_Reference</a></span></li></ul></li><li><div class='folder'>Inception</div> <ul></ul></li><li><div class='folder'>Working Papers</div> <ul><li><span class='bookmark'><a href='https://docs.google.com/document/d/1vsqeEDutNcZN4pHK534MAnkF5sKXcmjPAEfADdJNeF0/edit?usp=sharing'>ESDOC_documenting_CMIP6</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/spreadsheets/d/1TmDR0G2GVapZERXsdXc5Sqo3O0fqahJe4VP52HHEEM0/edit#gid=212234681'>papers_and_reviewers_list</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/spreadsheets/d/1ihUI7WbJrShTDUER862LBF2_4XQmxZiZMm_n5y1d-cs/edit#gid=0'>CMIP6_Reference_Vocabularies:lists</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1CzTUoX4H2S0XbQUM3_9yKvJ2la7qUExFV7ibGzThmhA/edit'>CMIP6 Data Reference Vocabularies</a></span></li><li><span class='bookmark'><a href='https://docs.google.com/document/d/1DQcoFNt223PDATAbMULqrIjVhfbJ9f5GDdM0mTZ7bmM/edit#heading=h.ajriftj7lx0q'>Data Request: Structure and Process</a></span></li></ul></li></ul></li></ul></li></ul></div></div><script>YAHOO.util.Event.onContentReady('WIP_folderTree', bookmarkTreeInit, this);</script>
+    
+
+    
+<!--//END  /templates/cog/bookmarks/_bookmarks.html //-->   
+						</div>
+					</div>
+				
+		    
+		</div>
+	
+
+    </div>
+    <div class="span-5 last">
+         
+    <!--START:/cog/templates/cog/project/project_right.html-->
+<!--HTML validations requires the css to be outside the block -->
+
+
+
+
+  <!-- Peer Nodes widget -->
+  
+ 
+  <!-- News widget loaded via cog/project/_project_latest_news.html  -->
+  <!-- Project Latest News --> 
+
+<!-- COG custom filters --> 
+
+    
+
+<!--some css styles located in project_right.html-->    
+    <div class="news_box">
+        <table>
+	        <tr>
+	            <td>
+                    <div class="right_widget_header">Read News</div>
+	            </td>
+	        </tr>
+            <tr>
+             	<td>
+		            <div class="news_box_body">
+			            <table class="even-color">
+		                    
+		                        <tr>
+		                            <td>
+                                        <!--div is 173px long. Subtract -4px for each padding to get 165px -->
+		                                <div class="news_text" style="max-width:165px; max-height: 50px; padding: 4px;
+		                                overflow: hidden;">
+				                            <a href="/news/detail/124/">
+                                                <strong>Questionnaire v0.15.0.0 Released</strong></a><br/>
+				                                This release implemented a RESTful framework for the Customizer. Learn more at: <a href="https://earthsystemcog.org/projects/es-doc-models/releases_questionnaire" rel="nofollow">https://earthsyst...</a>
+			                            </div>
+			                        </td>
+                                </tr>
+                            
+		                        <tr>
+		                            <td>
+                                        <!--div is 173px long. Subtract -4px for each padding to get 165px -->
+		                                <div class="news_text" style="max-width:165px; max-height: 50px; padding: 4px;
+		                                overflow: hidden;">
+				                            <a href="/news/detail/123/">
+                                                <strong>ES-DOC v0.9.3 Released</strong></a><br/>
+				                                This release added several new commands to the es-doc shell. Learn more at: <a href="https://www.earthsystemcog.org/projects/es-doc-models/releases_main_beta" ...
+			                            </div>
+			                        </td>
+                                </tr>
+                            
+		                        <tr>
+		                            <td>
+                                        <!--div is 173px long. Subtract -4px for each padding to get 165px -->
+		                                <div class="news_text" style="max-width:165px; max-height: 50px; padding: 4px;
+		                                overflow: hidden;">
+				                            <a href="/news/detail/114/">
+                                                <strong>Questionnaire v0.14.0.0 Released</strong></a><br/>
+				                                This releases changes how CIM elements are entered. Learn more at: <a href="https://earthsystemcog.org/projects/es-doc-models/releases_questionnaire" rel="nofollow">https://earthsyst...</a>
+			                            </div>
+			                        </td>
+                                </tr>
+                            
+		                        <tr>
+		                            <td>
+                                        <!--div is 173px long. Subtract -4px for each padding to get 165px -->
+		                                <div class="news_text" style="max-width:165px; max-height: 50px; padding: 4px;
+		                                overflow: hidden;">
+				                            <a href="/news/detail/113/">
+                                                <strong>ES-DOC v0.9.2 Released</strong></a><br/>
+				                                This version includes support for additional CIM Standard Properties. Learn more at: <a href="https://www.earthsystemcog.org/projects/es-doc-models/releases_main_beta" rel="nofollow">https://www.earth...</a>
+			                            </div>
+			                        </td>
+                                </tr>
+                            
+		                        <tr>
+		                            <td>
+                                        <!--div is 173px long. Subtract -4px for each padding to get 165px -->
+		                                <div class="news_text" style="max-width:165px; max-height: 50px; padding: 4px;
+		                                overflow: hidden;">
+				                            <a href="/news/detail/108/">
+                                                <strong>Questionnaire v0.13.1.0 Released</strong></a><br/>
+				                                This release prevents publication of incomplete documents. Learn more at: <a href="https://earthsystemcog.org/projects/es-doc-models/releases_questionnaire" rel="nofollow">https://earthsyst...</a>
+			                            </div>
+			                        </td>
+                                </tr>
+                            
+                        </table>
+		            </div> <!--// end div.news_box_body //-->
+             	</td>
+            </tr>
+        </table>
+        
+    </div> <!--// end div.news_box //-->
+
+
+     
+
+   <!-- Project Browser widget -->
+   <div class="yui-skin-sam">
+        <div id="project_widget">
+            <div id="project_views" class="yui-navset">
+                <div class="right_widget_header" style="border-color:#FCE79F;">
+                    Browse Projects
+                </div>
+
+                <ul class="yui-nav">
+                    <!--// urls in the list below don't go anywhere. Some sort of link is required to get the javascript
+                    to work, but it can be anything. It shows up in the hover, so it is made descriptive. -->
+                    <li class="selected">&nbsp;&nbsp;<a href="/project_browser/this/"><em><strong>This</strong></em></a>&nbsp;&nbsp;</li>
+                    <li>&nbsp;&nbsp;<a href="/project_browser/all/"><em><strong>All</strong></em></a>&nbsp;&nbsp;</li>
+                    <li>&nbsp;&nbsp;<a href="/project_browser/my/"><em><strong>My</strong></em></a>&nbsp;&nbsp;</li>
+                    <li>&nbsp;&nbsp;<a href="/project_browser/tags/"><em><strong>Tags</strong></em></a>&nbsp;&nbsp;</li>
+                </ul>
+                <!-- actual list of projects under their accordions -->
+                <div class="yui-content">
+                    <div id="thisProjectsBrowser">&nbsp;</div>
+                    <div id="allProjectsBrowser">&nbsp;</div>
+                    <div id="myProjectsBrowser">&nbsp;</div>
+                    <div id="tagsProjectsBrowser">&nbsp;</div>
+                </div>
+            </div> <!--// end div id=project_views //-->
+
+            <!-- project tagging -->
+            <!-- Note, the style of the YUI divs were modified significantly from their defaults in order to match up with the Django divs in the search widget. The main items involved
+            changing the position back to static and display back to inline. -->
+
+	        <div id="project_browser_controls">
+	            <div id="tag_entry" style="padding:0; padding-bottom: 2px; margin:0; width:188px;">
+                    <!--class=yui-ac-->
+		            <div id="tagAutoComplete" style="margin:0; padding:0; width:189px; position:static; display:inline;">
+
+			             <!--class=yui-ac-input-->
+                         <label for="projectBrowserText" style="display:none;">Enter Tag</label>
+                         <!--ONCLICK: land on All -->
+                         <!-- width includes size of box + margins -->
+                         <!--177px + 4px left margin = 181px, which leaves 4px either side from 189px-->
+		                 <input type="text" onclick="gotoTab(1);" id="projectBrowserText" placeholder="Enter Tag"
+                                style="width:177px; position:static;
+		                        font-size:8.5pt; padding:0; padding-left:2px; margin:0; margin-left:4px; margin-top:4px;border:0;" alt="projectBrowserText" />
+
+		                 <div style="width:177px" id="tagContainer"> <!-- make size 1px smaller than input above -->
+		                 </div>
+		            </div>
+                    <!-- add buttons -->
+                    <div style="text-align: left; width:181px; margin:0; margin-left:4px; padding:0; margin-top:4px;">
+
+                         <!-- SAVE: land on Tags -->
+                	     
+
+                         <!--RESET: Land on This-->
+	                     <input class="right_go" style="width:45px; margin:0; margin-left:0;"
+	                          type="submit" value="Reset" id="resetProjectBrowserButton"
+	                          onclick="document.getElementById('projectBrowserText').value='';
+                                      loadProjectBrowser('ES-DOC-Models'); gotoTab(0); "/>
+
+                         <!--GO: Land on All-->
+                         <input class="right_go" style="float:right; margin:0;margin-right:1px;"
+	                         type="submit" value="Go" id="projectBrowserButton"
+	                         onclick="document.getElementById('projectBrowserText');
+                                     loadProjectBrowser('ES-DOC-Models');gotoTab(1);  "/>
+	                   
+	                     <!-- form to save a user tag -->
+	                     <form action="/project_browser/save_user_tag/" method="post" id="save-user-tag-form">
+	            		     <input type='hidden' name='csrfmiddlewaretoken' value='3z7IrYgfoFMTfhaq1UVu86iY51VWI5tIOT9lyxVFZdzENah1l58zpsRiP3LVrzgd' />
+			                 <input type="hidden" name="redirect" value="http://www.earthsystemcog.org/projects/es-doc-models/resources/" />
+			                 <input type="hidden" name="tag" value="" />
+		       		     </form>
+		       		                   
+	                     <!-- form to delete a user tag -->
+	                     <form action="/project_browser/delete_user_tag/" method="post" id="delete-user-tag-form">
+	            		     <input type='hidden' name='csrfmiddlewaretoken' value='3z7IrYgfoFMTfhaq1UVu86iY51VWI5tIOT9lyxVFZdzENah1l58zpsRiP3LVrzgd' />
+			                 <input type="hidden" name="redirect" value="http://www.earthsystemcog.org/projects/es-doc-models/resources/" />
+			                 <input type="hidden" name="tag" value="" />
+		       		     </form>
+                    </div>
+		        </div>
+                <!-- add help text-->
+	            <div style="text-align:left; font-style: italic; margin-left: 5px; padding-bottom:2px; padding-top:1px;">
+                     Start typing, or use the 'Delete' key to show all available tags.
+                </div>
+            </div><!--// end div id=project_browser_controls //-->
+        </div><!--end div id=project_widget //-->
+   </div><!--end div id=yui-skin-sam // -->
+
+   <!--display project tags-->
+    <!-- font size has to be the same as the #user_menu -->
+   <div id="project_tags" style="font-size: 12px; margin-top: 3px; margin-left: 4px; color:#666666; font-style:italic;">
+
+       
+           <strong>ES-DOC-Models Tags:</strong>
+           
+               
+                   Cyberinstrastructure,
+               
+           
+               
+                   Metadata
+               
+           
+       
+   </div>
+
+   <!-- render YUI tabs -->
+   <script type="text/javascript">
+       var myTabs = new YAHOO.widget.TabView("project_views");
+   </script>
+   <!-- populate project browser (invokes view 'project_browser()') -->
+   <script type="text/javascript">
+       loadProjectBrowser('ES-DOC-Models')
+   </script>
+   <!-- initialize tags autocompletion -->
+   <script type="text/javascript">
+       initTags();
+   </script>
+
+   
+<!--//END: /cog/templates/cog/project/project_right.html //-->
+
+
+
+    
+
+    </div>
+    <!--END: layouts/layout_sidebar_center_right.html -->
+
+            </div> <!--// end div.container //-->
+            <!--// pushes the content wrapper down enough to hold the footer //-->
+            <div class="push"></div> <!--// end div.push //-->
+        </div> <!--// end div.content_wrapper //-->
+        <div class="footer_bar">
+            <!--adds a margin above the footer-->
+            <div class="footer_spacer"></div> <!--// end footer spacer //-->
+	        
+                <!--// START: /cog/templates/cog/common/cog_footer_bar_only.html //-->
+
+
+
+
+<div class="footer">
+    <table>
+	<tr>
+	  <!--// CoG sponsors //-->
+	<td style="width:30%;">
+	  <table>
+	    <tr>
+	      <td>ESGF sponsors and partners</td>
+	    </tr>
+	    <tr>
+	      <td>
+		  <a href="http://science.energy.gov/">DoE Office of Science</a> |
+		  <a href="https://verc.enes.org/ISENES2">IS-ENES</a> |
+                  <a href="http://www.nasa.gov">NASA</a> |
+                  <a href="http://www.noaa.gov">NOAA</a> |
+		<a href="http://nci.org.au/">NCI</a> |
+		<a href="http://www.nsf.gov">NSF</a> 
+	      </td>
+	    </tr>
+	   </table>
+	 </td>
+
+
+     <!--// CoG Version and ESGF Version (if found) //-->
+	 <td style="width:30%;">
+          <table >
+	    <tr>
+	      <td style="text-align:center;">CoG version 3.9.9</td>
+	    </tr>
+	    
+	   </table>
+	 </td>  
+	 
+	 <!--// ESGF sponsors //-->
+	 <td style="width:30%;">
+
+      <table>
+	    <tr>
+	      <td style="text-align:right;">Earth System CoG sponsors and partners</td>
+	    </tr>
+	    <tr>
+	      <td style="text-align:right;"><a href="http://www.noaa.gov">NOAA</a> |
+		  <a href="http://www.nasa.gov">NASA</a> |
+		  <a href="http://www.nsf.gov">NSF</a> |
+		  <a href="http://science.energy.gov/">DoE Office of Science</a> |
+		  <a href="https://verc.enes.org/ISENES2">IS-ENES</a></td>
+	    </tr>
+	  </table>
+
+	 </td>  
+	</tr>
+    </table>
+  </div><!--// end div.footer //-->
+
+
+
+
+
+            
+        </div> <!--// end footer_bar //-->
+        <div class="custom_footer_bar">
+            
+                
+  <div class="custom_footer">
+       <table class="custom_footer">
+       <tr>
+       <td style="width:30%;">http://www.earthsystemcog.org</td>
+       <td style="width:70%;text-align:right;">
+         <a href="mailto:cog_support@list.woc.noaa.gov">cog_support@list.woc.noaa.gov</a> |
+         <a href="http://www.colorado.edu/about/privacy-statement">privacy policy</a>
+       </td>
+       </tr>
+       </table>
+    </div>
+
+            
+        </div> <!--// end div.custom_footer_bar //-->
+        <!--END: /layouts/templates/layouts/layout_base.html-->
+    </body>
+</html>

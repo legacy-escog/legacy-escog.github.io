@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<!--// LOCATION: /layouts/templates/layouts/layout_base.html //-->
+<!--// START: /layouts/templates/layouts/layout_base.html //-->
+
+
+<html lang="en">
+<!--creates classes for the various versions of internet explorer 9 and below. 10+ no longer accepts conditional.
+These are then used in the CSS to fix specific issues-->
+<!--[if lt IE 7 ]>   <html class="ie6">  <![endif]-->
+<!--[if IE 7 ]>      <html class="ie7">  <![endif]-->
+<!--[if IE 8 ]>      <html class="ie8">  <![endif]-->
+<!--[if IE 9 ]>      <html class="ie9">  <![endif]-->
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="edge" > <!--required to get IE out of quirks mode-->
+
+        <!--// consider removing these all together //-->
+        <!--// <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/screen.css"/> //-->
+        <!--// <link type="text/css" rel="stylesheet"  media="print" href="/static/css/blueprint/print.css"/> //-->
+
+		<!-- // frame busting JS // 
+		<script language="javascript">
+			/* break us out of any containing iframes */
+			/* IMPORTANT: THIS BREAKS FILE UPLOADER, DON'T DO IT */
+			//if (top != self) { top.location.replace(self.location.href); }
+		</script> -->
+		
+        <!--// CSS for grid layout //-->
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/reset.css"/>
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/grid.css"/>
+        <link type="text/css" rel="stylesheet"  media="screen, projection" href="/static/css/blueprint/src/typography.css" />
+
+         <!--// Load head section from template. Contains CSS //-->
+         
+
+    <!-- template for HTML meta tags -->
+
+
+
+<!-- favicon -->
+<link rel="Shortcut Icon" href="/static/cog/img/favicon_cog.ico" type="image/x-icon" />
+
+<!--logic for HTML title:
+1) If the page is within the project context, add the short name to the title
+2) If a project home page, just list use HOME vice the page title
+3) Look for either title or title2 it they exist
+4) If nothing else, just list ESGF-CoG
+-->
+<!-- titles should be less than 70 characters -->
+
+
+    
+        
+            <title>Minutes: 131206 PI (Face-to-Face) | ES-DOC-Models | ESGF-CoG</title>
+        
+    
+
+
+
+
+	
+		<!-- note: must process the text to remove undesired characters, tags  -->
+		<meta name="description" content="Present: Eric Guilyardi V. Balaji (remotely) Martin Jukes and Stephen Pascoe (proxy for Bryan Lawrence) Sylvia Murphy(remotely) Mark Greenslade Sebastien Denevil Allyn Treshansky (remotely) &nbsp; Minutes &nbsp; Engaging with the community on CMIP5&nbsp;(Eric) What we currently have to support: The CIM CMIP5 instances Controlled vocabularies Tools Governance Community education Next ..." />
+	
+
+ 
+    <!--LOCATION: /cog/templates/cog/common/yui.html-->
+
+<!-- Loading YUI CSS libraries -->
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/fonts/fonts-min.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/button/assets/skins/sam/button.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/container/assets/skins/sam/container.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/assets/skins/sam/treeview.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/tabview/assets/skins/sam/tabview.css" />
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/autocomplete/assets/skins/sam/autocomplete.css" />
+<!-- Optional CSS for for date editing with Calendar-->
+<link rel="stylesheet" type="text/css" href="/static/js/yui-2.9.0/build/calendar/assets/skins/sam/calendar.css" />
+
+<!-- Loading dependent JavaScript source files --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/yahoo/yahoo-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/yahoo-dom-event/yahoo-dom-event.js" ></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/event/event-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/element/element-min.js" ></script>
+<!-- Optional dependency source file --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/animation/animation-min.js"></script>
+<!-- Optional dependency source file for date editing with Calendar--> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/calendar/calendar-min.js" ></script>
+<!-- Optional dependency source file to decode contents of yuiConfig markup attribute--> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/json/json-min.js" ></script>
+<!-- TreeView source file --> 
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/treeview/treeview-min.js" ></script>
+<!-- Loaing Source files for TabView -->
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/tabview/tabview-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/connection/connection-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/button/button-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/dragdrop/dragdrop-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/container/container-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/datasource/datasource-min.js"></script>
+<script type="text/javascript" src="/static/js/yui-2.9.0/build/autocomplete/autocomplete-min.js"></script>
+ 
+    <!-- File containing functionality for creating overlay panels with YUI library -->
+
+<script type="text/javascript">
+//<![CDATA[
+	YAHOO.namespace("cog");
+
+    var handleDismiss = function() { 
+        YAHOO.cog.myDialog.hide(); 
+    }; 
+            
+    /**
+    Function to show a small message window, with a title and a 'Dismiss' button.
+    The HTML page must contain an element of id 'myDialog' for the window to be anchored:
+        <div id="myDialog" class="yui-skin-sam"></div>
+    */
+    function showMessage(title, message) {
+
+        YAHOO.cog.myDialog = new YAHOO.widget.SimpleDialog("msgDialog", {
+            width: "400px", 
+            fixedcenter: true, 
+            constraintoviewport: true, 
+            underlay: "shadow", 
+            close: true, 
+            visible: false, 
+            draggable: true,
+            modal:true,
+            buttons: [ { text:"Dismiss", handler:handleDismiss, isDefault:true } ]
+        });
+                    
+        YAHOO.cog.myDialog.setHeader(title);
+        YAHOO.cog.myDialog.setBody("<div style='text-align:center'>"+message+"</div>");
+        YAHOO.cog.myDialog.cfg.setProperty("underlay","matte");
+        
+        YAHOO.cog.myDialog.render('myDialog');
+        YAHOO.cog.myDialog.show();
+    }
+    
+    /**
+    Default handler to hide the current dialog
+    */
+    var handleNo = function() {
+        // hide dialog
+        this.hide();
+    };
+    
+    /**
+    Function to create a confirmation dialog with 'Yes', 'No' buttons connected to specific handlers.
+    The HTML page must contain an element of id 'myDialog' for the window to be anchored:
+        <div id="myDialog" class="yui-skin-sam"></div>
+    */
+    function createConfirmationDialog(dialogHeader, dialogText, yesHandler, noHandler) {
+    	    	
+    	var mySimpleDialog = new YAHOO.widget.SimpleDialog("confDialog",
+                { width: "30em",
+                  fixedcenter: true,
+                  visible: false,
+                  draggable: true,
+                  close: true,
+                  modal: true,
+                  effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration:0.25},
+                  text: dialogText,
+                  constraintoviewport: true,
+                  buttons: [ { text:"Yes", handler:yesHandler },
+                             { text:"No",  handler:noHandler, isDefault:true } ]
+                } );
+        mySimpleDialog.setHeader(dialogHeader);
+        mySimpleDialog.render("myDialog");
+        mySimpleDialog.show();
+    	
+        return mySimpleDialog;
+    }
+    
+    /**
+    Dialog to confirm a URL invocation.
+    The widget is the HTML <a></a> element.
+    The page must include an anchor div element of the form: <div id="myDialog" class="yui-skin-sam"></div>,
+    as well as include the javascript code in the two files: 'cog/common/yui.html' and 'cog/common/yui_panels.html'.
+    */
+    function urlConfirmationDialog(dialogHeader, dialogText, widget) {
+
+        var getUrl = function() {
+            // hide dialog
+            this.hide();
+            // request URL
+            window.location = widget.href;
+        };
+
+        var dlg = createConfirmationDialog(dialogHeader, dialogText, getUrl, handleNo);
+        
+        // return false to prevent link from being invoked automatically
+        return false;
+
+    }
+    
+    /** Function to show a modal waiting panel */
+    function showWaitPanel() {
+    	 
+    	if (YAHOO.cog.waitPanel==null) {
+	    	YAHOO.cog.waitPanel =  
+	    		new YAHOO.widget.Panel("wait",   
+	    		            { width:"240px",  
+	    		              fixedcenter:true,  
+	    		              close:false,  
+	    		              draggable:false,  
+	    		              zindex:4, 
+	    		              modal:true, 
+	    		              visible:false 
+	    		            }  
+	    		); 
+	    		 
+	    	YAHOO.cog.waitPanel.setHeader("Please wait..."); 
+	    	YAHOO.cog.waitPanel.setBody('<img src="/static/cog/img/rel_interstitial_loading.gif" />'); 
+	    	YAHOO.cog.waitPanel.render("myDialog"); 
+    	}
+    	YAHOO.cog.waitPanel.show();
+    	
+    }
+    
+    /** Function to hide the waiting panel */
+    function hideWaitPanel() {
+    	YAHOO.cog.waitPanel.hide();
+    }
+//]]>
+</script>    
+    <!-- file containing common javascript utilities -->
+
+<script type="text/javascript">
+<!--
+
+    /* redefining javascript trim() fn,
+     * which doesn't exist in IE 8.*,
+     */
+
+     String.prototype.trim = function() {
+         return this.replace(/^\s+|\s+$/g,'');
+     };
+
+	// function to switch the visibility of an HTML element
+    function toggle_visibility(id) {
+       var e = this.document.getElementById(id);
+       if (e!=null) {
+	       if (e.style.display == 'block') {
+	          e.style.display = 'none';
+	       } else {
+	          e.style.display = 'block';
+	       }
+       }
+    }
+    
+    // function to toggle the visibility of an HTML element and change the hyperlink text
+	function openclose(id, hlink, showText, hideText) {
+	    var e = this.document.getElementById(id);
+	    if (e!=null) {
+		       if (e.style.display == 'block') {
+		          e.style.display = 'none';
+		          hlink.innerHTML = showText;
+		       } else {
+		          e.style.display = 'block';
+		          hlink.innerHTML = hideText;
+		       }
+	    }
+	 }
+    
+	// function to set the visibility of an HTML element
+	function set_visibility(id, bool) {
+	   var e = this.document.getElementById(id, bool);
+	   if (e!=null) {
+	       if (bool) {
+	          e.style.display = 'block';
+	       } else {
+	          e.style.display = 'none';
+	       }
+	   }
+	}
+	
+	// function to delete an HTML element by id
+	function delete_element(id) {
+		   var e = this.document.getElementById(id);
+		   if (e!=null) {
+		       e.parentNode.removeChild(e);
+		   }
+		}
+
+    
+//-->
+</script>
+
+<!-- Detect browser on load -->
+<script type="text/javascript">
+  <!--
+    // placeholder for browser-specific js that should be run
+	function detectBrowser() {
+	  
+	  //if (YAHOO.env.ua.webkit) { // safari
+	  //if (YAHOO.env.ua.gecko > 0) { // FF 
+	  //if (YAHOO.env.ua.ie > 0) { // IE
+	  
+	 }
+	 //YAHOO.util.Event.onDOMReady(detectIE);
+  //-->
+</script> 
+    <!-- JS libraries needed for Wiki functionality -->
+
+<script type="text/javascript" src="/static/cog/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/static/filebrowser/js/FB_CKEditor.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+if (CKEDITOR) {
+	
+	// integration with django-filebrowser
+	
+	// uncomment 'filebrowserBrowseUrl ' link to enable browsing of server directories
+	// type=image restricts uploads to image files ('.jpg','.jpeg','.gif','.png','.tif','.tiff')
+	CKEDITOR.config.filebrowserBrowseUrl = '/admin/filebrowser/browse?pop=3&type=image';
+	// NOTE: additional parameter 'project' limits browsing to current project only
+	//CKEDITOR.config.filebrowserBrowseUrl = '/admin/filebrowser/browse?pop=3&type=image&project=ES-DOC-Models';
+	
+	// uncomment 'filebrowserUploadUrl' to enable direct upload of images to server
+	// NOTE: assumes project is available from request object
+	CKEDITOR.config.filebrowserImageUploadUrl = '/doc/upload/ES-DOC-Models/';
+	
+	// custom toolbar color
+	CKEDITOR.config.uiColor = "#B9E0E3";
+	
+	// custom color picker
+	CKEDITOR.config.extraPlugins = 'uicolor';
+	
+	// toolbar configuration
+	CKEDITOR.config.toolbar_Full =
+		[
+		    { name: 'document',    items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },
+		    //{ name: 'clipboard',   items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
+		    { name: 'editing',     items : [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ] },
+		    { name: 'forms',       items : [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+		    
+		    '/',
+		    
+		    //{ name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+		    { name: 'basicstyles', items : [ 'Bold','Italic','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+		    { name: 'paragraph',   items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ] },
+		    { name: 'links',       items : [ 'Link','Unlink','Anchor' ] },
+		    { name: 'insert',      items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak' ] },
+		    
+		    '/',		    
+
+		    // disable FontSize
+		    //{ name: 'styles',      items : [ 'Styles','Format','Font','FontSize' ] },
+		    { name: 'styles',      items : [ 'Styles','Format','Font' ] },
+		    
+		    // disable BGColor
+		 	//{ name: 'colors',      items : [ 'TextColor','BGColor' ] },
+		    { name: 'colors',      items : [ 'TextColor' ] },
+		    
+		    // add UIColor picker
+		    { name: 'tools',       items : [ 'Maximize', 'ShowBlocks','-','About', 'UIColor' ] }
+		    
+		];
+	CKEDITOR.config.toolbar = 'Full';
+
+}
+//]]>
+</script>
+   
+    <!-- placeholder file for inserting node-specific Google Analytics script -->
+
+    
+
+
+         <!-- icon library used for question mark icon -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+
+         <!--// loading CoG-specific styles. Needs to be last //-->
+         <link rel="stylesheet" type="text/css" href="/static/cog/css/cogstyle.css" />
+
+         <!--// hooks for page-specific head content. Both style statements and javascript need to be loaded in the header only. //-->
+         
+         
+         
+    </head>
+    
+    <body>
+        <div class="content_wrapper"><!--// makes the footers always at the bottom of the window //-->
+            <div class="custom_header_bar">
+                
+                    <div style="height:42px;" class="custom_header">
+<map name="logo">
+	<area href="http://esgf.llnl.gov/" shape="rect" coords="0,0,119,30" title="ESGF">
+	<area href="http://www.earthsystemcog.org" shape="rect" coords="125,0,177,30" title="ESGF">
+</map>
+
+
+
+<table style="height:42px; padding:0; margin:0; vertical-align:middle;background-color: transparent;">
+   <tr>
+       <td class="hosted_by" style="width:52px; font-size:10px; font-weight:bold; font-style:italic; padding-right:1px;">
+            Hosted by
+       </td>
+       <td style="text-align:left; vertical-align:middle; width:30px; padding-left:0;">
+           <img style="height:36px;" src="/mymedia/cu_39_transparent.png" alt="CU logo"/>
+       </td>
+       <td class="custom_header_location"><strong>
+       University of Colorado</strong><br>
+       Boulder</td>
+       <td class="powered_by">
+            Powered by
+        </td>
+       <td class="custom_header_esgf_cog">
+              <img style="vertical-align:middle; height:36px; margin:0;" src="/static/cog/img/cog_esgf_small.png"
+                   usemap="#logo" alt="ESGF-CoG logo"/>
+       </td>
+   </tr>
+</table>
+</div>
+
+                
+            </div> <!--// end div.custom_header //-->
+            <div class="container"> <!--// django class //-->
+
+                <!-- load optional notification banner -->
+                
+	                 <div class="span-max last" style="display:none;">
+   <div class="node-notification-box" >
+	   Insert node-wide notification text here.
+   </div>
+
+</div>
+                
+                <!-- load cog upper navigation bar and user menu -->
+  	            
+                    <!--// START: /cog/templates/common/cog_header.html //-->
+
+
+
+<div class="span-max last" >
+   <!--// first row of the header with user links-->
+   <!--load top-right user menu from cog/common/_user_menu.html-->
+   <table class="no-color">
+       <tr>
+           <td id="user_menu" style="text-align: right; padding:0; padding-right:2px; padding-bottom: 2px;">
+	           <!--//START: /cog/templates/cog/common/_user_menu.html //-->
+
+
+
+     Welcome, <strong>Guest</strong>.
+     | <a href="/login/?next=http://www.earthsystemcog.org/projects/es-doc-models/minutes_131206_pi"> Login</a>
+     <!-- | <a href="/openid/login/?next=http://www.earthsystemcog.org/projects/es-doc-models/minutes_131206_pi">OpenID Login</a> -->
+     | <a href="/user/add/?next=http://www.earthsystemcog.org/projects/es-doc-models/minutes_131206_pi">Create Account</a>
+
+<!--//END: /cog/templates/cog/common/_user_menu.html //-->
+           </td>
+       </tr>
+       <tr>
+       <!-- shrink the space between the navigation and user menu on pages that don't have a project context e.g. no project name or logo -->
+       
+           
+               <!-- height of the td is 70px to match the height w/o an image. The td will expand if the project logo is larger -->
+               <!-- height of the project logo above the left nav bar is really controlled by the padding associated with the font-size
+               and padding of the node, since that is a different row. -->
+               <td style="height: 70px; vertical-align: bottom;  padding:0; padding-left:2px; margin:0;"> <!--must use vertical-align: bottom-->
+                    <span>
+                    
+                         <a style="padding:0; margin:0;" href="/projects/es-doc-models/">
+                    
+                    <img style="max-height: 150px; vertical-align: bottom;" src="/site_media/logos/es-doc-logo_purple_1.png" alt="ES-DOC-Models logo"/>
+                    </a>
+                    </span>
+               </td>
+           
+       
+   </tr>
+   <tr>
+       <td style="padding:0; padding-bottom: 1px; padding-right: 2px; font-size: 12px; color: #666; text-align: right; font-style: italic;">
+           You are at the <strong>CoG-CU</strong> node
+       </td>
+   </tr>
+   </table>
+</div>
+
+<!-- top navigation bar -->
+<div class="span-max last">
+   <div class="top_nav">
+       <div class="span-940">
+	       <div id="top_nav_left">
+               <ul>
+		           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/" style='color:#358C92; background-color: #FFFFFF'>Home</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/aboutus/" >About Us</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/software/" >Software</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/developers/" >Developers</a></li>
+
+                                
+                           
+				       
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/metrics/" >Metrics</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/governance/" >Governance</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/resources/" >Resources</a></li>
+
+                                
+                           
+				       
+                           
+                                <!-- Upper Nav Bar; Render first tablist only -->
+
+                                <!--tab.0=project, tab.1=url, tab.2=label-->
+						             <li><a href="/projects/es-doc-models/contactus/" >Contact Us</a></li>
+
+                                
+                           
+				       
+                   
+               </ul>
+		   </div> <!--// end div id=top_nav_left //-->
+	   </div> <!--//end div.span-26 //-->
+	
+	   <div  class="span-5 last">
+		   <div id="top_nav_right">
+               <a href="https://www.earthsystemcog.org/projects/cog/contactus/">Technical Support</a>
+		   </div> <!--//end div id=top_nav_right //-->
+	   </div> <!--// end div.span-5 last //-->
+   </div><!--// end div.top_nav //-->
+
+   <!-- top navigation sub-bar -->
+   <!-- top nav...width=100%-->
+   <div class="top_nav">
+       <div class="span-940">
+	       
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+		           
+	           
+	       
+		   &nbsp; <!--in case there are no items-->
+	   </div> <!--// end div.span-26 //-->
+
+       <!--add links to MyProfile and the DataCart-->
+	   <div class="span-5 last">
+	       <div id="top_subnav_right">
+	           
+	       </div> <!--// end div id=top_subnav_right //-->
+	   </div>	<!--// end div.span-5 last//-->
+   </div>
+
+   <!-- anchor for message dialogs -->
+   <div id="myDialog" class="yui-skin-sam"></div>
+</div> <!--// end div.span-max last //-->
+&nbsp; <br>
+<!--// END: /cog/templates/common/cog_header.html //-->
+
+
+
+
+                
+	 
+                <!--Load block body from various templates -->
+                
+	<!--EXTENDS: /layouts/layout_base.html-->
+    <!--LAYOUT: /layouts/layout_sidebar_center.html-->
+    <div class="span-5">
+         
+    
+
+    
+    
+    <!-- project index -->
+    <div class="vertical_menu">
+	    
+	    	<!-- topic bar -->
+	    	
+                <div class="left_upper_widget_header">
+                    ES-DOC-Models
+                </div>
+            
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/doc/questionnaire/customization_options">Customization Options</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                       		<td>&nbsp;<a href="/projects/es-doc-models/" >Home</a></td>
+                       	
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/who_is_using_esdoc_tools">Who is Using ES-DOC?</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    The CIM and CVs
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim">What is the CIM?</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim2">CIM2</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim_versions">CIM Schema Versions</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/cim_cv">Baseline/CMIP5 CV Versions</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/controlled_vocabularies">Controlled Vocabularies</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/doc/questionnaire/cv_creation">CV Creation</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Questionnaire
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/help">Overview</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/admin_guide">Admin Guide</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/user_guide">User Guide</a></td>
+                        
+    				</tr>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/questionnaire/design">Design</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Viewer
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/viewer_motivation">Description and Demo</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Comparator
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/comparator_motivation">Description and Demo</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    	<!-- topic bar -->
+	    	
+	    		<div class="left_widget_header">
+                    CIM Search
+                </div>
+	    	
+	    	
+	    	<!-- topic top-level pages -->
+    		<table>
+    			
+    				<tr>
+                    	
+                            <td>&nbsp;<a href="/projects/es-doc-models/motivation_cim_search">Description and Demo</a></td>
+                        
+    				</tr>
+    			
+    		</table>
+
+	    
+	    
+	    
+    </div>
+        
+    <div class="vertical_menu">
+    
+        <!-- Unauthenticated Users -->
+        <div class="left_widget_header">
+            Visitors
+        </div>
+        <ul>
+            <li><a href="/news/list/es-doc-models/" class="listlink">&nbsp;List All News</a></li>
+            <li><a href="/doc/list/es-doc-models/" class="listlink">&nbsp;List All Files</a></li>
+            <li><a href="/ac/list/" class="listlink">&nbsp;List ESGF Data Groups</a></li>
+        </ul>
+ 
+        <!-- access restricted to project Contributors -->
+        
+    
+        <!-- access restricted to Project Administrators-->
+        
+       
+        <!-- access restricted to Node Administrators -->
+        
+    </div> <!--end of vertical menu-->
+
+ 
+
+    </div>
+
+    <div class="span-940 last">
+          <h1 class="title">Minutes: 131206 PI (Face-to-Face)</h1> 
+         
+
+    <!--// START: /cog/templates/cog/post/page_template_main.html //-->
+<!--// loading page body from page_template_main.html //-->
+
+
+
+
+  	<!-- Data search widget -->
+  	
+
+    <div id="cog_post_body">
+        <div id="magicdomid2" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<strong><span class="author-g-jt1oowkj3y2uhqz122z7" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Present:</span></strong></div>
+<div id="magicdomid3" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<span class="author-g-jt1oowkj3y2uhqz122z7" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Eric Guilyardi</span></div>
+<div id="magicdomid4" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<span class="author-g-jt1oowkj3y2uhqz122z7" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">V. Balaji (remotely)</span></div>
+<div id="magicdomid5" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<span class="author-g-jt1oowkj3y2uhqz122z7" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Martin Jukes and Stephen Pascoe (proxy for Bryan Lawrence)</span></div>
+<div id="magicdomid6" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<span class="author-g-jt1oowkj3y2uhqz122z7" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Sylvia Murphy(remotely)</span></div>
+<div id="magicdomid7" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Mark Greenslade</span></div>
+<div id="magicdomid8" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Sebastien Denevil</span></div>
+<div id="magicdomid9" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Allyn Treshansky (remotely)</span></div>
+<div id="magicdomid11" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	&nbsp;</div>
+<div id="magicdomid12" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<strong><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Minutes</span></strong></div>
+<div id="magicdomid13" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	&nbsp;</div>
+<div id="magicdomid14" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet1" style="padding: 0px; margin: 0px 0px 0px 1.5em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-jt1oowkj3y2uhqz122z7 b" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><b>Engaging with the community on CMIP5</b></span><span class="author-g-d8dae73bn1d32uyk b" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><b><span class="Apple-converted-space">&nbsp;</span>(Eric)</b></span></li>
+	</ul>
+</div>
+<div id="magicdomid15" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">What we currently have to support:</span></li>
+	</ul>
+</div>
+<div id="magicdomid16" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">The CIM</span></li>
+	</ul>
+</div>
+<div id="magicdomid17" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">CMIP5 instances</span></li>
+	</ul>
+</div>
+<div id="magicdomid18" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Controlled vocabularies</span></li>
+	</ul>
+</div>
+<div id="magicdomid19" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Tools</span></li>
+	</ul>
+</div>
+<div id="magicdomid20" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Governance</span></li>
+	</ul>
+</div>
+<div id="magicdomid21" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Community education</span></li>
+	</ul>
+</div>
+<div id="magicdomid23" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Next steps</span></li>
+	</ul>
+</div>
+<div id="magicdomid24" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Quality control and completeness of the old Metafor Questionnaire info</span></li>
+	</ul>
+</div>
+<div id="magicdomid25" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Extension of the scope of the metadata collected by gathering of new properties outside the questionnaire</span></li>
+	</ul>
+</div>
+<div id="magicdomid26" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet4" style="padding: 0px; margin: 0px 0px 0px 6em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">How would these be merged with the old Questionaire database?</span></li>
+	</ul>
+</div>
+<div id="magicdomid27" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Governance</span></li>
+	</ul>
+</div>
+<div id="magicdomid28" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Tool development</span></li>
+	</ul>
+</div>
+<div id="magicdomid29" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Prepare for future community activities (e.g. CORDEX, CMIP6</span><span class="author-g-udbk6binq3z122zyc2a1" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">,<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">CCMI)</span></li>
+	</ul>
+</div>
+<div id="magicdomid30" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">funding</span></li>
+	</ul>
+</div>
+<div id="magicdomid31" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">The Plan/Decisions:</span></li>
+	</ul>
+</div>
+<div id="magicdomid32" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Go back to the groups YES. How...we need to talk to Karl about how.&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid33" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Transfer the information in Eric&#39;s tables into the CIM database. YES. Not sure who can help make this happen.&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid34" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">(Eric, David) I</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">dentify what part of<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">the<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">metadata becomes &quot;core&quot; (</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Target:</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">1/31/14)</span></li>
+	</ul>
+</div>
+<div id="magicdomid35" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">software components</span></li>
+	</ul>
+</div>
+<div id="magicdomid36" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">simulation</span></li>
+	</ul>
+</div>
+<div id="magicdomid37" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">: (Mark, Stephen, Charlotte)</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">S</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">olve technical issues:</span></li>
+	</ul>
+</div>
+<div id="magicdomid38" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">S</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">ystem testing framework (from Q to database to tools)&nbsp; (</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Target:</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">1/15/14)</span></li>
+	</ul>
+</div>
+<div id="magicdomid39" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">S</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">olution of adding new metadata (Telcos needed</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">) (Target:</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">1/31/14)</span></li>
+	</ul>
+</div>
+<div id="magicdomid40" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action:</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>(Karl, Eric, David)</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>going to groups for update of that core and managing feedbacks (</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Target:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">2/15/14)</span></li>
+	</ul>
+</div>
+<div id="magicdomid41" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">(POC...TBD) A</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">dd IPCC table into CIM database (</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Target:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">3/31/14)</span></li>
+	</ul>
+</div>
+<div id="magicdomid43" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-jt1oowkj3y2uhqz122z7" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">CIM tools use (Mark)</span></li>
+	</ul>
+</div>
+<div id="magicdomid44" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">The way ESGF presents our tools is not prominate and could be improved.</span></li>
+	</ul>
+</div>
+<div id="magicdomid45" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">We can also advertise our tools via the new CIM Search page. But we want the data to be of quality before we send people there.&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid46" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">We want ESGF to link to the ES-DOC tools in general and not just the Viewer via the dataset-ID.</span></li>
+	</ul>
+</div>
+<div id="magicdomid47" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action:</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">(Sebastien, Mark)</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Fix the v</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">isibility<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">of ES-DOC<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">from ESGF</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>via the<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">vERC front end</span></li>
+	</ul>
+</div>
+<div id="magicdomid48" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet4" style="padding: 0px; margin: 0px 0px 0px 6em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">ES-DOC<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">logo<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">plus</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>link back to ES-DOC tools (</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Target:</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">1/15/14)</span></li>
+	</ul>
+</div>
+<div id="magicdomid49" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	&nbsp;</div>
+<div id="magicdomid50" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet1" style="padding: 0px; margin: 0px 0px 0px 1.5em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-jt1oowkj3y2uhqz122z7 b" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><b>Tools</b></span><span class="author-g-jt1oowkj3y2uhqz122z7" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid51" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-jt1oowkj3y2uhqz122z7" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Current state (demos):</span></li>
+	</ul>
+</div>
+<div id="magicdomid52" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Splash Page:</span></li>
+	</ul>
+</div>
+<div id="magicdomid53" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d959bc2b91fn6mot" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Splash page: missing<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">the<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d959bc2b91fn6mot" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">IS-ENES2</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>logo</span><span class="author-g-d959bc2b91fn6mot" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">.&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid54" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: Sylvia thought we need more information about the tools and not just links to demos.</span></li>
+	</ul>
+</div>
+<div id="magicdomid55" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action: (Sylvia) Have a dedicated telco to discus mods to the splash page</span></li>
+	</ul>
+</div>
+<div id="magicdomid56" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-jt1oowkj3y2uhqz122z7" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">CIM Viewer&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid57" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: Add the ES-DOC logo to the Viewer</span></li>
+	</ul>
+</div>
+<div id="magicdomid58" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: Add text to the top of the Viewer demo page explaining this a demo and for full access to all database go to the search page.&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid59" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: The contact support email should be more prominate</span></li>
+	</ul>
+</div>
+<div id="magicdomid60" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d959bc2b91fn6mot" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">ACTION:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">(Charlotte)<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d959bc2b91fn6mot" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Do gap analysis of what<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">is still missing in the Viewer</span><span class="author-g-d959bc2b91fn6mot" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">.&nbsp;<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">We are definatley missing conformances and datasets.&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid61" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: Need a printable View</span></li>
+	</ul>
+</div>
+<div id="magicdomid62" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-jt1oowkj3y2uhqz122z7" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">CIM Search</span></li>
+	</ul>
+</div>
+<div id="magicdomid63" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: The &quot;refine your search&quot; text...looks like a button, should be changed</span></li>
+	</ul>
+</div>
+<div id="magicdomid64" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: Make the pull downs faceted so they limit follow on choices</span></li>
+	</ul>
+</div>
+<div id="magicdomid65" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-jt1oowkj3y2uhqz122z7" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">CIM Comparator</span></li>
+	</ul>
+</div>
+<div id="magicdomid66" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: Need to filter out &quot;Other&quot; components from the original metadata</span></li>
+	</ul>
+</div>
+<div id="magicdomid67" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: We need to validate that ??? fields are really are missing data and not an error in the Comparator</span></li>
+	</ul>
+</div>
+<div id="magicdomid68" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: Add link to the Viewer from the Comparator</span></li>
+	</ul>
+</div>
+<div id="magicdomid69" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-jt1oowkj3y2uhqz122z7" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">CIM Questionnaire&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid70" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">There seems to be a missmatch between the CIM structure and the component CVs</span></li>
+	</ul>
+</div>
+<div id="magicdomid71" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet4" style="padding: 0px; margin: 0px 0px 0px 6em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">T</span><span class="author-g-8mryz122zehu8tqek4bb" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">his can be addressed via constraints</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">. How do we capture these?</span></li>
+	</ul>
+</div>
+<div id="magicdomid72" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: Add an XML comment when required items are purposefully omitted.&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid73" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: Discuss the option of adding multiple tieir &quot;required&quot; categories (e.g. different levels of priortiy for filling information in).</span></li>
+	</ul>
+</div>
+<div id="magicdomid74" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Ticket: Add<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">contextual feedback from users</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>to all tools.&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid75" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action: (Sylvia) Create stories for all items listed as Ticket above</span></li>
+	</ul>
+</div>
+<div id="magicdomid76" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action: (Sylvia) Add all new stories to the upcoming prioritization spreadsheet</span></li>
+	</ul>
+</div>
+<div id="magicdomid77" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	&nbsp;</div>
+<div id="magicdomid78" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet1" style="padding: 0px; margin: 0px 0px 0px 1.5em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk b" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><b>ES-DOC-related governance bodies (CIM &amp; CV governance) (Bryan slides)</b></span></li>
+	</ul>
+</div>
+<div id="magicdomid79" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">What needs governance?:&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid80" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">The CIM</span></li>
+	</ul>
+</div>
+<div id="magicdomid81" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">The Controlled Vocabularies</span></li>
+	</ul>
+</div>
+<div id="magicdomid82" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">The contraints that were hard-wired into the Metafor Questionnaire and that should be uploadable to the new CIM Questionnaire</span></li>
+	</ul>
+</div>
+<div id="magicdomid83" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">There may be other items (e.g. CMOR tables) but doing so would require further assistance</span></li>
+	</ul>
+</div>
+<div id="magicdomid84" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">For whom is the CIM governed?</span></li>
+	</ul>
+</div>
+<div id="magicdomid85" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">IS-ENES</span></li>
+	</ul>
+</div>
+<div id="magicdomid86" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Numerical Weather Prediction Community</span></li>
+	</ul>
+</div>
+<div id="magicdomid87" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">WMO</span></li>
+	</ul>
+</div>
+<div id="magicdomid88" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">The Impact Community</span></li>
+	</ul>
+</div>
+<div id="magicdomid89" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">How do we discuss this witout brining in CMOR tables and DRS (Balaji)?</span></li>
+	</ul>
+</div>
+<div id="magicdomid90" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Bryan plans to have David take the lead on this.</span></li>
+	</ul>
+</div>
+<div id="magicdomid91" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">We are talking about governing the standards here and not the tools.&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid92" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">(Eric) Meet<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">with Karl and Balaji during AGU<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">to discuss further.&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid93" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	&nbsp;</div>
+<div id="magicdomid94" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet1" style="padding: 0px; margin: 0px 0px 0px 1.5em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">&nbsp;</span><span class="author-g-d8dae73bn1d32uyk b" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><b>Expectations of CIM 2.0 and time lines </b></span></li>
+	</ul>
+</div>
+<div id="magicdomid95" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Don&#39;t know a lot about this</span></li>
+	</ul>
+</div>
+<div id="magicdomid96" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Allyn thinks it will be 1.8 rewritten using various ISO standards.&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid97" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-ndv3iftougbluoer" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">also better separation of code-specific descriptions and science-specific descriptions</span></li>
+	</ul>
+</div>
+<div id="magicdomid98" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Need to get documentation from Bryan&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid99" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">There are disadvantages to conforming to ISO</span><span class="author-g-ndv3iftougbluoer" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>(introduces verbosity &amp; complexity)</span></li>
+	</ul>
+</div>
+<div id="magicdomid100" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action: Needs to be managed as currently it is not (Bryan ? David H?)</span></li>
+	</ul>
+</div>
+<div id="magicdomid101" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action: Statement for CIM improvements needed on web page (Cecelia+Allyn+al. 1/31/14)</span></li>
+	</ul>
+</div>
+<div id="magicdomid102" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Acton: bringing in observations + reanalysis via obs/ana4MIP (Eric with Peter Glecker, Feb 2014)</span></li>
+	</ul>
+</div>
+<div id="magicdomid103" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	&nbsp;</div>
+<div id="magicdomid104" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet1" style="padding: 0px; margin: 0px 0px 0px 1.5em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-jt1oowkj3y2uhqz122z7 b" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><b>Development priorities </b></span></li>
+	</ul>
+</div>
+<div id="magicdomid105" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Need more PIs for this</span></li>
+	</ul>
+</div>
+<div id="magicdomid106" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Eric: Process is working, don&#39;t cover this today</span></li>
+	</ul>
+</div>
+<div id="magicdomid107" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Prioritization Spreadsheet:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk url" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><a href="https://docs.google.com/spreadsheet/ccc?key=0AiqO2jdapnEUdHpMMG5td1JydGdtVmJVM2Y2bzNQOHc&amp;usp=drive_web#gid=0" style="cursor: pointer !important; ">https://docs.google.com/spreadsheet/ccc?key=0AiqO2jdapnEUdHpMMG5td1JydGdtVmJVM2Y2bzNQOHc&amp;usp=drive_web#gid=0</a></span></li>
+	</ul>
+</div>
+<div id="magicdomid108" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Current Release Schedule:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk url" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><a href="http://earthsystemcog.org/projects/es-doc-models/current_schedule" style="cursor: pointer !important; ">http://earthsystemcog.org/projects/es-doc-models/current_schedule</a></span></li>
+	</ul>
+</div>
+<div id="magicdomid109" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">(Sylvia) Do a PI Prioritization telco in January...Sylvia to doodle</span></li>
+	</ul>
+</div>
+<div id="magicdomid110" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	&nbsp;</div>
+<div id="magicdomid111" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet1" style="padding: 0px; margin: 0px 0px 0px 1.5em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk b" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><b>Collective development, robustness&nbsp;</b></span></li>
+	</ul>
+</div>
+<div id="magicdomid112" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Mark: Need a technical sprint for coding documentation&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid113" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Mark: Need to continue writing automated testing</span></li>
+	</ul>
+</div>
+<div id="magicdomid114" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Mark Need to extend the use of continuous integration</span></li>
+	</ul>
+</div>
+<div id="magicdomid115" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Eric: Need coding sprints on specific tools with multiple developers (Eric says IS-ENES2 will bring more resources)</span></li>
+	</ul>
+</div>
+<div id="magicdomid116" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Need to network more to find more developers</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid163" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action:</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>(Mark and Allyn)</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>Technical doc adequate for new developer (</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Target:</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>3/31/14)</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid190" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">(Mark) D</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">uring next IS-ENES coding sprint</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>have an<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">ES-DOC session</span></li>
+	</ul>
+</div>
+<div id="magicdomid119" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	&nbsp;</div>
+<div class="ace-line" id="magicdomid192" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet1" style="padding: 0px; margin: 0px 0px 0px 1.5em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk b" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><b>Distributed administration and hosting of the tools&nbsp;</b></span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid202" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">ES-DOC are currently hosted on web faction</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid229" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">If IPSL can say the host the ES-DOC servers, they can justify funding for 1 FTE for one or two years. Without this, IPSL will have to justify things differently</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid241" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Mark: Web faction has other advantages though</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid252" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Mark: To do this move, the deployment would have to be host agnostic. This will take 3 to 4 weeks split between Mark and IPSL.</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid257" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">(</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Sebastien+DKRZ</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">)</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">R</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">eport on EU acceptance (M18 IS-ENES2)</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid336" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Action:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">(Mark) Work on the<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">host agnostic deployment</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">...will have to be prioritized.&nbsp;</span></li>
+	</ul>
+</div>
+<div id="magicdomid128" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	&nbsp;</div>
+<div id="magicdomid129" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet1" style="padding: 0px; margin: 0px 0px 0px 1.5em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k b" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><b>ES-DOC management</b></span></li>
+	</ul>
+</div>
+<div id="magicdomid130" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Monitoring&nbsp;</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid349" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">O</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">f use (</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">ES-DOC</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>splash only, not from ESGF at the moment -&gt; Action for tools)</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid374" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">P</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">ublications</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">the reference ES-DOC tools</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid413" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Permanent<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Person Months(</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">PMs</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">)</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">? Action:</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>(Eric)</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>find out (</span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Target:<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">1/31/14)</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid429" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Soft money funding (ES-DOC specific<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">PMs</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">)</span></li>
+	</ul>
+</div>
+<div id="magicdomid135" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">EU:</span></li>
+	</ul>
+</div>
+<div id="magicdomid136" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet4" style="padding: 0px; margin: 0px 0px 0px 6em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">IS-ENES2 (~120<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">PMs</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; "><span class="Apple-converted-space">&nbsp;</span>distributed)</span></li>
+	</ul>
+</div>
+<div id="magicdomid137" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet4" style="padding: 0px; margin: 0px 0px 0px 6em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Convergence (24<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">PMs</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">)</span></li>
+	</ul>
+</div>
+<div id="magicdomid138" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">US:</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid435" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet4" style="padding: 0px; margin: 0px 0px 0px 6em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">TBD</span></li>
+	</ul>
+</div>
+<div id="magicdomid140" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Future</span></li>
+	</ul>
+</div>
+<div id="magicdomid141" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet4" style="padding: 0px; margin: 0px 0px 0px 6em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">IS-ENES3 (Jan 2015 deadline)</span></li>
+	</ul>
+</div>
+<div id="magicdomid142" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet4" style="padding: 0px; margin: 0px 0px 0px 6em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">H2020 projects</span></li>
+	</ul>
+</div>
+<div id="magicdomid143" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet4" style="padding: 0px; margin: 0px 0px 0px 6em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">ExArch2 (potential 36 PMs)</span></li>
+	</ul>
+</div>
+<div id="magicdomid144" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet2" style="padding: 0px; margin: 0px 0px 0px 3em; list-style-type: circle; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">PIs</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid437" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">N</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">eed a project manager</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid450" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet3" style="padding: 0px; margin: 0px 0px 0px 4.5em; list-style-type: square; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Representative<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">from other CVs communities&nbsp;</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid452" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet4" style="padding: 0px; margin: 0px 0px 0px 6em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">D</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">ownscaling<span class="Apple-converted-space">&nbsp;</span></span><span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">(Galia Guentchez)</span></li>
+	</ul>
+</div>
+<div class="ace-line" id="magicdomid459" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<ul class="list-bullet4" style="padding: 0px; margin: 0px 0px 0px 6em; list-style-type: disc; ">
+		<li style="padding: 0px; margin: 0px; ">
+			<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">OBS</span><span class="author-g-qyr85nbfru48pw2k" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">? (ESA via Pierre-Philippe Mathieu, NASA via Peter Glecker)</span></li>
+	</ul>
+</div>
+<div id="magicdomid149" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	&nbsp;</div>
+<div id="magicdomid150" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	<span class="author-g-d8dae73bn1d32uyk" style="cursor: auto; padding-top: 1px; padding-bottom: 1px; ">Mark will be only on 25% ES-DOC starting in January for at least 6 months then back to 50/50.</span></div>
+<div id="magicdomid151" style="padding-right: 1px; color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; ">
+	&nbsp;</div>
+
+    </div> <!--// end div id=cog_post_body //-->
+
+    <!-- include last updated text -->
+    <!--// START: /cog/templates/cog/post/_post_last_update.html //-->
+
+    <!--clear:both added to move the last update down if any elements above are floated.-->
+    <!--clear:both means no floating elements allowed on either the left or the right side-->
+	<div id="last_update_text" style="font-size: 8pt; font-style: italic; text-align:center; clear:both;">
+	     Last Update: Nov. 5, 2014, 2:16 p.m. by
+         
+             
+                 deleted user
+             
+         
+	</div> <!--// end div id="last_update_text" //-->
+
+
+    <!--// add social media buttons //-->
+    <div id="social_media" style="text-align:center; padding-top: 4px; padding-bottom:8px;">
+        <!--// START: /cog/templates/cog/common/cog_social_media.html //-->
+
+<!--// add social media buttons //-->
+
+
+<!--twitter function -->
+<script type="text/javascript">
+    //<![CDATA[
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+//]]>
+</script>
+
+<table class="no_color" style="width:125px;margin-left:auto;margin-right:auto;">
+<tr>
+   <td>
+   <!-- Facebook -->
+   <div id="facebook">
+      <a href="#" onclick=" window.open('https://www.facebook.com/sharer/sharer.php?u=http%3A//www.earthsystemcog.org/projects/es-doc-models/minutes_131206_pi','facebook-share-dialog','width=626,height=436');return false;">
+          <img src="/static/cog/img/facebook.png" height="20" alt="Facebook logo"/></a>
+    </div> <!--// end div id=facebook //-->
+    </td>
+
+    <td>
+    <!-- Twitter -->
+    <div id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="http%3A//www.earthsystemcog.org/projects/es-doc-models/minutes_131206_pi">Tweet</a>
+    </div> <!--// end div id=twitter //-->
+    </td>
+</tr>
+</table>
+    
+
+
+		
+		
+    </div><!--// end div id=social_media //-->
+
+    <!--// include action links via cog/post/_post_actions.html  //-->
+    
+<!--// START: /cog/templates/cog/post/_post_actions.html //-->
+<!-- adds the links to update, delete, etc a post -->
+
+    
+
+<!--// END: /cog/templates/cog/post/_post_actions.html //-->
+	
+
+    
+    <!--// include attachments via cog/post/_post_attachements.html  //-->
+    <div id="attachments">
+        <!--// START: /cog/templates/cog/post/_post_attachements.html //-->
+
+
+
+
+    </div> <!--// end div id=attachments //-->
+    
+    <!--// add related paged via cog/post/_post_hierarchy.html  //-->
+    <div id="related_pages">
+       
+	   <!--// START: /cog/templates//cog/post/_post_hierarchy.html //-->
+<!--// Related Pages //-->
+
+
+
+
+   
+
+      
+                    <hr class="white"/>
+	       <div class="header_bar">
+           <!--// Create header bar and include the number of Related Pages in parentheses //-->
+	            <a href="" onclick="javascript:toggle_visibility('post_hierarchy'); return false;" class="listlink">&nbsp;Related Page (1)</a>
+	       </div><!--// end div.header_bar //-->
+	       <div class="mybox" id="post_hierarchy" style="display:none">
+	           <table>
+	              
+	                <tr>
+	                    <td>
+	                       Parent Page: <a href="">Earth System Documentation (ES-DOC)</a>
+	                   </td>
+	                </tr>
+	              
+
+	              
+
+	        </table>  
+	       </div><!--// end div id=post_hierarchy //-->
+      
+   
+
+       
+    </div> <!--// end div id=related_pages //-->
+
+   
+           	
+
+    
+
+    </div>
+
+
+            </div> <!--// end div.container //-->
+            <!--// pushes the content wrapper down enough to hold the footer //-->
+            <div class="push"></div> <!--// end div.push //-->
+        </div> <!--// end div.content_wrapper //-->
+        <div class="footer_bar">
+            <!--adds a margin above the footer-->
+            <div class="footer_spacer"></div> <!--// end footer spacer //-->
+	        
+                <!--// START: /cog/templates/cog/common/cog_footer_bar_only.html //-->
+
+
+
+
+<div class="footer">
+    <table>
+	<tr>
+	  <!--// CoG sponsors //-->
+	<td style="width:30%;">
+	  <table>
+	    <tr>
+	      <td>ESGF sponsors and partners</td>
+	    </tr>
+	    <tr>
+	      <td>
+		  <a href="http://science.energy.gov/">DoE Office of Science</a> |
+		  <a href="https://verc.enes.org/ISENES2">IS-ENES</a> |
+                  <a href="http://www.nasa.gov">NASA</a> |
+                  <a href="http://www.noaa.gov">NOAA</a> |
+		<a href="http://nci.org.au/">NCI</a> |
+		<a href="http://www.nsf.gov">NSF</a> 
+	      </td>
+	    </tr>
+	   </table>
+	 </td>
+
+
+     <!--// CoG Version and ESGF Version (if found) //-->
+	 <td style="width:30%;">
+          <table >
+	    <tr>
+	      <td style="text-align:center;">CoG version 3.9.9</td>
+	    </tr>
+	    
+	   </table>
+	 </td>  
+	 
+	 <!--// ESGF sponsors //-->
+	 <td style="width:30%;">
+
+      <table>
+	    <tr>
+	      <td style="text-align:right;">Earth System CoG sponsors and partners</td>
+	    </tr>
+	    <tr>
+	      <td style="text-align:right;"><a href="http://www.noaa.gov">NOAA</a> |
+		  <a href="http://www.nasa.gov">NASA</a> |
+		  <a href="http://www.nsf.gov">NSF</a> |
+		  <a href="http://science.energy.gov/">DoE Office of Science</a> |
+		  <a href="https://verc.enes.org/ISENES2">IS-ENES</a></td>
+	    </tr>
+	  </table>
+
+	 </td>  
+	</tr>
+    </table>
+  </div><!--// end div.footer //-->
+
+
+
+
+
+            
+        </div> <!--// end footer_bar //-->
+        <div class="custom_footer_bar">
+            
+                
+  <div class="custom_footer">
+       <table class="custom_footer">
+       <tr>
+       <td style="width:30%;">http://www.earthsystemcog.org</td>
+       <td style="width:70%;text-align:right;">
+         <a href="mailto:cog_support@list.woc.noaa.gov">cog_support@list.woc.noaa.gov</a> |
+         <a href="http://www.colorado.edu/about/privacy-statement">privacy policy</a>
+       </td>
+       </tr>
+       </table>
+    </div>
+
+            
+        </div> <!--// end div.custom_footer_bar //-->
+        <!--END: /layouts/templates/layouts/layout_base.html-->
+    </body>
+</html>
