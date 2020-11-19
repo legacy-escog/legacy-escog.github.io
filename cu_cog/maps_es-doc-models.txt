@@ -1,0 +1,5 @@
+/site_media/uploads/metafor_logo.png	/site_media/uploads/metafor_logo.png
+https://www.earthsystemcog.org/site_media/projects/es-doc-models/Standard_Names_Sept_2014.ppt	https://www.earthsystemcog.org/site_media/projects/es-doc-models/Standard_Names_Sept_2014.ppt
+https://www.earthsystemcog.org/site_media/projects/wip/CDNOT_Terms_of_Reference.pdf	https://www.earthsystemcog.org/site_media/projects/wip/CDNOT_Terms_of_Reference.pdf
+https://www.earthsystemcog.org/site_media/projects/wip/WIP_Terms_of_Reference.pdf	https://www.earthsystemcog.org/site_media/projects/wip/WIP_Terms_of_Reference.pdf
+https://www.earthsystemcog.org/site_media/projects/wip/standards-governance.pdf	https://www.earthsystemcog.org/site_media/projects/wip/standards-governance.pdf
