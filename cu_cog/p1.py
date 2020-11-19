@@ -14,6 +14,9 @@ class UrlSub(object):
     def __init__(self,tag,sfile=None):
         self.c1 = re.compile( '"(https://www.earthsystemcog.org/site_media/[^"]*)"' )
         self.c2 = re.compile( '"(/site_media/[^"]*)"' )
+        self.maps = {}
+        for l in open( ..):
+            ..
         p1 = '/site_media/projects/%s' % tag
         p2 = '/site_media/logos/'
         p3 = '/site_media/photos/'
@@ -42,6 +45,7 @@ class UrlSub(object):
 
 class CogHtmlParse(object):
     def __init__(self,file, odir='_md'):
+        self.sub = UrlSub('es-doc-models','urls_es-doc-models' )
         ii = open(file).readlines()
         fn = file.rpartition('/')[-1]
         cc = collections.defaultdict(list)
