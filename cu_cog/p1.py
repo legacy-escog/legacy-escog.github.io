@@ -1,5 +1,5 @@
 
-import glob, collections, os, re
+import glob, collections, os, re, shelve
 
 
 MARKERS = dict(
@@ -15,8 +15,7 @@ class UrlSub(object):
         self.c1 = re.compile( '"(https://www.earthsystemcog.org/site_media/[^"]*)"' )
         self.c2 = re.compile( '"(/site_media/[^"]*)"' )
         self.maps = {}
-        for l in open( ..):
-            ..
+        
         p1 = '/site_media/projects/%s' % tag
         p2 = '/site_media/logos/'
         p3 = '/site_media/photos/'
@@ -41,11 +40,9 @@ class UrlSub(object):
                 line = line.replace( u, self.rep[t] )
         return line
 
-
-
 class CogHtmlParse(object):
-    def __init__(self,file, odir='_md'):
-        self.sub = UrlSub('es-doc-models','urls_es-doc-models' )
+    def __init__(self,file, odir='_md',tag='es-doc-models'):
+        self.sub = UrlSub(tag,'urls_%s' % tag )
         ii = open(file).readlines()
         fn = file.rpartition('/')[-1]
         cc = collections.defaultdict(list)
@@ -69,7 +66,8 @@ class CogHtmlParse(object):
           oo.write( ii[ cc['TITLE'][0]] .strip() + '\n\n' )
           oo.write( ii[ cc['START_TEXT'][0] ].strip() + '\n' )
           for line in ii[cc['START_TEXT'][0]:cc['END_TEXT'][0]]:
-              oo.write(line)
+              line2 = self.sub.repl( line )
+              oo.write(line2)
           oo.write( ii[ cc['END_TEXT'][0] ].strip() + '\n' )
           oo.close()
           self.cc = cc
@@ -78,8 +76,9 @@ if __name__ == "__main__":
   import sys
   idir = sys.argv[1]
   odir = sys.argv[2]
+  tag = sys.argv[3]
   fl = [f for f in sorted( glob.glob( '%s/*' % idir ) ) if f[0] != '_' and f[-3:] != ".py" and  os.path.isfile(f)  ]
 
   for f in fl:
-    cf  = CogHtmlParse( f, odir=odir )
+    cf  = CogHtmlParse( f, odir=odir, tag=tag )
     print (f,cf.cc)
